@@ -4,6 +4,14 @@
 
 	$(function(){
 
+		//Full Home
+		var altoWindow = $(window).height();
+
+		$('#home').css('min-height', altoWindow);
+
+		//Full Pryectos
+		$('.proyectos').css('height', altoWindow);
+
 		// Envio contacto
 	    $('form').submit(function(e){
 	    	e.preventDefault();
@@ -18,35 +26,55 @@
 	    });
 
 		//Backstretch
-		$('.home').backstretch('images/background.jpg');
+		$('#home').backstretch('images/background.jpg');
 
-		//Windows
-		$('section').windows({
-	        snapping: true,
-	        snapSpeed: 250,
-	        snapInterval: 500,
-	        onScroll: function(scrollPos){
-	            // scrollPos:Number
-	        },
-	        onSnapComplete: function($el){
-	            // after window ($el) snaps into place
-	            var seccion = $el.data('seccion');
+		//Flip cars
 
-	            if( seccion != 'home' ){
-	            	fixMenu();
-	            } else {
-	            	unfixMenu()
-	            }
-	        },
-	        onWindowEnter: function($el){
-	            // when new window ($el) enters viewport
-	            //console.log($el);
-	        }
-	    });
+		var frontHeight,
+			backHeight;
+
+		$('.servicioContainer').hover(
+			function(){
+
+				cardHeight($(this));
+
+				$(this).find('.servicio').addClass('flipped');
+			},
+       		function(){
+       			$(this).find('.servicio').removeClass('flipped');
+       		}
+		);
+
+
+
+		$('.servicioContainer').each(function(){
+
+			cardHeight($(this));
+
+		});
+
+		////////////////
+		// RESPONSIVE //
+		////////////////
 
 	});
 
 })(jQuery);
+
+function cardHeight(card){
+	frontHeight = card.find('.front').height(),
+	backHeight = card.find('.back').height();
+
+	if (frontHeight > backHeight) {
+	    card.height(frontHeight);
+	}
+	else if (backHeight > frontHeight) {
+		card.height(backHeight);
+	}
+	else {
+		card.height(backHeight);
+	}
+}
 
 var fixedBox = $('.fixedBox');
 

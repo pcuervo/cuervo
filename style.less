@@ -50,6 +50,17 @@ figure {margin: 0;}
 /*** FONTFACE ***/
 
 @font-face {
+  font-family: 'gotham-light';
+  src:  url('fonts/gotham-light.eot');
+  src:  url('fonts/gotham-light.eot?#iefix') format('embedded-opentype'),
+		url('fonts/gotham-light.woff') format('woff'),
+		url('fonts/gotham-light.ttf') format('truetype'),
+		url('fonts/gotham-light.svg#gotham-light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'gotham-book';
   src:  url('fonts/gotham-book.eot');
   src:  url('fonts/gotham-book.eot?#iefix') format('embedded-opentype'),
@@ -72,7 +83,7 @@ figure {margin: 0;}
 }
 
 @font-face {
-    font-family: 'caecilia_light';
+    font-family: 'caecilia-light';
     src: url('fonts/caecilialtstd-light-webfont.eot');
     src: url('fonts/caecilialtstd-light-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/caecilialtstd-light-webfont.woff') format('woff'),
@@ -84,7 +95,7 @@ figure {margin: 0;}
 }
 
 @font-face {
-    font-family: 'caecilia_roman';
+    font-family: 'caecilia-roman';
     src: url('fonts/caecilialtstd-roman-webfont.eot');
     src: url('fonts/caecilialtstd-roman-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/caecilialtstd-roman-webfont.woff') format('woff'),
@@ -149,11 +160,35 @@ figure {margin: 0;}
   background-clip:         padding-box;
 }
 
+.perspective( @string ){
+	-webkit-perspective: @string;
+	-moz-perspective: @string;
+	-o-perspective: @string;
+	perspective: @string;
+}
+.preserve( @string: preserve-3d){
+	-webkit-transform-style: @string;
+	transform-style: @string;
+}
+
+.backface(@type){
+	-webkit-backface-visibility:@type;
+	backface-visibility:@type;
+}
+
+
 .transition (@transition: all 0.3s ease ) {
   -webkit-transition: @transition;
   -moz-transition:    @transition;
   -ms-transition:     @transition;
   -o-transition:      @transition;
+}
+
+.rotatey (@deg) {
+	-webkit-transform: 	rotateY(@deg);
+	-moz-transform: 	rotateY(@deg);
+	-ms-transform: 		rotateY(@deg);
+	-o-transform: 		rotateY(@deg);
 }
 
 
@@ -201,7 +236,7 @@ figure {margin: 0;}
 
 	&.grid{ background: @highlight; color: @claro; padding: @margen; text-align: center; }
 
-  img{ width: 100%; height: auto; margin: 0 0 @margen 0; }
+  img{ width: 100%; height: auto; }
 
 }
 
@@ -219,7 +254,7 @@ figure {margin: 0;}
   &.c-11{ width: 91.3%; }
   &.c-12{ width: 99.6%; }
 
-  img{ width: 100%; height: auto; margin: 0 0 @margen 0; }
+  img{ width: 100%; height: auto; }
 }
 
 //elementos
@@ -239,20 +274,80 @@ p{ margin-bottom: 1em; }
 
 html, body{ margin:0; padding:0; background: #fff; .font; }
 
+h2{ margin: 0; .font(6em, 1.1em); color: @claro; text-transform: uppercase;
+	span{ font-family: 'gotham-light'; }
+}
+
+h3{ margin: 0 0 (@margen*2) 0; .font(3.4em, 1.5em, 'caecilia-light'); color: @cuervo; }
+
+h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @cuervo; text-transform: uppercase; text-align: center; }
+
+.centro{ width: 81%; position: absolute; top: 30%; left: 10%; }
+
+.boton{ padding: @margen; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; }
+
 /*** SECCION ***/
 
-//Home
-
-.seccion{
-	&.home{ }
+section{ padding-top: (@margen*8); position: relative;
+	&.home{
+		p{ .font(1.8em, 1.6em, 'caecilia-light'); color: @claro; }
+	}
 }
+
+//Servicios
+
+.servicioContainer{ .perspective(1000px); .transition(); position: relative;
+	&:hover .servicio { .rotatey(180deg); }
+}
+
+
+.servicio{ width: 100%; height: 100%; .preserve; .transition;
+
+	img{ display: block; width: 40%; margin: 0 auto (@margen*2) auto; }
+	h4{}
+	hr{ width: 20%; height: 1px; border: 0; margin: 0 auto (@margen*2) auto; background: @highlight; }
+	ul{ margin: 0; list-style: none; }
+	li{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @cuervo; text-align: center; }
+	p{ .font(1.2em, 1.4em, 'caecilia-roman'); color: @claro; }
+
+	> div{ width: 100%; height: 100%; padding: @margen; .backface(hidden);
+
+		&.front{ background: @claro; }
+		&.back{ display: block; margin-top: -140%; background: @highlight; .rotatey(180deg); color: @claro;
+			h4{ color: @claro; }
+			hr{ width: 100%; background: @claro; }
+		}
+
+	}
+
+}
+
+
 
 /*** HEADER ***/
 
-header{ position: relative; z-index: 99;
+header{ position: relative; top: (@margen*2); z-index: 99;
 
-	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; top: (@margen*4) - 5;
-		a{ color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; }
+	h1{
+		img{ margin: 0; }
+	}
+
+	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; top: (@margen*2);
+		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition;
+			&:hover{ background: @highlight; }
+		}
+
+	}
+
+	.fixedBox{
+
+		&.fixed{ width: 100%; background: @cuervo; float: none; position: fixed; top: 0; left: 0;
+			h1{ width: 14.6%; margin: 10px 0; }
+			nav{ top: @margen - 5; }
+
+			.fixedBoxWidth{ width: 90%; position: relative; left: 5%; }
+		}
+
 	}
 
 }

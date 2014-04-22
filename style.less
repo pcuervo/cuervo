@@ -286,7 +286,7 @@ h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @cuervo; t
 
 .boton{ padding: @margen; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; }
 
-/*** SECCION ***/
+/*** SECTION ***/
 
 section{ padding-top: (@margen*8); position: relative;
 	&.home{
@@ -322,7 +322,19 @@ section{ padding-top: (@margen*8); position: relative;
 
 }
 
+//Portafolio
 
+.portafolio{
+
+	.tags{ margin: 0;  list-style: none;
+		li{ margin: 0 10px 10px 0; padding: @margen/6; border-bottom: 2px solid @highlight; .font(1em, 1em, 'caecilia-light'); color: @cuervo; float: left; cursor: pointer; .transition;
+			&:hover, &.activo{ background: @highlight; color: @claro; }
+		}
+	}
+
+	.proyectos{ display: none; }
+
+}
 
 /*** HEADER ***/
 

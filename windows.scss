@@ -1,0 +1,11 @@
+.seccion{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+@for $i from 1 through 6{
+    .seccion:nth-child(#{$i}){
+        top:($i - 1) * 100%;
+    }
+}

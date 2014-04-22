@@ -27,6 +27,25 @@
 			return result;
 		}
 
+		//Backstretch
+		$('.home').backstretch('images/background.jpg');
+
+		//Windows
+		 $('.seccion').windows({
+	        snapping: true,
+	        snapSpeed: 500,
+	        snapInterval: 1100,
+	        onScroll: function(scrollPos){
+	            // scrollPos:Number
+	        },
+	        onSnapComplete: function($el){
+	            // after window ($el) snaps into place
+	        },
+	        onWindowEnter: function($el){
+	            // when new window ($el) enters viewport
+	        }
+	    })
+
 
 	});
 

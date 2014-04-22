@@ -2,6 +2,13 @@
 	$nombre = $_POST['nombre'];
 	$email = $_POST['email'];
 	$mensaje = $_POST['cuentanos-mas'];
+    $servicios = $_POST['servicios'];
+
+    $serviciosUL = "<div><p>servicios</p><ul>";
+    foreach ($servicios as $s) {
+        $serviciosUL .= "<li>".$s."</li>";
+    }
+    $serviciosUL .= "</ul></div>";
 
 	$header = "MIME-Version: 1.0\r\n";
 	$header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -15,6 +22,7 @@
     $msg .= '<div><p>'.$nombre.' ha mandado un correo</p>';
     $msg .= '<p>'.$email.'</p>';
     $msg .= '<p>'.$mensaje.'</p></div>';
+    $msg .= $serviciosUL;
     $msg .= '</body></html>';
 
 

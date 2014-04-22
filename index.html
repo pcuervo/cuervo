@@ -355,105 +355,118 @@
 
 				<section data-seccion="forma" class="forma">
 
-					<form>
-						<h3>Cuéntanos sobre tu proyecto</h3>
+					<div class="width">
+						<form>
+							<h3>Cuéntanos sobre tu proyecto</h3>
 
-						<div class="paso">
+							<div class="paso show" data-paso="1">
 
-							<h4>Selecciona el tipo de proyecto (uno o más)<strong class="text-right" >1/4</strong></h4>
+								<h4>Selecciona el tipo de proyecto (uno o más)<strong class="text-right" >1/4</strong></h4>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="pagina">
+									<img src="images/diseno.png" alt="">
+									<h5>Página web</h5>
+									<input type="checkbox" name="servicios[]" value="pagina" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="identidad">
+									<img src="images/diseno.png" alt="">
+									<h5>Identidad Visual</h5>
+									<input type="checkbox" name="servicios[]" value="identidad" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="editorial">  
+									<img src="images/diseno.png" alt="">
+									<h5>Editorial</h5>
+									<input type="checkbox" name="servicios[]" value="editorial" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="animacion">
+									<img src="images/diseno.png" alt="">
+									<h5>Animación</h5>
+									<input type="checkbox" name="servicios[]" value="animacion" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="app_ios">
+									<img src="images/diseno.png" alt="">
+									<h5>App iOS</h5>
+									<input type="checkbox" name="servicios[]" value="app_ios" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="app_android">
+									<img src="images/diseno.png" alt="">
+									<h5>App Android</h5>
+									<input type="checkbox" name="servicios[]" value="app_android" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2">
+									<img src="images/diseno.png" alt="" data-servicio="app_web">
+									<h5>Aplicación web</h5>
+									<input type="checkbox" name="servicios[]" value="app_web" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="tienda">
+									<img src="images/diseno.png" alt="">
+									<h5>Tienda en línea</h5>
+									<input type="checkbox" name="servicios[]" value="tienda" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="sistema">
+									<img src="images/diseno.png" alt="">
+									<h5>Sistema empresarial</h5>
+									<input type="checkbox" name="servicios[]" value="sistema" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="publicidad">
+									<img src="images/diseno.png" alt="">
+									<h5>Publicidad en línea</h5>
+									<input type="checkbox" name="servicios[]" value="publicidad" class="hide">
+								</div>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
+								<div class="span c-2" data-servicio="posicionamiento">
+									<img src="images/diseno.png" alt="">
+									<h5>Posicionamiento web</h5>
+									<input type="checkbox" name="servicios[]" value="posicionamiento" class="hide">
+								</div>
 
-							<a href="#">></a>
+								<div class="span c-2">
+									<img src="images/diseno.png" alt="" data-servicio="redes">
+									<h5>Redes sociales</h5>
+									<input type="checkbox" name="servicios[]" value="redes" class="hide">
+								</div>
+								<a href="#">></a>
 
-							<div class="span c-2">
-								<img src="images/diseno.png" alt="">
-								<h4>Diseño</h4>
-							</div>
 
-						</div><!-- paso -->
+							</div><!-- paso -->
 
-						<div class="paso">
+							<div class="paso hide" data-paso="2">
 
-							<h4>¿Cómo te llamas?<strong class="text-right" >2/4</strong></h4>
+								<h4>¿Cómo te llamas?<strong class="text-right" >2/4</strong></h4>
 
-							<input type="text" name="nombre">
-							<a href="#">></a>
+								<input type="text" name="nombre">
+								<a href="#">></a>
 
-						</div><!-- paso -->
+							</div><!-- paso -->
 
-						<div class="paso">
+							<div class="paso hide" data-paso="3">
 
-							<h4>¿Cúal es tu mail?<strong class="text-right" >3/4</strong></h4>
+								<h4>¿Cúal es tu mail?<strong class="text-right" >3/4</strong></h4>
 
-							<input type="email" name="email">
-							<a href="#">></a>
+								<input type="email" name="email">
+								<a href="#">></a>
 
-						</div><!-- paso -->
+							</div><!-- paso -->
 
-						<div class="paso">
+							<div class="paso hide" data-paso="4">
 
-							<h4>Cuéntanos más sobre tu proyecto<strong class="text-right" >4/4</strong></h4>
+								<h4>Cuéntanos más sobre tu proyecto<strong class="text-right" >4/4</strong></h4>
 
-							<textarea name="cuentanos-mas"></textarea>
-							<input type="submit">
+								<textarea name="cuentanos-mas"></textarea>
+								<input type="submit">
 
-						</div><!-- paso -->
-					</form>
-
+							</div><!-- paso -->
+						</form>
+					</div>
 				</section><!-- seccion -->
 
 			</div><!-- main -->

@@ -4,6 +4,19 @@
 
 	$(function(){
 
+		// Envio contacto
+	    $('form').submit(function(e){
+	    	e.preventDefault();
+	    	$.post(
+	    		'procesaForma.php',
+	    		$(this).serialize(),
+	    		function(data){
+	    			var x = jQuery.parseJSON(data);
+	    			console.log("Gracias por tu msg " + x.name);
+	    		}
+	    	);
+	    });
+
 		/**
 		 * Validación de emails
 		 */
@@ -31,7 +44,7 @@
 		$('.home').backstretch('images/background.jpg');
 
 		//Windows
-		 $('.seccion').windows({
+		$('.seccion').windows({
 	        snapping: true,
 	        snapSpeed: 500,
 	        snapInterval: 1100,
@@ -46,7 +59,7 @@
 	        }
 	    })
 
-
 	});
 
+	
 })(jQuery);

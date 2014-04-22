@@ -65,7 +65,7 @@
 	            // when new window ($el) enters viewport
 	            //console.log($el);
 	        }
-	    })
+	    });
 
 	});
 

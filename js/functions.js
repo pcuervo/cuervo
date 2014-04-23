@@ -33,21 +33,19 @@
 		var frontHeight,
 			backHeight;
 
-		$('.servicioContainer').hover(
+		$('.cardContainer').hover(
 			function(){
 
 				cardHeight($(this));
 
-				$(this).find('.servicio').addClass('flipped');
+				$(this).find('.card').addClass('flipped');
 			},
        		function(){
-       			$(this).find('.servicio').removeClass('flipped');
+       			$(this).find('.card').removeClass('flipped');
        		}
 		);
 
-
-
-		$('.servicioContainer').each(function(){
+		$('.cardContainer').each(function(){
 
 			cardHeight($(this));
 

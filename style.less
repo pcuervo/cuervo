@@ -176,7 +176,6 @@ figure {margin: 0;}
 	backface-visibility:@type;
 }
 
-
 .transition (@transition: all 0.3s ease ) {
   -webkit-transition: @transition;
   -moz-transition:    @transition;
@@ -325,27 +324,58 @@ section{ padding-top: (@margen*8); position: relative;
 	}
 }
 
-//Servicios
+//Card Container
 
-.servicioContainer{ .perspective(1500px); .transition(); position: relative; }
+.cardContainer{ .perspective(1500px); .transition; position: relative; }
 
-.servicio{ width: 100%; height: 100%; .preserve; .transition;
+.card{ width: 100%; height: 100%; .preserve; .transition;
 
-	&.flipped{ .rotatey(180deg);  }
-
-	img{ display: block; width: 40%; margin: 0 auto (@margen*2) auto; }
-	h4{}
-	hr{ width: 20%; height: 1px; border: 0; margin: 0 auto (@margen*2) auto; background: @highlight; }
-	ul{ margin: 0; list-style: none; }
-	li{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @cuervo; text-align: center; }
-	p{ margin: 0; .font(1.4em, 1.5em, 'caecilia-roman'); color: @claro; }
+	&.flipped{ .rotatey(180deg); }
 
 	> div{ width: 100%; padding: @margen; position: absolute; .backface(hidden);
+		&.back{ .rotatey(180deg); }
+	}
 
-		&.front{ background: @claro; }
-		&.back{ display: block; background: @highlight; .rotatey(180deg); color: @claro;
-			h4{ color: @claro; }
-			hr{ width: 100%; background: @claro; }
+	&.servicio{
+
+		img{ display: block; width: 40%; margin: 0 auto (@margen*2) auto; }
+		h4{}
+		hr{ width: 20%; height: 1px; border: 0; margin: 0 auto (@margen*2) auto; background: @highlight; }
+		ul{ margin: 0; list-style: none; }
+		li{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @cuervo; text-align: center; }
+		p{ margin: 0; .font(1.4em, 1.5em, 'caecilia-roman'); color: @claro; }
+
+		> div{
+
+			&.front{ background: @claro; }
+			&.back{ display: block; background: @highlight; color: @claro;
+				h4{ color: @claro; }
+				hr{ width: 100%; background: @claro; }
+			}
+		}
+	}
+
+	&.cuervo{
+
+		> div{
+
+			img{ margin-bottom: @margen; }
+
+			&.front{ background: @cuervo;
+				h4{ margin-bottom: 0; color: @claro; }
+			}
+
+			&.back{ display: block; background: @highlight; color: @claro;
+				h5{ color: @claro; text-transform: uppercase; .font( 2em, 1em, 'caecilia-light' ); }
+				hr{ width: 100%; height: 1px; margin-bottom: @margen; background: @claro; }
+				ul{ margin: 0; list-style: none; text-align: center;
+					li{ display: inline; margin: 0 @margen;
+						a{ color: @claro; text-decoration: none;
+							i{ font-size: 1.6em; }
+						}
+					}
+				}
+			}
 		}
 
 	}

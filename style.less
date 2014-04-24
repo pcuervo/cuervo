@@ -201,6 +201,9 @@ figure {margin: 0;}
 	-o-transform: 		rotateY(@deg);
 }
 
+.fadein(){
+	opacity: 0; .transition;
+}
 
 /*** FRAMEWORK ***/
 
@@ -284,21 +287,25 @@ p{ margin-bottom: 1em; }
 
 html, body{ width: 100%; height: 100%; margin:0; padding:0; background: #fff; .font; }
 
-h2{ margin: 0; .font(6em, 1.1em); color: @claro; text-transform: uppercase;
+h2{ margin: 0 0 10px 0; .font(6em, 1.1em); color: @claro; text-transform: uppercase;
 	span{ font-family: 'gotham-light'; }
+	&.codigo{ position: relative; z-index: 1; }
+	&.diseno{ position: relative; z-index: 2; }
 }
 
-h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light'); color: @cuervo; }
+h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light'); color: @cuervo; .fadein;}
 
-h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @cuervo; text-transform: uppercase; text-align: center; }
+h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @claro; text-transform: uppercase; text-align: center; }
 
 h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
 
 .boton{ padding: @margen; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; }
 
+.visible{ opacity: 1 !important; }
+
 /*** HEADER ***/
 
-header{ position: relative; top: (@margen*2); z-index: 99;
+header{ position: relative; top: (@margen*2); z-index: 99; .fadein;
 
 	h1{
 		img{ margin: 0; }
@@ -324,7 +331,7 @@ header{ position: relative; top: (@margen*2); z-index: 99;
 
 }
 
-.centro{ width: 81%; margin: 14% 0 0 0; position: relative; top: 10%; left: 10%; }
+.centro{ width: 81%; margin: 14% 0 0 0; position: relative; top: 10%; left: 10%; .fadein; }
 
 
 /*** SECTION ***/
@@ -337,7 +344,7 @@ section{ padding-top: (@margen*8); position: relative;
 
 //Card Container
 
-.cardContainer{ .perspective(1500px); .transition; position: relative; }
+.cardContainer{ .perspective(1500px); .transition; position: relative; .fadein; }
 
 .card{ width: 100%; height: 100%; .preserve; .transition;
 
@@ -351,17 +358,17 @@ section{ padding-top: (@margen*8); position: relative;
 
 		img{ display: block; width: 40%; margin: 0 auto (@margen*2) auto; }
 		h4{}
-		hr{ width: 20%; height: 1px; border: 0; margin: 0 auto (@margen*2) auto; background: @highlight; }
+		hr{ width: 20%; height: 1px; border: 0; margin: 0 auto (@margen*2) auto; background: @claro; }
 		ul{ margin: 0; list-style: none; }
-		li{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @cuervo; text-align: center; }
-		p{ margin: 0; .font(1.4em, 1.5em, 'caecilia-roman'); color: @claro; }
+		li{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @claro; text-align: center; }
+		p{ margin: 0; .font(1.4em, 1.5em, 'caecilia-roman'); color: @cuervo; }
 
 		> div{
 
-			&.front{ background: @claro; }
-			&.back{ display: block; background: @highlight; color: @claro;
-				h4{ color: @claro; }
-				hr{ width: 100%; background: @claro; }
+			&.front{ background: @highlight; }
+			&.back{ display: block; background: @claro; color: @highlight;
+				h4{ color: @cuervo; }
+				hr{ width: 100%; background: @cuervo; }
 			}
 		}
 	}
@@ -372,11 +379,11 @@ section{ padding-top: (@margen*8); position: relative;
 
 			img{ margin-bottom: @margen; }
 
-			&.front{ background: @cuervo;
-				h4{ margin-bottom: 0; color: @claro; }
+			&.front{ background: @claro;
+				h4{ margin-bottom: 0; color: @cuervo; }
 			}
 
-			&.back{ display: block; background: @highlight; color: @claro;
+			&.back{ display: block; background: @cuervo; color: @claro;
 				h5{ color: @claro; text-transform: uppercase; .font( 2em, 1em, 'caecilia-light' ); }
 				hr{ width: 100%; height: 1px; margin-bottom: @margen; background: @claro; }
 				ul{ margin: 0; list-style: none; text-align: center;
@@ -397,13 +404,13 @@ section{ padding-top: (@margen*8); position: relative;
 
 .portafolio{
 
-	.tags{ margin: 0 0 @margen*4 0; list-style: none; text-align: center;
+	.tags{ margin: 0 0 @margen*4 0; list-style: none; text-align: center; .fadein;
 		li{ display: inline-block; margin: 0 10px 10px 0; padding: @margen/4 @margen/6 @margen/6 @margen/6; border-bottom: 1px solid @highlight; .font(1em, 1em, 'caecilia-light'); color: @cuervo; cursor: pointer; .transition;
 			&:hover, &.activo{ background: @highlight; color: @claro; }
 		}
 	}
 
-	.post{ margin-bottom: @margen; padding: @margen; background: @cuervo;
+	.post{ margin-bottom: @margen; padding: @margen; background: @cuervo; .fadein;
 		img{ margin: 0 0 @margen/3 0; }
 		h6{  }
 		p{ margin: 0; .font(1em, 1em, 'caecilia-light'); color: @claro; }
@@ -445,7 +452,7 @@ section{ padding-top: (@margen*8); position: relative;
 
 	.mapa { height: 100%; }
 
-	.contacto-info{ position: absolute; top: (@margen*10); left: 5%;
+	.contacto-info{ position: absolute; top: (@margen*10); left: 5%; .fadein;
 
 		> div{ padding: @margen; }
 
@@ -479,7 +486,7 @@ section{ padding-top: (@margen*8); position: relative;
 
 .forma{
 
-	.paso{ margin-bottom: @margen*2;
+	.paso{ margin-bottom: @margen*2; .fadein;
 
 		h4{ text-align: left; text-transform: none; .font(2em, 2em, 'caecilia-light');
 

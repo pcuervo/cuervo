@@ -4,6 +4,36 @@
 
 	$(function(){
 
+		//Fades
+
+		var invisibles = $('
+			h3,
+			header,
+			.centro,
+			.cardContainer,
+			.tags,
+			.post,
+			.contacto-info,
+			.paso
+		');
+
+		invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
+		  if (isInView) {
+		    // element is now visible in the viewport
+		    if (visiblePartY == 'top') {
+		      // top part of element is visible
+		    } else if (visiblePartY == 'bottom') {
+		      // bottom part of element is visible
+		    } else {
+		      // whole part of element is visible
+		      $(this).addClass('visible');
+		      $(this).find('.card').removeClass('flipped');
+		    }
+		  } else {
+		    // element has gone out of viewport
+		  }
+		});
+
 		//Full Home
 		var altoWindow = $(window).height();
 
@@ -182,7 +212,7 @@ function creaMapa (){
 
 function rotarPalabraDiseno(){
 	var diseno = $('h2.diseno span');
-	var	palabras_diseno = ['intuitivo', 'eficiente', 'interactivo', 'responsivo', 'funcional'];
+	var	palabras_diseno = ['intuitivo', 'eficiente', 'interactivo', 'responsivo', 'funcional', 'lógico', 'eficiente', 'limpio', 'cautivador', 'amigable', 'cuervo', 'innovador'];
 	var	length_diseno = palabras_diseno.length;
 	var item_diseno;
 
@@ -195,7 +225,7 @@ function rotarPalabraDiseno(){
 
 function rotarPalabraCodigo () {
 	var codigo = $('h2.codigo span');
-	var palabras_codigo = ['estético', 'impecable', 'mágico', 'bello', 'artesanal'];
+	var palabras_codigo = ['estético', 'impecable', 'mágico', 'bello', 'artesanal', 'dinámico', 'elegante', 'atractivo', 'fresco', 'comprensible', 'cuervo'];
 	var	length_codigo = palabras_codigo.length;
 	var	item_codigo;
 

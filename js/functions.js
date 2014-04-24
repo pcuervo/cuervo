@@ -13,41 +13,7 @@
 		$('.proyectos').css('height', altoWindow);
 
 		//Palabras
-
-		var codigo = $('h2.codigo span'),
-			diseno = $('h2.diseno span'),
-			palabras_codigo = ['estético', 'impecable', 'mágico', 'bello'],
-			palabras_diseno = ['intuitivo', 'eficiente', 'interactivo', 'responsivo'],
-			lenght_codigo = palabras_codigo.length,
-			lenght_diseno = palabras_diseno.length;
-
-		var number,
-			item_codigo,
-			item_diseno;
-
-		setInterval(function() {
-
-			item_diseno = Math.floor(Math.random() * lenght_diseno);
-
-			diseno.text(palabras_diseno[item_diseno]);
-
-		}, 3000);
-
-		setInterval(function() {
-
-			setTimeout( function(){
-
-				setInterval(function() {
-
-					item_codigo = Math.floor(Math.random() * lenght_codigo);
-
-					codigo.text(palabras_codigo[item_codigo]);
-
-				}, 1500);
-
-			}, 1500);
-
-		}, 1500);
+		rotarPalabraCodigo();
 
 		// Envio contacto
 		$('form').submit(function(e){
@@ -212,4 +178,30 @@ function creaMapa (){
 		});
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+}
+
+function rotarPalabraDiseno(){
+	var diseno = $('h2.diseno span');
+	var	palabras_diseno = ['intuitivo', 'eficiente', 'interactivo', 'responsivo', 'funcional'];
+	var	length_diseno = palabras_diseno.length;
+	var item_diseno;
+
+	setTimeout(function(){
+		item_diseno = Math.floor(Math.random() * length_diseno);
+		diseno.text(palabras_diseno[item_diseno]);
+		rotarPalabraCodigo();
+	}, 2000);
+}
+
+function rotarPalabraCodigo () {
+	var codigo = $('h2.codigo span');
+	var palabras_codigo = ['estético', 'impecable', 'mágico', 'bello', 'artesanal'];
+	var	length_codigo = palabras_codigo.length;
+	var	item_codigo;
+
+	setTimeout(function(){
+		item_codigo = Math.floor(Math.random() * length_codigo);
+		codigo.text(palabras_codigo[item_codigo]);
+		rotarPalabraDiseno();
+	}, 2000);
 }

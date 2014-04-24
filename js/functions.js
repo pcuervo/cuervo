@@ -12,6 +12,43 @@
 		//Full Pryectos
 		$('.proyectos').css('height', altoWindow);
 
+		//Palabras
+
+		var codigo = $('h2.codigo span'),
+			diseno = $('h2.diseno span'),
+			palabras_codigo = ['estético', 'impecable', 'mágico', 'bello'],
+			palabras_diseno = ['intuitivo', 'eficiente', 'interactivo', 'responsivo'],
+			lenght_codigo = palabras_codigo.length,
+			lenght_diseno = palabras_diseno.length;
+
+		var number,
+			item_codigo,
+			item_diseno;
+
+		setInterval(function() {
+
+			item_diseno = Math.floor(Math.random() * lenght_diseno);
+
+			diseno.text(palabras_diseno[item_diseno]);
+
+		}, 3000);
+
+		setInterval(function() {
+
+			setTimeout( function(){
+
+				setInterval(function() {
+
+					item_codigo = Math.floor(Math.random() * lenght_codigo);
+
+					codigo.text(palabras_codigo[item_codigo]);
+
+				}, 1500);
+
+			}, 1500);
+
+		}, 1500);
+
 		// Envio contacto
 		$('form').submit(function(e){
 			e.preventDefault();

@@ -482,7 +482,7 @@ body {
   font: 14px / 18px 'gotham-medium';
 }
 h2 {
-  margin: 0;
+  margin: 0 0 10px 0;
   font: 6em / 1.1em 'gotham-medium';
   color: #ffffff;
   text-transform: uppercase;
@@ -490,15 +490,28 @@ h2 {
 h2 span {
   font-family: 'gotham-light';
 }
+h2.codigo {
+  position: relative;
+  z-index: 1;
+}
+h2.diseno {
+  position: relative;
+  z-index: 2;
+}
 h3 {
   margin: 0 0 60px 0;
   font: 3.4em / 1.5em 'caecilia-light';
   color: #00a8ab;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 h4 {
   margin: 0 0 40px 0;
   font: 2em / 1em 'gotham-book';
-  color: #00a8ab;
+  color: #ffffff;
   text-transform: uppercase;
   text-align: center;
 }
@@ -516,11 +529,19 @@ h6 {
   font: 1em / 1em 'gotham-book';
   text-transform: uppercase;
 }
+.visible {
+  opacity: 1 !important;
+}
 /*** HEADER ***/
 header {
   position: relative;
   top: 40px;
   z-index: 99;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 header h1 img {
   margin: 0;
@@ -571,6 +592,11 @@ header .fixedBox.fixed .fixedBoxWidth {
   position: relative;
   top: 10%;
   left: 10%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 /*** SECTION ***/
 section {
@@ -590,11 +616,12 @@ section.home p {
   -moz-perspective: 1500px;
   -o-perspective: 1500px;
   perspective: 1500px;
+  position: relative;
+  opacity: 0;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  position: relative;
 }
 .card {
   width: 100%;
@@ -635,7 +662,7 @@ section.home p {
   height: 1px;
   border: 0;
   margin: 0 auto 40px auto;
-  background: #e74c3c;
+  background: #ffffff;
 }
 .card.servicio ul {
   margin: 0;
@@ -643,42 +670,42 @@ section.home p {
 }
 .card.servicio li {
   font: 1.6em / 1.8em 'caecilia-roman';
-  color: #00a8ab;
+  color: #ffffff;
   text-align: center;
 }
 .card.servicio p {
   margin: 0;
   font: 1.4em / 1.5em 'caecilia-roman';
-  color: #ffffff;
+  color: #00a8ab;
 }
 .card.servicio > div.front {
-  background: #ffffff;
+  background: #e74c3c;
 }
 .card.servicio > div.back {
   display: block;
-  background: #e74c3c;
-  color: #ffffff;
+  background: #ffffff;
+  color: #e74c3c;
 }
 .card.servicio > div.back h4 {
-  color: #ffffff;
+  color: #00a8ab;
 }
 .card.servicio > div.back hr {
   width: 100%;
-  background: #ffffff;
+  background: #00a8ab;
 }
 .card.cuervo > div img {
   margin-bottom: 20px;
 }
 .card.cuervo > div.front {
-  background: #00a8ab;
+  background: #ffffff;
 }
 .card.cuervo > div.front h4 {
   margin-bottom: 0;
-  color: #ffffff;
+  color: #00a8ab;
 }
 .card.cuervo > div.back {
   display: block;
-  background: #e74c3c;
+  background: #00a8ab;
   color: #ffffff;
 }
 .card.cuervo > div.back h5 {
@@ -712,6 +739,11 @@ section.home p {
   margin: 0 0 80px 0;
   list-style: none;
   text-align: center;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 .portafolio .tags li {
   display: inline-block;
@@ -735,6 +767,11 @@ section.home p {
   margin-bottom: 20px;
   padding: 20px;
   background: #00a8ab;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 .portafolio .post img {
   margin: 0 0 6.666666666666667px 0;
@@ -809,6 +846,11 @@ section.home p {
   position: absolute;
   top: 200px;
   left: 5%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 .contacto .contacto-info > div {
   padding: 20px;
@@ -858,6 +900,11 @@ section.home p {
 }
 .forma .paso {
   margin-bottom: 40px;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 .forma .paso h4 {
   text-align: left;

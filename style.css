@@ -977,7 +977,7 @@ section.home p {
   color: #ffffff;
 }
 /*** MEDIA QUERIES ***/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 970px) {
   .columna.medium-1 {
     width: 6.3%;
   }
@@ -1056,8 +1056,25 @@ section.home p {
   .no-medium {
     display: none;
   }
+  /*** HEADER ***/
+  .centro {
+    margin: 10% 0 0 0;
+    top: 5%;
+  }
+  header nav {
+    font: 1em / 1em 'gotham-medium';
+  }
+  header nav a {
+    padding: 10px;
+  }
+  h2 {
+    font: 3.5em / 1em 'gotham-medium';
+  }
+  section.home p {
+    font: 1.5em / 1.4em 'caecilia-light';
+  }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 970px) and only screen and (max-width: 768px) {
   .columna.small-1 {
     width: 6.3%;
   }
@@ -1134,6 +1151,95 @@ section.home p {
     display: block;
   }
   .no-small {
+    display: none;
+  }
+  header nav {
+    font: 0.5em / 1em 'gotham-medium';
+  }
+  header nav a {
+    padding: 4px;
+  }
+  h2 {
+    font: 3.5em / 1em 'gotham-medium';
+  }
+}
+@media only screen and (max-width: 480px) {
+  .columna.xsmall-1 {
+    width: 6.3%;
+  }
+  .columna.xsmall-2 {
+    width: 14.6%;
+  }
+  .columna.xsmall-3 {
+    width: 22.9%;
+  }
+  .columna.xsmall-4 {
+    width: 31.2%;
+  }
+  .columna.xsmall-5 {
+    width: 39.5%;
+  }
+  .columna.xsmall-6 {
+    width: 47.8%;
+  }
+  .columna.xsmall-7 {
+    width: 56.1%;
+  }
+  .columna.xsmall-8 {
+    width: 64.4%;
+  }
+  .columna.xsmall-9 {
+    width: 72.7%;
+  }
+  .columna.xsmall-10 {
+    width: 81%;
+  }
+  .columna.xsmall-11 {
+    width: 89.3%;
+  }
+  .columna.xsmall-12 {
+    width: 97.6%;
+  }
+  .span.xsmall-1 {
+    width: 8.3%;
+  }
+  .span.xsmall-2 {
+    width: 16.6%;
+  }
+  .span.xsmall-3 {
+    width: 24.9%;
+  }
+  .span.xsmall-4 {
+    width: 33.2%;
+  }
+  .span.xsmall-5 {
+    width: 41.5%;
+  }
+  .span.xsmall-6 {
+    width: 49.8%;
+  }
+  .span.xsmall-7 {
+    width: 58.1%;
+  }
+  .span.xsmall-8 {
+    width: 66.4%;
+  }
+  .span.xsmall-9 {
+    width: 74.7%;
+  }
+  .span.xsmall-10 {
+    width: 83%;
+  }
+  .span.xsmall-11 {
+    width: 91.3%;
+  }
+  .span.xsmall-12 {
+    width: 99.6%;
+  }
+  .xsmall {
+    display: block;
+  }
+  .no-xsmall {
     display: none;
   }
 }

@@ -4,118 +4,119 @@
 
 	$(function(){
 
-		//Fades
-
-		var invisibles = $('
-			h3,
-			header,
-			.centro,
-			.cardContainer,
-			.tags,
-			.post,
-			.contacto-info,
-			.paso
-		');
-
-		invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-		  if (isInView) {
-		    // element is now visible in the viewport
-		    if (visiblePartY == 'top') {
-		      // top part of element is visible
-		    } else if (visiblePartY == 'bottom') {
-		      // bottom part of element is visible
-		    } else {
-		      // whole part of element is visible
-		      $(this).addClass('visible');
-		      $(this).find('.card').removeClass('flipped');
-		    }
-		  } else {
-		    // element has gone out of viewport
-		  }
-		});
-
-		//Full Home
-		var altoWindow = $(window).height();
-
-		$('#home').css('min-height', altoWindow);
-
-		//Full Pryectos
-		$('.proyectos').css('height', altoWindow);
-
-		//Palabras
-		rotarPalabraCodigo();
-
-		// Envio contacto
-		$('form').submit(function(e){
-			e.preventDefault();
-			console.log($(this).serializeArray());
-			$.post(
-				'procesaForma.php',
-				$(this).serialize(),
-				function(data){
-					var x = jQuery.parseJSON(data);
-					console.log("Gracias por tu msg " + x.nombre);
-					//mostrarMsgContacto(data);
-				}
-			);
-		});
-
 		//Backstretch
 		$('#home').backstretch('images/background.jpg');
+		// Sticky menu
+		var headhesive = new Headhesive('.header');
+		// Ocupar full screen home y portafolio
+		fullScreen('min-height','#home');
+		fullScreen('height','.proyectos');
 
-		// navegación contacto
-		navContacto();
-
-		$('.cardContainer').hover(
-
-			function(){
-
-				cardHeight($(this));
-
-				$(this).find('.card').addClass('flipped');
-			},
-			function(){
-				$(this).find('.card').removeClass('flipped');
-			}
-		);
-
-		$('.cardContainer').each(function(){
-
-			cardHeight($(this));
-
-		});
-
+		//Palabras home
+		rotarPalabras();
+		//FadeIn elementos al hacer scroll
+		fadeInSecciones();
+		// Flips de servicios y nosotros
+		flips();
 		//Portafolio
-		var $container = $('#isotope');
-
-		$container.isotope({
-			itemSelector: '.post'
-		});
-
-		$('.tags li').on( 'click', function() {
-			var filterValue = $(this).attr('data-filter');
-			$container.isotope({ filter: filterValue });
-			$('.tags li').removeClass('activo');
-			$(this).addClass('activo');
-		});
-
-		//Valores
-		var $containerValores = $('#valores-grid');
-
-		$containerValores.isotope({
-			itemSelector: '.columna',
-			layoutMode: 'masonry'
-		});
-
-		////////////////
-		// RESPONSIVE //
-		////////////////
-
+		filtrosPortafolio();
+		// AJAX para procesar contacto
+		procesaContacto();
 		// mapa google
 		creaMapa();
+		// navegación contacto
+		navContacto();
 	});
 
 })(jQuery);
+
+// Funciones cuervo
+function fullScreen(height_property, el){
+	var altoWindow = $(window).height();
+	$(el).css(height_property, altoWindow);
+}
+function fadeInSecciones(){
+	var invisibles = $('
+		h3,
+		header,
+		.centro,
+		.cardContainer,
+		.tags,
+		.post,
+		.contacto-info,
+		.paso
+	');
+	invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
+	  if (isInView) {
+	    // element is now visible in the viewport
+	    if (visiblePartY == 'top') {
+	      // top part of element is visible
+	      
+	    } else if (visiblePartY == 'bottom') {
+	      // bottom part of element is visible
+
+	    } else {
+	      // whole part of element is visible 
+	      $(this).addClass('visible');
+	      $(this).find('.card').removeClass('flipped');
+	    }
+	  } else {
+	    // element has gone out of viewport
+	  }
+	});
+}
+
+function flips(){
+	$('.cardContainer').hover(
+		function(){
+			cardHeight($(this));
+			$(this).find('.card').addClass('flipped');
+		},
+		function(){
+			$(this).find('.card').removeClass('flipped');
+		}
+	);
+	$('.cardContainer').each(function(){
+		cardHeight($(this));
+	});
+}
+
+function filtrosPortafolio(){
+	var $container = $('#isotope');
+	$container.isotope({
+		itemSelector: '.post'
+	});
+	$('.tags li').on( 'click', function() {
+		var filterValue = $(this).attr('data-filter');
+		$container.isotope({ filter: filterValue });
+		$('.tags li').removeClass('activo');
+		$(this).addClass('activo');
+	});
+
+	//Valores
+	var $containerValores = $('#valores-grid');
+
+	$containerValores.isotope({
+		itemSelector: '.columna',
+		layoutMode: 'masonry'
+	});
+}
+
+function procesaContacto(){
+	$('form').submit(function(e){
+		e.preventDefault();
+		console.log($(this).serializeArray());
+		$.post(
+			'procesaForma.php',
+			$(this).serialize(),
+			function(data){
+				var x = jQuery.parseJSON(data);
+				console.log("Gracias por tu msg " + x.nombre);
+				//mostrarMsgContacto(data);
+			}
+		);
+	});
+}
 
 function cardHeight(card){
 	frontHeight = card.find('.front').height(),
@@ -133,20 +134,8 @@ function cardHeight(card){
 }
 
 var fixedBox = $('.fixedBox');
-
-function fixMenu (){
-
-	fixedBox.addClass('fixed');
-
-}
-
-
-function unfixMenu (){
-
-	fixedBox.removeClass('fixed');
-
-}
-
+function fixMenu (){ fixedBox.addClass('fixed'); }
+function unfixMenu (){ fixedBox.removeClass('fixed'); }
 function navContacto(){
 	// toggle checkboxes
 	$('.paso div').on('click', function(e){
@@ -209,6 +198,8 @@ function creaMapa (){
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 }
+
+function rotarPalabras(){ rotarPalabraCodigo(); }
 
 function rotarPalabraDiseno(){
 	var diseno = $('h2.diseno span');

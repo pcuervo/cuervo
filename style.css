@@ -977,6 +977,154 @@ section.home p {
   color: #ffffff;
 }
 /*** MEDIA QUERIES ***/
+@media only screen and (max-height: 650px) {
+  /*** HOME ***/
+  .centro {
+    margin: 5% 0 0 0;
+    top: 5%;
+  }
+  header nav {
+    font: 1em / 1em 'gotham-medium';
+  }
+  header nav a {
+    padding: 10px;
+  }
+  h2 {
+    font: 4em / 1em 'gotham-medium';
+  }
+  section.home p {
+    font: 1.5em / 1.4em 'caecilia-light';
+  }
+  /*** SECTION ***/
+  section {
+    padding-top: 140px;
+  }
+  h3 {
+    margin: 0 0 20px 0;
+    font: 2.8em / 1.5em 'caecilia-light';
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+  }
+  .card.servicio img {
+    display: block;
+    width: 30%;
+    margin: 0 auto 20px auto;
+  }
+  .card.servicio li {
+    font: 1.2em / 1.6em 'caecilia-roman';
+  }
+  .card.servicio p {
+    font: 1.2em / 1.5em 'caecilia-roman';
+  }
+  .card.cuervo > div img {
+    margin-bottom: 20px;
+  }
+  .card.cuervo > div.front {
+    background: #ffffff;
+  }
+  .card.cuervo > div.front h4 {
+    margin-bottom: 0;
+    font: 1.5em / 1em 'gotham-book';
+  }
+  .card.cuervo > div.back {
+    display: block;
+    background: #00a8ab;
+    color: #ffffff;
+  }
+  .card.cuervo > div.back h5 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font: 1.4em / 1em 'caecilia-light';
+  }
+  .card.cuervo > div.back hr {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 20px;
+    background: #ffffff;
+  }
+  .card.cuervo > div.back ul {
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+  .card.cuervo > div.back ul li {
+    display: inline;
+    margin: 0 20px;
+  }
+  .card.cuervo > div.back ul li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .card.cuervo > div.back ul li a i {
+    font-size: 1.6em;
+  }
+  .portafolio .tags {
+    margin: 0 0 40px 0;
+  }
+  .portafolio .post {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #00a8ab;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+  }
+  .portafolio .post img {
+    margin: 0 0 6.666666666666667px 0;
+  }
+  .portafolio .post p {
+    margin: 0;
+    font: 1em / 1em 'caecilia-light';
+    color: #ffffff;
+  }
+  .contacto {
+    height: 100%;
+  }
+  .contacto .contacto-info {
+    position: absolute;
+    top: 240px;
+    left: 7%;
+  }
+  .contacto .contacto-info .datos a,
+  .contacto .contacto-info .datos p {
+    font: 1.4em / 1.6em 'caecilia-roman';
+  }
+  .contacto .contacto-info .redes {
+    margin-bottom: 20px;
+    background: #ffffff;
+  }
+  .contacto .contacto-info .redes ul {
+    margin: 0;
+    list-style: none;
+  }
+  .contacto .contacto-info .redes ul li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+  .contacto .contacto-info .redes ul li a {
+    color: #00a8ab;
+  }
+  .contacto .contacto-info .redes ul li a i {
+    font-size: 3em;
+  }
+  .contacto .contacto-info .comienza {
+    padding: 0;
+  }
+  .contacto .contacto-info .comienza .boton {
+    display: block;
+    text-align: center;
+  }
+}
 @media only screen and (max-width: 970px) {
   .columna.medium-1 {
     width: 6.3%;
@@ -1074,7 +1222,7 @@ section.home p {
     font: 1.5em / 1.4em 'caecilia-light';
   }
 }
-@media only screen and (max-width: 970px) and only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .columna.small-1 {
     width: 6.3%;
   }

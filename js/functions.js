@@ -3,7 +3,6 @@
 	"use strict";
 
 	$(function(){
-
 		//Backstretch
 		$('#home').backstretch('images/background.jpg');
 		// Sticky menu
@@ -49,6 +48,8 @@ function fadeInSecciones(){
 	invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
 	  if (isInView) {
 	    // element is now visible in the viewport
+	    $(this).addClass('visible');
+	    $(this).find('.card').removeClass('flipped');
 	    if (visiblePartY == 'top') {
 	      // top part of element is visible
 	      
@@ -57,8 +58,7 @@ function fadeInSecciones(){
 
 	    } else {
 	      // whole part of element is visible 
-	      $(this).addClass('visible');
-	      $(this).find('.card').removeClass('flipped');
+	      
 	    }
 	  } else {
 	    // element has gone out of viewport

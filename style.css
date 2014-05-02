@@ -481,23 +481,6 @@ body {
   background: #fff;
   font: 14px / 18px 'gotham-medium';
 }
-h2 {
-  margin: 0 0 10px 0;
-  font: 6em / 1.1em 'gotham-medium';
-  color: #ffffff;
-  text-transform: uppercase;
-}
-h2 span {
-  font-family: 'gotham-light';
-}
-h2.codigo {
-  position: relative;
-  z-index: 1;
-}
-h2.diseno {
-  position: relative;
-  z-index: 2;
-}
 h3 {
   margin: 0 0 60px 0;
   font: 3.4em / 1.5em 'caecilia-light';
@@ -684,7 +667,7 @@ section.home p {
   font-size: 1.6em;
 }
 .portafolio .tags {
-  margin: 0 0 80px 0;
+  margin: 0 0 20px*4 0;
   list-style: none;
   text-align: center;
   opacity: 0;
@@ -696,7 +679,7 @@ section.home p {
 .portafolio .tags li {
   display: inline-block;
   margin: 0 10px 10px 0;
-  padding: 5px 3.3333333333333335px 3.3333333333333335px 3.3333333333333335px;
+  padding: 20px/4 20px/6 20px/6 20px/6;
   border-bottom: 1px solid #e74c3c;
   font: 1em / 1em 'caecilia-light';
   color: #00a8ab;
@@ -722,7 +705,7 @@ section.home p {
   -o-transition: all 0.3s ease;
 }
 .portafolio .post img {
-  margin: 0 0 6.666666666666667px 0;
+  margin: 0 0 20px/3 0;
 }
 .portafolio .post p {
   margin: 0;
@@ -847,7 +830,7 @@ section.home p {
   text-align: center;
 }
 .forma .paso {
-  margin-bottom: 40px;
+  margin-bottom: 20px*2;
   opacity: 0;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -927,17 +910,47 @@ section.home p {
 /************ 
  MOBILE FIRST 
  ************/
+/*** GENERAL ***/
+h2 {
+  margin: 0 0 10px 0;
+  font: 3em / 1.1em 'gotham-medium';
+  color: #ffffff;
+  text-transform: uppercase;
+}
+h2 span {
+  font-family: 'gotham-light';
+}
+h2.codigo {
+  position: relative;
+  z-index: 1;
+}
+h2.diseno {
+  position: relative;
+  z-index: 1;
+}
 /*** HEADER ***/
+.centro {
+  width: 80%;
+  padding-top: 5%;
+  top: 5%;
+}
+#home #logo-movil {
+  padding-top: 20px;
+}
 header {
   position: fixed;
   bottom: 0;
-  z-index: 99;
+  z-index: 2;
+  padding-top: 10px;
   opacity: 0;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   width: 100%;
+}
+header h1 {
+  display: none;
 }
 header h1 img {
   margin: 20px 0 0 20px;
@@ -946,7 +959,7 @@ header nav {
   font: 1.2em / 1em 'gotham-medium';
   position: relative;
   padding-bottom: 60px;
-  z-index: 100;
+  display: none;
 }
 header nav a {
   padding: 20px;
@@ -964,7 +977,7 @@ header nav a {
 header nav a:hover {
   background: #e74c3c;
 }
-header .btn-movil a {
+header #btn-movil a {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -972,6 +985,20 @@ header .btn-movil a {
   font: 2.5em / 1em 'gotham-medium';
   color: #00a8ab;
   background: #ffffff;
+  z-index: 99;
+}
+/*** SECTION ***/
+section {
+  padding-top: 80px;
+  position: relative;
+}
+section.home {
+  height: 100%;
+  padding-top: 0;
+}
+section.home p {
+  font: 1.5em / 1.3em 'caecilia-light';
+  color: #ffffff;
 }
 /*** MEDIA QUERIES ***/
 @media only screen {
@@ -1148,6 +1175,10 @@ header .btn-movil a {
   }
   body {
     background: #00FF00;
+  }
+  /*** GENERAL ***/
+  h2 {
+    font: 6em / 1.1em 'gotham-medium';
   }
   /*** HEADER ***/
   header {

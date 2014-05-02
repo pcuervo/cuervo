@@ -287,11 +287,7 @@ p{ margin-bottom: 1em; }
 
 html, body{ width: 100%; height: 100%; margin:0; padding:0; background: #fff; .font; }
 
-h2{ margin: 0 0 10px 0; .font(6em, 1.1em); color: @claro; text-transform: uppercase;
-	span{ font-family: 'gotham-light'; }
-	&.codigo{ position: relative; z-index: 1; }
-	&.diseno{ position: relative; z-index: 2; }
-}
+
 
 h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light'); color: @cuervo; .fadein;}
 
@@ -505,25 +501,50 @@ section{ padding-top: (@margen*8); position: relative;
  MOBILE FIRST 
  ************/
 
+ /*** GENERAL ***/
+
+h2{ margin: 0 0 10px 0; .font(3em, 1.1em); color: @claro; text-transform: uppercase;
+	span{ font-family: 'gotham-light'; }
+	&.codigo{ position: relative; z-index: 1; }
+	&.diseno{ position: relative; z-index: 1; }
+}
+
  /*** HEADER ***/
 
-header{ position: fixed; bottom:0; z-index: 99; .fadein; width: 100%;
+.centro { width: 80%; padding-top:5%; top: 5%; }
 
-	h1{
+ #home {
+
+ 	#logo-movil { padding-top:@margen; }
+ 
+ }
+
+header{ position: fixed; bottom:0; z-index: 2;  padding-top: (@margen/2); .fadein; width: 100%;
+
+	h1{ display: none;
 		img{ margin: @margen 0 0 @margen; }
 	}
 
-	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; padding-bottom:(@margen*3); z-index:100;
+	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; padding-bottom:(@margen*3); display: none; 
 		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; background: @cuervo;
 			&:hover{ background: @highlight; }
 		}
 
 	}
 
-	.btn-movil {
-		a { position: absolute; bottom:@margen; right: @margen; padding: @margen/2; .font(2.5em, 1em); color: @cuervo; background: @claro; }
+	#btn-movil {
+		a { position: absolute; bottom:@margen; right: @margen; padding: (@margen/2); .font(2.5em, 1em); color: @cuervo; background: @claro; z-index: 99; }
 	}
 
+}
+
+/*** SECTION ***/
+
+section{ padding-top: (@margen*4); position: relative;
+
+	&.home{ height: 100%; padding-top: 0;
+		p{ .font(1.5em, 1.3em, 'caecilia-light'); color: @claro; }
+	}
 }
 
 
@@ -617,6 +638,8 @@ header{ position: fixed; bottom:0; z-index: 99; .fadein; width: 100%;
 
 	body { background: #00FF00; }
 
+	/*** GENERAL ***/
+	h2{ .font(6em, 1.1em); }
 
 	/*** HEADER ***/
 	header{ position: relative; top: (@margen*2); z-index: 99; .fadein; background: none;

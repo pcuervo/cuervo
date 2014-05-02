@@ -7,6 +7,8 @@
 		$('#home').backstretch('images/background.jpg');
 		// Sticky menu
 		menuFijo();
+		// Toggle menu movil
+		toggleMenuMovil();
 		// Ocupar full screen home y portafolio
 		fullScreen('min-height','#home');
 		fullScreen('height','.proyectos');
@@ -25,6 +27,7 @@
 		creaMapa();
 		// navegación contacto
 		navContacto();
+		
 	});
 
 })(jQuery);
@@ -50,6 +53,21 @@ function menuFijo(){
     		menuFijo.removeClass('fixed');
         }
     });
+}
+function toggleMenuMovil(){
+	$('#btn-movil').on('click', function(){
+		if($('header nav').css('display')=='none'){ 
+			$('header').css('background', '#00A8AB');
+			$('header nav').slideDown('fast');
+			$(this).find('i').removeClass('fa-bars');
+			$(this).find('i').addClass('fa-arrow-down');
+		} else {
+			$('header nav').slideUp('fast', function(){$('header').css('background', 'none');});
+			$(this).find('i').removeClass('fa-arrow-down');
+			$(this).find('i').addClass('fa-bars');
+			
+		}
+	});
 }
 function fullScreen(height_property, el){
 	var altoWindow = $(window).height();

@@ -6,7 +6,7 @@
 		//Backstretch
 		$('#home').backstretch('images/background.jpg');
 		// Sticky menu
-		var headhesive = new Headhesive('.header');
+		menuFijo();
 		// Ocupar full screen home y portafolio
 		fullScreen('min-height','#home');
 		fullScreen('height','.proyectos');
@@ -30,6 +30,27 @@
 })(jQuery);
 
 // Funciones cuervo
+function menuFijo(){
+	var menuFijo = $('#menuFijo');
+     
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 500){
+            //menu.fadeOut('fast', function(){
+            //    $(this).removeClass('default').addClass('fixed').fadeIn('fast');
+            //});
+    		//menuFijo.removeClass('hide');
+    		menuFijo.slideDown('fast');
+    		menuFijo.addClass('fixed');
+        } else if($(this).scrollTop() <= 500){
+            //menu.fadeOut('fast', function(){
+            //    $(this).removeClass('fixed').addClass('default').fadeIn('fast');
+            //});
+    		menuFijo.hide();
+    		//menuFijo.addClass('hide');
+    		menuFijo.removeClass('fixed');
+        }
+    });
+}
 function fullScreen(height_property, el){
 	var altoWindow = $(window).height();
 	$(el).css(height_property, altoWindow);
@@ -93,13 +114,6 @@ function filtrosPortafolio(){
 		$(this).addClass('activo');
 	});
 
-	//Valores
-	var $containerValores = $('#valores-grid');
-
-	$containerValores.isotope({
-		itemSelector: '.columna',
-		layoutMode: 'masonry'
-	});
 }
 
 function procesaContacto(){

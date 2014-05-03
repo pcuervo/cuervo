@@ -8,7 +8,7 @@
 		// Sticky menu
 		menuFijo();
 		// Toggle menu movil
-		toggleMenuMovil();
+		//toggleMenuMovil();
 		// Ocupar full screen home y portafolio
 		fullScreen('min-height','#home');
 		fullScreen('height','.proyectos');
@@ -60,10 +60,10 @@ function toggleMenuMovil(){
 			$('header').css('background', '#00A8AB');
 			$('header nav').slideDown('fast');
 			$(this).find('i').removeClass('fa-bars');
-			$(this).find('i').addClass('fa-arrow-down');
+			$(this).find('i').addClass('fa-chevron-down');
 		} else {
 			$('header nav').slideUp('fast', function(){$('header').css('background', 'none');});
-			$(this).find('i').removeClass('fa-arrow-down');
+			$(this).find('i').removeClass('fa-chevron-down');
 			$(this).find('i').addClass('fa-bars');
 			
 		}

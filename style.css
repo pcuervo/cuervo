@@ -564,12 +564,12 @@ body {
 }
 h2 {
   margin: 0 0 10px 0;
-  font: 3.2em / 1.1em 'gotham-medium';
+  font: 1.7em / 1em 'gotham-medium';
   color: #ffffff;
   text-transform: uppercase;
 }
 h2 span {
-  font: 0.8em / 1.1em 'gotham-light';
+  font: 1em / 1.1em 'gotham-light';
 }
 h2.codigo {
   position: relative;
@@ -603,7 +603,7 @@ h6 {
   color: #ffffff;
 }
 .boton {
-  padding: 20px;
+  padding: 10px;
   background: #e74c3c;
   color: #ffffff;
   text-decoration: none;
@@ -617,10 +617,10 @@ h6 {
 }
 /*** HEADER ***/
 .centro {
-  width: 80%;
+  width: 90%;
   padding-top: 10%;
   position: relative;
-  left: 10%;
+  left: 4%;
   margin: 0;
 }
 #home #logo-movil {
@@ -647,7 +647,6 @@ header h1 img {
 header nav {
   font: 1.2em / 1em 'gotham-medium';
   position: relative;
-  padding-bottom: 60px;
   display: none;
 }
 header nav a {
@@ -661,6 +660,7 @@ header nav a {
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  border-top: 1px solid #ffffff;
   background: #00a8ab;
 }
 header nav a:hover {
@@ -669,9 +669,9 @@ header nav a:hover {
 header #btn-movil a {
   position: absolute;
   bottom: 20px;
-  right: 20px;
+  right: 10px;
   padding: 10px;
-  font: 2.5em / 1em 'gotham-medium';
+  font: 2em / 1em 'gotham-medium';
   color: #00a8ab;
   background: #ffffff;
   z-index: 99;
@@ -686,7 +686,7 @@ section.home {
   padding-top: 0;
 }
 section.home p {
-  font: 1.2em / 1.4em 'caecilia-light';
+  font: 1em / 1.2em 'caecilia-light';
   color: #ffffff;
   margin-top: 20px;
 }

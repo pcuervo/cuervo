@@ -3,22 +3,12 @@
 	"use strict";
 
 	$(function(){
-		//Backstretch
+
+		// Backstretch
 		$('#home').backstretch('images/background.jpg');
-		// Sticky menu
-		menuFijo();
-		// Toggle menu movil
-		//toggleMenuMovil();
 		// Ocupar full screen home y portafolio
 		fullScreen('min-height','#home');
 		fullScreen('height','.proyectos');
-
-		//Palabras home
-		rotarPalabras();
-		//FadeIn elementos al hacer scroll
-		fadeInSecciones();
-		// Flips de servicios y nosotros
-		flips();
 		//Portafolio
 		filtrosPortafolio();
 		// AJAX para procesar contacto
@@ -27,7 +17,49 @@
 		creaMapa();
 		// navegación contacto
 		navContacto();
-		
+
+		// Controla js en movil portrait
+		mediaCheck({
+		    media: '(max-width: 24.9em)',
+		    	entry: function() {
+		      		console.log('enter max-width: 24.9em');
+		      		// Toggle menu movil
+					toggleMenuMovil();
+	    		},
+		    	exit: function() {
+		      		console.log('exit max-width: 24.9em');
+		    	}
+		});
+		// Controla js en movil landscape
+		mediaCheck({
+		    media: '(min-width: 25em)',
+		    	entry: function() {
+		      		console.log('enter min-width: 25em');
+		      		// Toggle menu movil
+					toggleMenuMovil();
+	    		},
+		    	exit: function() {
+		      		console.log('exit min-width: 25em');
+		    	}
+		});
+		// Controla js en pantallas medianas
+		mediaCheck({
+		    media: '(min-width: 40.063em)',
+		    	entry: function() {
+		      		console.log('enter min-width: 25em');
+					// Sticky menu
+					menuFijo();
+					//Palabras home
+					rotarPalabras();
+					//FadeIn elementos al hacer scroll
+					fadeInSecciones();
+					// Flips de servicios y nosotros
+					flips();
+	    		},
+		    	exit: function() {
+		      		console.log('exit min-width: 25em');
+		    	}
+		});
 	});
 
 })(jQuery);
@@ -55,6 +87,7 @@ function menuFijo(){
     });
 }
 function toggleMenuMovil(){
+
 	$('#btn-movil').on('click', function(){
 		if($('header nav').css('display')=='none'){ 
 			$('header').css('background', '#00A8AB');
@@ -165,9 +198,6 @@ function cardHeight(card){
 	}
 }
 
-var fixedBox = $('.fixedBox');
-function fixMenu (){ fixedBox.addClass('fixed'); }
-function unfixMenu (){ fixedBox.removeClass('fixed'); }
 function navContacto(){
 	// toggle checkboxes
 	$('.paso div').on('click', function(e){
@@ -208,14 +238,16 @@ function creaMapa (){
 	];
 
 	function initialize() {
-		var centro = new google.maps.LatLng(19.409948, -99.169182);
+		var notMobile = $(document).width() > 480 ? true : false;
+		var centro = new google.maps.LatLng(19.409998, -99.168882);
 		var nosotros = new google.maps.LatLng(19.409948, -99.168392);
 		var mapOptions = {
-			zoom: 18,
+			zoom: 16,
 			center: centro,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: styles,
-			scrollwheel: false
+			scrollwheel: false, 
+			draggable: notMobile
 		}
 
 		var map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
@@ -229,6 +261,10 @@ function creaMapa (){
 		});
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+}
+
+function quitarDragMapa(){
+
 }
 
 function rotarPalabras(){ rotarPalabraCodigo(); }

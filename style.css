@@ -465,11 +465,6 @@ p {
 }
 .forma .paso {
   margin-bottom: 40px;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
 }
 .forma .paso h4 {
   text-align: left;
@@ -581,13 +576,8 @@ h2.diseno {
 }
 h3 {
   margin: 0 0 20px 0;
-  font: 2em / 1.5em 'caecilia-light';
+  font: 1.3em / 1.5em 'caecilia-light';
   color: #00a8ab;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
 }
 h4 {
   margin: 0 0 40px 0;
@@ -630,12 +620,6 @@ header {
   position: fixed;
   bottom: 0;
   z-index: 2;
-  padding-top: 10px;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   width: 100%;
 }
 header h1 {
@@ -660,7 +644,7 @@ header nav a {
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid #007678;
   background: #00a8ab;
 }
 header nav a:hover {
@@ -819,11 +803,6 @@ section.home p {
   margin: 0 0 20px 0;
   list-style: none;
   text-align: center;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
 }
 .portafolio .tags li {
   display: inline-block;
@@ -847,11 +826,6 @@ section.home p {
   margin-bottom: 20px;
   padding: 20px;
   background: #00a8ab;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
 }
 .portafolio .post img {
   margin: 0 0 6.666666666666667px 0;
@@ -925,12 +899,7 @@ section.home p {
 .contacto .contacto-info {
   position: absolute;
   top: 200px;
-  left: 5%;
-  opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
+  z-index: 2;
 }
 .contacto .contacto-info > div {
   padding: 20px;

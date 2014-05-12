@@ -88,7 +88,8 @@ function menuFijo(){
 }
 function toggleMenuMovil(){
 
-	$('#btn-movil').on('click', function(){
+	$('#btn-movil').on('click', function(e){
+		e.preventDefault();
 		if($('header nav').css('display')=='none'){ 
 			$('header').css('background', '#00A8AB');
 			$('header nav').slideDown('fast');

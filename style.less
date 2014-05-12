@@ -280,50 +280,6 @@ p{ margin-bottom: 1em; }
 .small{ display: none; }
 
 
-// Forma
-
-.forma{
-
-	.paso{ margin-bottom: @margen*2;
-
-		h4{ text-align: left; text-transform: none; .font(2em, 2em, 'caecilia-light');
-
-			span{ text-align: right; }
-		}
-
-		.next, .submit{ background: @highlight !important; display: table;
-			a{ display: block; color: @claro; display: table-cell; vertical-align: middle;
-				i{ width: 100%; font-size: 4em; text-align: center; }
-			}
-		}
-
-		> div{ width: 15vw; height: 15vw; }
-
-		> input, > textarea{ height: 15vw; padding: (@margen*2); border: none; background: @cuervo; .font(4em, 3em, 'caecilia-roman'); color: @claro;
-			&:focus{ outline-color: @cuervo; }
-		}
-
-		> textarea{ .font(1.4em, 1.6em, 'caecilia-roman'); }
-
-		&[data-paso='1']{
-			> div{ padding: @margen; border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
-				&:hover, &.activo{ background: @highlight; }
-			}
-
-			img{ display: block; width: 80%; margin: auto; }
-
-			h5{ .font(1em, 1em, 'caecilia-light'); text-align: center; color: @claro; }
-
-		}
-		&[data-paso='2']{
-
-		}
-		&[data-paso='3']{ }
-		&[data-paso='4']{ }
-	}
-
-}
-
 /************ 
  MOBILE FIRST 
  ************/
@@ -457,10 +413,10 @@ section{ padding-top: (@margen*2); position: relative;
 		}
 	}
 
-	.post{ margin-bottom: @margen; padding: @margen; background: @cuervo;
+	.post{ margin-bottom: @margen; padding: @margen/5; background: @cuervo;
 		img{ margin: 0 0 @margen/3 0; }
-		h6{  }
-		p{ margin: 0; .font(1em, 1em, 'caecilia-light'); color: @claro; }
+		h6{ text-align: center  }
+		p{ margin: @margen/4; .font(0.9em, 1em, 'caecilia-light'); color: @claro; }
 	}
 
 	.proyectos{ display: none; width: 100%; height: 100%; position: absolute; z-index: 101;
@@ -523,6 +479,49 @@ section{ padding-top: (@margen*2); position: relative;
 			.boton{ display: block; text-align: center; }
 		}
 
+	}
+
+}
+
+// Forma
+.forma{
+
+	.paso{ margin-bottom: @margen*2;
+
+		h4{ text-align: left; text-transform: none; .font(2em, 2em, 'caecilia-light');
+
+			span{ text-align: right; }
+		}
+
+		.next, .submit{ background: @highlight !important; display: table;
+			a{ display: block; color: @claro; display: table-cell; vertical-align: middle;
+				i{ width: 100%; font-size: 4em; text-align: center; }
+			}
+		}
+
+		> div{ width: 30vw; height: 30vw; }
+
+		> input, > textarea{ height: 15vw; padding: (@margen*2); border: none; background: @cuervo; .font(4em, 3em, 'caecilia-roman'); color: @claro;
+			&:focus{ outline-color: @cuervo; }
+		}
+
+		> textarea{ .font(1.4em, 1.6em, 'caecilia-roman'); }
+
+		&[data-paso='1']{
+			> div{ padding: @margen; border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
+				&:hover, &.activo{ background: @highlight; }
+			}
+
+			img{ display: block; width: 80%; margin: auto; }
+
+			h5{ .font(1em, 1em, 'caecilia-light'); text-align: center; color: @claro; }
+
+		}
+		&[data-paso='2']{
+
+		}
+		&[data-paso='3']{ }
+		&[data-paso='4']{ }
 	}
 
 }

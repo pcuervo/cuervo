@@ -463,79 +463,6 @@ p {
 .small {
   display: none;
 }
-.forma .paso {
-  margin-bottom: 40px;
-}
-.forma .paso h4 {
-  text-align: left;
-  text-transform: none;
-  font: 2em / 2em 'caecilia-light';
-}
-.forma .paso h4 span {
-  text-align: right;
-}
-.forma .paso .next,
-.forma .paso .submit {
-  background: #e74c3c !important;
-  display: table;
-}
-.forma .paso .next a,
-.forma .paso .submit a {
-  display: block;
-  color: #ffffff;
-  display: table-cell;
-  vertical-align: middle;
-}
-.forma .paso .next a i,
-.forma .paso .submit a i {
-  width: 100%;
-  font-size: 4em;
-  text-align: center;
-}
-.forma .paso > div {
-  width: 15vw;
-  height: 15vw;
-}
-.forma .paso > input,
-.forma .paso > textarea {
-  height: 15vw;
-  padding: 40px;
-  border: none;
-  background: #00a8ab;
-  font: 4em / 3em 'caecilia-roman';
-  color: #ffffff;
-}
-.forma .paso > input:focus,
-.forma .paso > textarea:focus {
-  outline-color: #00a8ab;
-}
-.forma .paso > textarea {
-  font: 1.4em / 1.6em 'caecilia-roman';
-}
-.forma .paso[data-paso='1'] > div {
-  padding: 20px;
-  border: 1px solid #ffffff;
-  background: #00a8ab;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-}
-.forma .paso[data-paso='1'] > div:hover,
-.forma .paso[data-paso='1'] > div.activo {
-  background: #e74c3c;
-}
-.forma .paso[data-paso='1'] img {
-  display: block;
-  width: 80%;
-  margin: auto;
-}
-.forma .paso[data-paso='1'] h5 {
-  font: 1em / 1em 'caecilia-light';
-  text-align: center;
-  color: #ffffff;
-}
 /************ 
  MOBILE FIRST 
  ************/
@@ -824,15 +751,18 @@ section.home p {
 }
 .portafolio .post {
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 4px;
   background: #00a8ab;
 }
 .portafolio .post img {
   margin: 0 0 6.666666666666667px 0;
 }
+.portafolio .post h6 {
+  text-align: center;
+}
 .portafolio .post p {
-  margin: 0;
-  font: 1em / 1em 'caecilia-light';
+  margin: 5px;
+  font: 0.9em / 1em 'caecilia-light';
   color: #ffffff;
 }
 .portafolio .proyectos {
@@ -946,6 +876,79 @@ section.home p {
 .contacto .contacto-info .comienza .boton {
   display: block;
   text-align: center;
+}
+.forma .paso {
+  margin-bottom: 40px;
+}
+.forma .paso h4 {
+  text-align: left;
+  text-transform: none;
+  font: 2em / 2em 'caecilia-light';
+}
+.forma .paso h4 span {
+  text-align: right;
+}
+.forma .paso .next,
+.forma .paso .submit {
+  background: #e74c3c !important;
+  display: table;
+}
+.forma .paso .next a,
+.forma .paso .submit a {
+  display: block;
+  color: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+}
+.forma .paso .next a i,
+.forma .paso .submit a i {
+  width: 100%;
+  font-size: 4em;
+  text-align: center;
+}
+.forma .paso > div {
+  width: 30vw;
+  height: 30vw;
+}
+.forma .paso > input,
+.forma .paso > textarea {
+  height: 15vw;
+  padding: 40px;
+  border: none;
+  background: #00a8ab;
+  font: 4em / 3em 'caecilia-roman';
+  color: #ffffff;
+}
+.forma .paso > input:focus,
+.forma .paso > textarea:focus {
+  outline-color: #00a8ab;
+}
+.forma .paso > textarea {
+  font: 1.4em / 1.6em 'caecilia-roman';
+}
+.forma .paso[data-paso='1'] > div {
+  padding: 20px;
+  border: 1px solid #ffffff;
+  background: #00a8ab;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+.forma .paso[data-paso='1'] > div:hover,
+.forma .paso[data-paso='1'] > div.activo {
+  background: #e74c3c;
+}
+.forma .paso[data-paso='1'] img {
+  display: block;
+  width: 80%;
+  margin: auto;
+}
+.forma .paso[data-paso='1'] h5 {
+  font: 1em / 1em 'caecilia-light';
+  text-align: center;
+  color: #ffffff;
 }
 /*** MEDIA QUERIES ***/
 @media only screen {

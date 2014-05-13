@@ -17,6 +17,8 @@
 		creaMapa();
 		// navegación contacto
 		navContacto();
+		// Flips de servicios y nosotros
+		flipsClick();
 
 		// Controla js en movil portrait
 		mediaCheck({
@@ -54,7 +56,7 @@
 					//FadeIn elementos al hacer scroll
 					fadeInSecciones();
 					// Flips de servicios y nosotros
-					flips();
+					flipsHover();
 	    		},
 		    	exit: function() {
 		      		console.log('exit min-width: 25em');
@@ -67,7 +69,7 @@
 // Funciones cuervo
 function menuFijo(){
 	var menuFijo = $('#menuFijo');
-     
+
     $(window).scroll(function(){
         if($(this).scrollTop() > 500){
             //menu.fadeOut('fast', function(){
@@ -90,7 +92,7 @@ function toggleMenuMovil(){
 
 	$('#btn-movil').on('click', function(e){
 		e.preventDefault();
-		if($('header nav').css('display')=='none'){ 
+		if($('header nav').css('display')=='none'){
 			$('header').css('background', '#00A8AB');
 			$('header nav').slideDown('fast');
 			$(this).find('i').removeClass('fa-bars');
@@ -99,7 +101,7 @@ function toggleMenuMovil(){
 			$('header nav').slideUp('fast', function(){$('header').css('background', 'none');});
 			$(this).find('i').removeClass('fa-chevron-down');
 			$(this).find('i').addClass('fa-bars');
-			
+
 		}
 	});
 }
@@ -111,27 +113,22 @@ function fadeInSecciones(){
 	var invisibles = $('
 		h3,
 		header,
-		.centro,
-		.cardContainer,
-		.tags,
-		.post,
-		.contacto-info,
-		.paso
+		.centro
 	');
 	invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
 	  if (isInView) {
 	    // element is now visible in the viewport
 	    $(this).addClass('visible');
-	    $(this).find('.card').removeClass('flipped');
+		//$(this).find('.card').removeClass('flipped');
 	    if (visiblePartY == 'top') {
 	      // top part of element is visible
-	      
+
 	    } else if (visiblePartY == 'bottom') {
 	      // bottom part of element is visible
 
 	    } else {
-	      // whole part of element is visible 
-	      
+	      // whole part of element is visible
+
 	    }
 	  } else {
 	    // element has gone out of viewport
@@ -139,7 +136,7 @@ function fadeInSecciones(){
 	});
 }
 
-function flips(){
+function flipsHover(){
 	$('.cardContainer').hover(
 		function(){
 			cardHeight($(this));
@@ -154,15 +151,35 @@ function flips(){
 	});
 }
 
-function filtrosPortafolio(){
-	var $container = $('#isotope');
-	$container.isotope({
-		itemSelector: '.post'
+function flipsClick(){
+	$('.cardContainer').on('click', function(){
+		$(this).find('.card').toggleClass('flipped');
+		cardHeight($(this));
 	});
+
+	$('.cardContainer').each(function(){
+		cardHeight($(this));
+	});
+}
+
+function filtrosPortafolio(){
+
+	var $container = $('#isotope');
+
+	$container.isotope({
+		itemSelector: '.post',
+		layoutMode: 'fitRows'
+	});
+
 	$('.tags li').on( 'click', function() {
-		var filterValue = $(this).attr('data-filter');
-		$container.isotope({ filter: filterValue });
+		var filterValue = $(this).data('filter');
+
+		$container.isotope({
+			filter: filterValue
+		});
+
 		$('.tags li').removeClass('activo');
+
 		$(this).addClass('activo');
 	});
 
@@ -244,10 +261,10 @@ function creaMapa (){
 		var nosotros = new google.maps.LatLng(19.409948, -99.168392);
 		var mapOptions = {
 			zoom: 16,
-			center: centro,
+			center: nosotros,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: styles,
-			scrollwheel: false, 
+			scrollwheel: false,
 			draggable: notMobile
 		}
 

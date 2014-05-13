@@ -217,9 +217,41 @@ figure {margin: 0;}
 .no-margin-bottom{ margin-bottom: 0 !important; }
 
 //layout
-.container{ min-width: 300px; height: 100%; }
+.container{ min-width: 300px; height: 100%; overflow-x: hidden; .transition(0.5);
+
+	.overlay-open {
+		-webkit-transform: translateX(50%);
+		transform: translateX(50%);
+	}
+}
+
+
+
+
+
+	.container::after {
+		content: '';
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.6);
+		-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
+		transition: opacity 0.5s, visibility 0s 0.5s;
+	}
+
+	.container.overlay-open::after {
+		visibility: visible;
+		opacity: 1;
+		-webkit-transition: opacity 0.5s;
+		transition: opacity 0.5s;
+	}
+
 .width{ width: 90%; min-width: 300px; max-width: 2200px; margin: 0 auto @margen auto; }
-.full{ width: 100%;
+.full{ width: 100% !important;
   //img{ width: 100%; height: auto; }
 }
 
@@ -280,8 +312,8 @@ p{ margin-bottom: 1em; }
 .small{ display: none; }
 
 
-/************ 
- MOBILE FIRST 
+/************
+ MOBILE FIRST
  ************/
 
  /*** GENERAL ***/
@@ -297,15 +329,15 @@ h2{ margin: 0 0 10px 0; .font(1.7em, 1em); color: @claro; text-transform: upperc
 	&.diseno{ position: relative; z-index: 1; }
 }
 
-h3{ margin: 0 0 (@margen) 0; .font(1.3em, 1.5em, 'caecilia-light'); color: @cuervo; }
+h3{ margin: 0 0 (@margen) 0; .font(2.3em, 1.2em, 'caecilia-light'); color: @cuervo; }
 
 h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @claro; text-transform: uppercase; text-align: center; }
 
 h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
 
-.boton{ padding: (@margen/2); background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
+.boton{ padding: @margen; background: @highlight; color: @claro; text-decoration: none; .font(1.1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
 
-.visible{ opacity: 1 !important; }
+.se-ve{ opacity: 1 !important; }
 
  /*** HEADER ***/
 
@@ -314,16 +346,16 @@ h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transfor
  #home {
 
  	#logo-movil { padding-top:@margen; }
- 
+
  }
 
-header{ position: fixed; bottom:0; z-index: 2; width: 100%; 
+header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 
 	h1{ display: none;
 		img{ margin: @margen 0 0 @margen; }
 	}
 
-	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none; 
+	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none;
 		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
 			&:hover{ background: @highlight; }
 		}
@@ -338,7 +370,7 @@ header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 
 /*** SECTION ***/
 
-section{ padding-top: (@margen*2); position: relative;
+section{ position: relative;
 
 	&.home{ height: 100%; padding-top: 0;
 		p{ .font(1em, 1.2em, 'caecilia-light'); color: @claro; margin-top:@margen; }
@@ -347,7 +379,7 @@ section{ padding-top: (@margen*2); position: relative;
 
 //Card Container
 
-.cardContainer{ .perspective(1500px); .transition; position: relative; .fadein; margin-bottom: (@margen*3); }
+.cardContainer{ .perspective(1500px); .transition; position: relative; margin-bottom: (@margen*3); }
 
 .card{ width: 100%; height: 100%; .preserve; .transition;
 
@@ -359,12 +391,12 @@ section{ padding-top: (@margen*2); position: relative;
 
 	&.servicio{
 
-		img{ display: block; width: 40%; margin: 0 auto (@margen*2) auto; }
-		h4{}
-		hr{ width: 20%; height: 1px; border: 0; margin: 0 auto (@margen*2) auto; background: @claro; }
+		img{ display: block; width: 20%; margin: 0 auto @margen auto; }
+		h4{ margin-bottom: @margen; }
+		hr{ width: 20%; height: 1px; margin: 0 auto @margen auto; border: 0; background: @claro; }
 		ul{ margin: 0; list-style: none; }
-		li{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @claro; text-align: center; }
-		p{ margin: 0; .font(1.4em, 1.5em, 'caecilia-roman'); color: @cuervo; }
+		li{ .font(1.2em, 1.4em, 'caecilia-roman'); color: @claro; text-align: center; }
+		p{ margin: 0; .font(1.2em, 1.4em, 'caecilia-roman'); color: @cuervo; }
 
 		> div{
 
@@ -380,14 +412,14 @@ section{ padding-top: (@margen*2); position: relative;
 
 		> div{
 
-			img{ margin-bottom: @margen; }
+			img{ width: 50%; margin-bottom: @margen; }
 
 			&.front{ background: @claro;
 				h4{ margin-bottom: 0; color: @cuervo; }
 			}
 
 			&.back{ display: block; background: @cuervo; color: @claro;
-				h5{ color: @claro; text-transform: uppercase; .font( 2em, 1em, 'caecilia-light' ); }
+				h5{ color: @claro; text-transform: uppercase; text-align: center; .font( 1.2em, 1.4em, 'caecilia-light' ); }
 				hr{ width: 100%; height: 1px; margin-bottom: @margen; background: @claro; }
 				ul{ margin: 0; list-style: none; text-align: center;
 					li{ display: inline; margin: 0 @margen;
@@ -413,10 +445,47 @@ section{ padding-top: (@margen*2); position: relative;
 		}
 	}
 
-	.post{ margin-bottom: @margen; padding: @margen/5; background: @cuervo;
+	.post{ margin-bottom: @margen; padding: 1px; background: @cuervo;
 		img{ margin: 0 0 @margen/3 0; }
 		h6{ text-align: center  }
-		p{ margin: @margen/4; .font(0.9em, 1em, 'caecilia-light'); color: @claro; }
+		p{ margin: @margen/4; .font(0.9em, 1.4em, 'caecilia-light'); color: @claro; text-align: center; }
+	}
+
+	.overlay { width: 100%; height: 100%; background: rgba(153,204,51,0.9); position: fixed;top: 0; left: 0;
+
+		.overlay-close { width: 80px; height: 80px; border: none; overflow: hidden; background: url('images/close.png') no-repeat center center; text-indent: 200%; color: transparent; outline: none; position: absolute; right: 20px; top: 20px; z-index: 100; }
+
+		.proyecto { text-align: center; position: relative; top: 50%; height: 60%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+
+	}
+
+	.overlay-contentpush {
+		background: rgba(153,204,51,1);
+		visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+		-webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+		transition: transform 0.5s, visibility 0s 0.5s;
+	}
+
+	.overlay-contentpush.open {
+		visibility: visible;
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+		-webkit-transition: -webkit-transform 0.5s;
+		transition: transform 0.5s;
+	}
+
+	@media screen and (max-height: 30.5em) {
+		.overlay nav {
+			height: 70%;
+			font-size: 34px;
+		}
+		.overlay ul li {
+			min-height: 34px;
+		}
 	}
 
 	.proyectos{ display: none; width: 100%; height: 100%; position: absolute; z-index: 101;
@@ -449,27 +518,29 @@ section{ padding-top: (@margen*2); position: relative;
 }
 
 // Contacto
-.contacto { height: 80%; position: relative;
+.contacto {
 
-	.mapa { height: 100%; }
+	.mapa-wrapper{ height: 200px; margin-bottom: @margen; position: relative;
+		.mapa { height: 100%; position: absolute; }
+	}
 
-	.contacto-info{ position: absolute; top: (@margen*10); z-index: 2;
+	.contacto-info{
 
 		> div{ padding: @margen; }
 
 		.clear{ padding: 0; }
 
 		.datos{ margin-bottom: @margen; background: @cuervo;
-			a, p{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @claro; }
+			a, p{ .font(1.2em, 1.2em, 'caecilia-roman'); color: @claro; }
 			a{ text-decoration: none; }
 			p{ margin-bottom: 0; }
 		}
 
-		.redes{ margin-bottom: @margen; background: @claro;
-			ul{ margin: 0; list-style: none;
+		.redes{ margin-bottom: @margen; background: @cuervo;
+			ul{ margin: 0; list-style: none; text-align: center;
 				li{ display: inline-block; margin: 0 @margen;
-					a{ color: @cuervo;
-						i{ font-size: 3em; }
+					a{ color: @claro;
+						i{ font-size: 2em; }
 					}
 				}
 			}
@@ -488,33 +559,36 @@ section{ padding-top: (@margen*2); position: relative;
 
 	.paso{ margin-bottom: @margen*2;
 
-		h4{ text-align: left; text-transform: none; .font(2em, 2em, 'caecilia-light');
+		> p{ margin: 0; text-align: right; .font(1em, 1em, 'caecilia-roman'); font-style: italic; color: @cuervo; }
 
-			span{ text-align: right; }
-		}
+		h4{ text-align: left; text-transform: none; .font(1.2em, 1.3em, 'caecilia-light'); color: @cuervo;}
+
+		.next, .submit{ height: 15vw; }
 
 		.next, .submit{ background: @highlight !important; display: table;
 			a{ display: block; color: @claro; display: table-cell; vertical-align: middle;
-				i{ width: 100%; font-size: 4em; text-align: center; }
+				i{ width: 100%; font-size: 2em; text-align: center; }
 			}
 		}
 
-		> div{ width: 30vw; height: 30vw; }
+		> div{ width: 31vw; height: 31vw; }
 
-		> input, > textarea{ height: 15vw; padding: (@margen*2); border: none; background: @cuervo; .font(4em, 3em, 'caecilia-roman'); color: @claro;
+		> input, > textarea{ height: 15vw; padding: (@margen/2); border: none; background: @cuervo; .font(2em, 1em, 'caecilia-roman'); color: @claro;
 			&:focus{ outline-color: @cuervo; }
 		}
 
-		> textarea{ .font(1.4em, 1.6em, 'caecilia-roman'); }
+		> textarea{ height: (@margen*5); .font(1.4em, 1.6em, 'caecilia-roman'); }
 
 		&[data-paso='1']{
-			> div{ padding: @margen; border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
+			> div{ padding: (@margen/2); border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
 				&:hover, &.activo{ background: @highlight; }
 			}
 
-			img{ display: block; width: 80%; margin: auto; }
+			.next{ height: 31vw; }
 
-			h5{ .font(1em, 1em, 'caecilia-light'); text-align: center; color: @claro; }
+			img{ display: block; width: 50%; margin: auto; }
+
+			h5{ .font(0.9em, 1.2em, 'caecilia-light'); text-align: center; color: @claro; }
 
 		}
 		&[data-paso='2']{
@@ -534,7 +608,7 @@ section{ padding-top: (@margen*2); position: relative;
 
 } /* Define mobile styles */
 
-@media only screen and (min-width: 25em) { 
+@media only screen and (min-width: 25em) {
 	//Framework
 	.columna{
 
@@ -630,7 +704,7 @@ section{ padding-top: (@margen*2); position: relative;
 	.boton{ width: auto; }
 
 	/*** HEADER ***/
-	header{ position: relative; top: (@margen*2); z-index: 99; .fadein; background: none;
+	header{ position: relative; top: (@margen*2); z-index: 99; background: none;
 
 		h1{
 			img{ margin: 0; }
@@ -643,7 +717,7 @@ section{ padding-top: (@margen*2); position: relative;
 
 		}
 
-	} 
+	}
 
 	#menu-fijo {
 		img { width: 50%; margin: (@margen/3) 0;  }
@@ -658,7 +732,7 @@ section{ padding-top: (@margen*2); position: relative;
 
 		}
 
-	} 
+	}
 
 	/*** SECTION ***/
 
@@ -684,7 +758,7 @@ section{ padding-top: (@margen*2); position: relative;
 
 		.mapa { height: 100%; }
 
-		.contacto-info{ position: absolute; top: (@margen*10); left: 5%; .fadein;
+		.contacto-info{ position: absolute; top: (@margen*10); left: 5%;
 
 			> div{ padding: @margen; }
 
@@ -754,7 +828,7 @@ section{ padding-top: (@margen*2); position: relative;
 	}
 
 	.large{ display: block; }
-	.no-large{ display: none; }	
+	.no-large{ display: none; }
 
 	body { background: #FF0000; }
 } /* min-width 1025px, large screens */

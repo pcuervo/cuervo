@@ -7,12 +7,11 @@
 
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="windows.css">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 		<meta name="description" content="">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="cleartype" content="on">
 		<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
@@ -39,7 +38,7 @@
 					<a class="block columna c-3" href="#nosotros">Nosotros</a>
 					<a class="block columna c-3" href="#contacto">Contacto</a>
 
-				</nav>	
+				</nav>
 
 			</div>
 
@@ -47,7 +46,7 @@
 		<div class="container">
 
 			<section data-seccion="home" class="home" id="home">
-				
+
 				<div class="columna c-5 center no-medium" id="logo-movil">
 					<img src="images/cuervo-logo.png" alt="" />
 				</div>
@@ -98,7 +97,7 @@
 
 					<div class="columna c-12 medium-4 cardContainer">
 
-						<div class="card servicio flipped flipped">
+						<div class="card servicio">
 
 							<div class="front">
 
@@ -135,7 +134,7 @@
 
 					<div class="columna c-12 medium-4 cardContainer">
 
-						<div class="card servicio flipped">
+						<div class="card servicio">
 
 							<div class="front">
 
@@ -172,7 +171,7 @@
 
 					<div class="columna c-12 medium-4 cardContainer">
 
-						<div class="card servicio flipped">
+						<div class="card servicio">
 
 							<div class="front">
 
@@ -228,7 +227,9 @@
 						<li data-filter=".editorial" >Diseño editorial</li>
 					</ul>
 
-					<div id="isotope">
+					<button id="trigger-overlay" type="button">Open Overlay</button>
+
+					<div id="isotope" class="clearfix">
 
 						<div class="post columna c-6 medium-3 diseno">
 
@@ -298,14 +299,8 @@
 
 				</div><!-- width -->
 
-				<div class="proyectos">
-
-					<div class="areas full">
-						<div class="span c-4 prev">&nbsp;</div>
-						<div class="span c-4 close">&nbsp;</div>
-						<div class="span c-4 next">&nbsp;</div>
-					</div><!-- areas -->
-
+				<div class="overlay overlay-contentpush">
+					<button type="button" class="overlay-close">Close</button>
 					<div class="proyecto hp-indigo">
 
 						<div class="width">
@@ -329,6 +324,15 @@
 						</div><!-- width -->
 
 					</div><!-- hp-indigo -->
+				</div>
+
+				<div class="proyectos">
+
+					<div class="areas full">
+						<div class="span c-4 prev">&nbsp;</div>
+						<div class="span c-4 close">&nbsp;</div>
+						<div class="span c-4 next">&nbsp;</div>
+					</div><!-- areas -->
 
 				</div><!-- proyecto -->
 
@@ -342,11 +346,11 @@
 
 					<div class="columna c-12 medium-4 cardContainer">
 
-						<div class="card cuervo">
+						<div class="card cuervo flipped">
 
 							<div class="front">
 
-								<img src="images/aristiene.png" alt="">
+								<img class="block center" src="images/aristiene.png" alt="">
 
 								<h4>Alejandro Aristi</h4>
 
@@ -354,7 +358,7 @@
 
 							<div class="back">
 
-								<img src="images/aristiene.png" alt="">
+								<img class="block center" src="images/aristiene.png" alt="">
 
 								<h5>Marketing / Project Manager</h5>
 
@@ -374,11 +378,11 @@
 
 					<div class="columna c-12 medium-4 cardContainer">
 
-						<div class="card cuervo">
+						<div class="card cuervo flipped">
 
 							<div class="front">
 
-								<img src="images/aristiene.png" alt="">
+								<img class="block center" src="images/aristiene.png" alt="">
 
 								<h4>Miguel Cabral</h4>
 
@@ -386,7 +390,7 @@
 
 							<div class="back">
 
-								<img src="images/aristiene.png" alt="">
+								<img class="block center" src="images/aristiene.png" alt="">
 
 								<h5>Back-end / UX</h5>
 
@@ -406,11 +410,11 @@
 
 					<div class="columna c-12 medium-4 cardContainer">
 
-						<div class="card cuervo">
+						<div class="card cuervo flipped">
 
 							<div class="front">
 
-								<img src="images/aristiene.png" alt="">
+								<img class="block center" src="images/aristiene.png" alt="">
 
 								<h4>Raúl De Zamacona</h4>
 
@@ -418,7 +422,7 @@
 
 							<div class="back">
 
-								<img src="images/aristiene.png" alt="">
+								<img class="block center" src="images/aristiene.png" alt="">
 
 								<h5>Front-end / Diseño</h5>
 
@@ -446,7 +450,11 @@
 					<h3>Contáctanos</h3>
 				</div>
 
-				<div class="width columna c-12 medium-4 contacto-info">
+				<div class="mapa-wrapper columna c-12">
+					<div class="mapa columna c-12" id="mapa"></div>
+				</div><!-- mapa-wrapper -->
+
+				<div class="columna c-12 medium-4 contacto-info">
 
 					<div class="full datos">
 						<a href="mailto:hola@pcuervo.com">hola@pcuervo.com</a>
@@ -460,8 +468,8 @@
 
 					<div class="full redes">
 						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></a></i></li>
-							<li><a href="#"><i class="fa fa-twitter"></a></i></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 						</ul>
 					</div><!-- columna -->
 
@@ -471,9 +479,7 @@
 						<a href="#" class="boton">Comienza tu proyecto</a>
 					</div>
 
-				</div><!-- width -->
-
-				<div class="mapa" id="mapa"></div>
+				</div><!-- columna c-12 -->
 
 			</section><!-- seccion -->
 
@@ -486,7 +492,8 @@
 
 						<div class="paso show clearfix" data-paso="1">
 
-							<h4><small><em>1/4</em></small> - Selecciona el tipo de proyecto (uno o más):</h4>
+							<p>1/4</p>
+							<h4>Selecciona el tipo de proyecto (uno o más):</h4>
 
 							<div class="span" data-servicio="pagina">
 								<img src="images/diseno-hover.png" alt="">
@@ -558,14 +565,16 @@
 								<a href="#"><i class="fa fa-chevron-right"></i></a>
 							</div>
 
-
 						</div><!-- paso -->
 
 						<div class="paso hide clearfix" data-paso="2">
 
-							<h4><small><em>2/4</em></small> - ¿Cómo te llamas?</h4>
-							<input class="span c-10" type="text" name="nombre">
-							<div class="span c-2 next">
+							<p>2/4</p>
+
+							<h4>¿Cómo te llamas?</h4>
+
+							<input class="full" type="text" name="nombre">
+							<div class="full next">
 								<a href="#"><i class="fa fa-chevron-right"></i></a>
 							</div>
 
@@ -573,10 +582,12 @@
 
 						<div class="paso hide clearfix" data-paso="3">
 
-							<h4><small><em>3/4</em></small> - ¿Cúal es tu mail?</h4>
+							<p>3/4</p>
 
-							<input class="span c-10" type="email" name="email">
-							<div class="span c-2 next">
+							<h4>¿Cúal es tu mail?</h4>
+
+							<input class="full" type="email" name="email">
+							<div class="full next">
 								<a href="#"><i class="fa fa-chevron-right"></i></a>
 							</div>
 
@@ -584,10 +595,12 @@
 
 						<div class="paso hide clearfix" data-paso="4">
 
-							<h4>Cuéntanos más sobre tu proyecto<span>4/4</span></h4>
+							<p>4/4</p>
 
-							<textarea class="span c-10" name="cuentanos-mas"></textarea>
-							<div class="span c-2 submit">
+							<h4>Cuéntanos más sobre tu proyecto</h4>
+
+							<textarea class="block full" name="cuentanos-mas"></textarea>
+							<div class="full submit">
 								<a href="#"><i class="fa fa-chevron-right"></i></a>
 							</div>
 

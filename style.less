@@ -411,11 +411,7 @@ section{ position: relative;
 
 			img{ width: 50%; margin-bottom: @margen; }
 
-			&.back{ background: @claro;
-				h4{ margin-bottom: 0; color: @cuervo; }
-			}
-
-			&.front{ display: block; background: @cuervo; color: @claro;
+			&.back{ display: block; background: @cuervo; color: @claro;
 				h5{ color: @claro; text-transform: uppercase; text-align: center; .font( 1.2em, 1.4em, 'caecilia-light' ); }
 				hr{ width: 100%; height: 1px; margin-bottom: @margen; background: @claro; }
 				ul{ margin: 0; list-style: none; text-align: center;
@@ -425,6 +421,10 @@ section{ position: relative;
 						}
 					}
 				}
+			}
+
+			&.front{ background: @claro;
+				h4{ margin-bottom: 0; color: @cuervo; }
 			}
 		}
 
@@ -530,7 +530,7 @@ section{ position: relative;
 		.clear{ padding: 0; }
 
 		.datos{ margin-bottom: @margen; background: @cuervo;
-			a, p{ .font(1.2em, 1.2em, 'caecilia-roman'); color: @claro; }
+			a, p{ .font(1.2em, 1.2em, 'caecilia-roman'); }
 			a{ text-decoration: none; }
 			p{ margin-bottom: 0; }
 		}
@@ -670,10 +670,6 @@ section{ position: relative;
 				img{ width: 80%; }
 
 				&.back{ 
-					h4{ .font(1em, 1.2em) }
-				}
-
-				&.front{ 
 					h5{ .font( 0.9em, 1.1em, 'caecilia-light' ); }
 					ul{ 
 						li{ margin: 0 @margen/4;
@@ -682,6 +678,11 @@ section{ position: relative;
 							}
 						}
 					}
+				}
+
+				&.front{ 
+					h4{ .font(1em, 1.2em) }
+					
 				}
 			}
 		}
@@ -767,30 +768,30 @@ section{ position: relative;
 	.medium{ display: block; }
 	.no-medium{ display: none; }
 
-	body { background: #00FF00; }
-
 	/*** GENERAL ***/
-	h2{ .font(6em, 1.1em); }
+	h2{ .font(4em, 1em);
+		span{ .font(1em, 1.1em, 'gotham-light') }
+	}
 
-	h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light');.fadein;}
+	h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light');}
 
 	h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); }
 
 	h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); }
 
-	.centro{ width: 81%; margin: 0; padding-top: 14%; position: relative; top: 10%; left: 10%; .fadein; }
+	.centro{ width: 81%; margin: 0; padding-top: 5%; position: relative; top: 10%; left: 10%; }
 
 	.boton{ width: auto; }
 
 	/*** HEADER ***/
 	header{ position: relative; top: (@margen*2); z-index: 99; background: none;
 
-		h1{
+		h1{ display: block;
 			img{ margin: 0; }
 		}
 
-		nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; top: (@margen*2);
-			a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition;
+		nav{ display: block; .font(1em, 1em, 'gotham-medium');top: (@margen*2);
+			a{ padding: @margen/3; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
 				&:hover{ background: @highlight; }
 			}
 
@@ -815,14 +816,57 @@ section{ position: relative;
 
 	/*** SECTION ***/
 
-	section{ padding-top: (@margen*8); position: relative;
+	section{ padding-top: (@margen*4); position: relative;
 		&.home{ height: 100%; padding-top: 0;
-			p{ .font(1.8em, 1.6em, 'caecilia-light'); color: @claro; }
+			p{ .font(1.4em, 1.4em, 'caecilia-light'); color: @claro; }
 		}
 	}
 
 	// Card Container
-	.cardContainer{ margin-bottom: 0; }
+	.card{ 
+		> div{ padding: @margen; }
+		&.servicio{
+
+			img{ display: block; width: 50%;}
+			h4{ margin-bottom: @margen/2; .font(1.4em, 1.2em); }
+			hr{ width: 20%; height: 1px; margin: 0 auto @margen auto; }
+			li{ .font(1.2em, 1.1em, 'caecilia-roman');}
+			p{ .font(1.2em, 1.1em, 'caecilia-roman'); }
+
+			> div{
+
+				&.front{ background: @highlight; }
+				&.back{ display: block; background: @claro; color: @highlight;
+					h4{ color: @cuervo; }
+					hr{ width: 100%; background: @cuervo; }
+				}
+			}
+		}
+
+		&.cuervo{
+
+			> div{
+
+				img{ width: 80%; }
+
+				&.back{ 
+					h5{ .font( 1.2em, 1.2em, 'caecilia-light' ); }
+					ul{ 
+						li{ margin: 0 @margen/3;
+							a{ 
+								i{ font-size: 1.4em; }
+							}
+						}
+					}
+				}
+
+				&.front{ 
+					h4{ .font(1.4em, 1.2em) }
+					
+				}
+			}
+		}
+	}
 
 	// Portafolio
 	.portafolio{
@@ -833,18 +877,17 @@ section{ position: relative;
 	}
 
 	// Contacto
-	.contacto { height: 80%; position: relative;
+	.contacto { height: 100%; position: relative;
 
-		.mapa { height: 100%; }
+		.mapa-wrapper{ height: 500px; 
+			.mapa { height: 100%; position: absolute; }
+		}
 
-		.contacto-info{ position: absolute; top: (@margen*10); left: 5%;
 
-			> div{ padding: @margen; }
-
-			.clear{ padding: 0; }
+		.contacto-info{ position: absolute; left: 5%;
 
 			.datos{ margin-bottom: @margen; background: @cuervo;
-				a, p{ .font(1.6em, 1.8em, 'caecilia-roman'); color: @claro; }
+				a, p{ .font(1.4em, 1.6em, 'caecilia-roman'); color: @claro; }
 				a{ text-decoration: none; }
 				p{ margin-bottom: 0; }
 			}

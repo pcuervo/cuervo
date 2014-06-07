@@ -19,6 +19,18 @@
 		navContacto();
 		// Flips de servicios y nosotros
 		flipsClick();
+		// Slide up de contacto
+		mostarContacto();
+
+		$("nav a").click(function(e) {
+			e.preventDefault();
+			var id = $(this).attr('href');
+			console.log(id);
+		   	scrollToSeccion(id)
+		});
+
+		
+		
 
 		// Controla js en movil portrait
 		mediaCheck({
@@ -54,7 +66,7 @@
 					//Palabras home
 					rotarPalabras();
 					//FadeIn elementos al hacer scroll
-					fadeInSecciones();
+					//fadeInSecciones();
 					// Flips de servicios y nosotros
 					flipsHover();
 	    		},
@@ -63,6 +75,10 @@
 		    	}
 		});
 	});
+
+
+
+	
 
 })(jQuery);
 
@@ -110,11 +126,7 @@ function fullScreen(height_property, el){
 	$(el).css(height_property, altoWindow);
 }
 function fadeInSecciones(){
-	var invisibles = $('
-		h3,
-		header,
-		.centro
-	');
+	var invisibles = $('h3, header, .centro');
 	invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
 	  if (isInView) {
 	    // element is now visible in the viewport
@@ -202,8 +214,8 @@ function procesaContacto(){
 }
 
 function cardHeight(card){
-	frontHeight = card.find('.front').height(),
-	backHeight = card.find('.back').height();
+	var frontHeight = card.find('.front').height();
+	var backHeight = card.find('.back').height();
 
 	if (frontHeight > backHeight) {
 		card.height(frontHeight);
@@ -232,16 +244,27 @@ function navContacto(){
 		e.preventDefault();
 		var currentStep = $(this).parent().parent().attr('data-paso');
 		nextStep(currentStep);
+		
 	});
 }
 function nextStep(current){
 	// esconde paso actual
-	$('.paso[data-paso="'+current+'"]').removeClass('show');
-	$('.paso[data-paso="'+current+'"]').addClass('hide');
+	offsetCurrent = $('.paso[data-paso="'+current+'"]').offset();
+	topCurrent = offsetCurrent.top; 
+
+	$('.paso[data-paso="'+current+'"]').slideUp('fast');
+	
+	//$('.paso[data-paso="'+current+'"]').removeClass('show');
+	//$('.paso[data-paso="'+current+'"]').addClass('hide');
+
 	var next = parseInt(current) + 1;
+
+	$('.paso[data-paso="'+next+'"]').show('slow');
+
+	
 	// muestra siguiente paso
-	$('.paso[data-paso="'+next+'"]').removeClass('hide');
-	$('.paso[data-paso="'+next+'"]').addClass('show');
+	//$('.paso[data-paso="'+next+'"]').removeClass('hide');
+	//$('.paso[data-paso="'+next+'"]').addClass('show');
 }
 function mostrarMsgContacto(nombre){
 }
@@ -311,4 +334,15 @@ function rotarPalabraCodigo () {
 		codigo.text(palabras_codigo[item_codigo]);
 		rotarPalabraDiseno();
 	}, 2000);
+}
+
+function mostarContacto(){
+	$('.centro a, .comienza a').on('click', function(e){
+		$('.forma').slideDown('slow');
+	});
+}
+
+function scrollToSeccion(id){
+	var aTag = $(id);
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
 }

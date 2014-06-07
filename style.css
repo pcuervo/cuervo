@@ -790,21 +790,49 @@ section.home p {
   color: #ffffff;
 }
 .portafolio .post {
-  margin-bottom: 20px;
-  padding: 1px;
-  background: #00a8ab;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
 }
 .portafolio .post img {
-  margin: 0 0 6.666666666666667px 0;
+  margin: 0;
+  vertical-align: middle;
 }
-.portafolio .post h6 {
+.portafolio .post .info {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   text-align: center;
 }
-.portafolio .post p {
-  margin: 5px;
+.portafolio .post .info h6 {
+  margin: 100% 0 0 0;
+  color: #e74c3c;
+}
+.portafolio .post .info p {
+  visibility: hidden;
+  margin: 100% 0 0 0;
   font: 0.9em / 1.4em 'caecilia-light';
-  color: #ffffff;
+  color: #00a8ab;
   text-align: center;
+}
+.portafolio .post:hover .info {
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+  -moz-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+  -ms-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+  -o-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+}
+.portafolio .post:hover .info h6 {
+  margin-top: 20%;
+  visibility: visible;
+  -webkit-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+  -moz-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+  -ms-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
+  -o-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
 }
 .portafolio .overlay {
   width: 100%;
@@ -1493,11 +1521,8 @@ section.home p {
   .cardContainer {
     margin-bottom: 0;
   }
-  .portafolio .tags {
-    margin: 0 0 80px 0;
-  }
-  .portafolio .tags li {
-    padding: 5px 3.3333333333333335px 3.3333333333333335px 3.3333333333333335px;
+  .portafolio .post:hover .info h6 {
+    margin-top: 24%;
   }
   .contacto {
     height: 80%;
@@ -1642,6 +1667,17 @@ section.home p {
   body {
     background: #FF0000;
   }
+  .portafolio .post:hover .info h6 {
+    margin-top: 10%;
+  }
+  .portafolio .post:hover .info p {
+    margin-top: 10%;
+    visibility: visible;
+    -webkit-transition: all 500ms cubic-bezier(0.325, 0, 0, 1);
+    -moz-transition: all 500ms cubic-bezier(0.325, 0, 0, 1);
+    -ms-transition: all 500ms cubic-bezier(0.325, 0, 0, 1);
+    -o-transition: all 500ms cubic-bezier(0.325, 0, 0, 1);
+  }
 }
 /* min-width 1025px, large screens */
 /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
@@ -1717,6 +1753,9 @@ section.home p {
   }
   .span.xlarge-12 {
     width: 99.6%;
+  }
+  body {
+    background: #FFFF00;
   }
   .xlarge {
     display: block;

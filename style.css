@@ -339,27 +339,33 @@ figure {
   -o-transition: 0.5;
 }
 .container .overlay-open {
-  -webkit-transform: translateX(50%);
-  transform: translateX(50%);
+  -webkit-transform: translate(50%, 0);
+  -moz-transform: translate(50%, 0);
+  -ms-transform: translate(50%, 0);
+  -o-transform: translate(50%, 0);
 }
-.container::after {
-  content: '';
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
-  transition: opacity 0.5s, visibility 0s 0.5s;
-}
-.container.overlay-open::after {
+.container .overlay-open::after {
   visibility: visible;
   opacity: 1;
   -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+}
+.container::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-transition: 'opacity 0.5s, visibility 0s 0.5s';
+  -moz-transition: 'opacity 0.5s, visibility 0s 0.5s';
+  -ms-transition: 'opacity 0.5s, visibility 0s 0.5s';
+  -o-transition: 'opacity 0.5s, visibility 0s 0.5s';
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .width {
   width: 90%;
@@ -827,7 +833,7 @@ section.home p {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-.portafolio .overlay-contentpush {
+.portafolio .overlay.overlay-contentpush {
   background: #99cc33;
   visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -837,12 +843,14 @@ section.home p {
   -webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
   transition: transform 0.5s, visibility 0s 0.5s;
 }
-.portafolio .overlay-contentpush.open {
+.portafolio.open {
   visibility: visible;
   -webkit-transform: translateX(0%);
   transform: translateX(0%);
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 @media screen and (max-height: 30.5em) {
   .portafolio .overlay nav {

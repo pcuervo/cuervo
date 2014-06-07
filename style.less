@@ -201,6 +201,13 @@ figure {margin: 0;}
 	-o-transform: 		rotateY(@deg);
 }
 
+.translate (@x, @y:0) {
+	-webkit-transform:       translate(@x, @y);
+	-moz-transform: 	 translate(@x, @y);
+	-ms-transform: 		 translate(@x, @y);
+	-o-transform: 		 translate(@x, @y);
+}
+
 .fadein(){
 	opacity: 0; .transition;
 }
@@ -219,36 +226,13 @@ figure {margin: 0;}
 //layout
 .container{ min-width: 300px; height: 100%; overflow-x: hidden; .transition(0.5);
 
-	.overlay-open {
-		-webkit-transform: translateX(50%);
-		transform: translateX(50%);
+	.overlay-open { .translate(50%, 0);
+		&::after { visibility: visible; opacity: 1; .transition(opacity 0.5s); }
 	}
+
+	&::after { content: ''; width: 100%; height: 100%; opacity: 0; visibility: hidden; background: rgba(0,0,0,0.6); .transition( 'opacity 0.5s, visibility 0s 0.5s'); position: absolute; top: 0; left: 0; }
+
 }
-
-
-
-
-
-	.container::after {
-		content: '';
-		opacity: 0;
-		visibility: hidden;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0,0,0,0.6);
-		-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
-		transition: opacity 0.5s, visibility 0s 0.5s;
-	}
-
-	.container.overlay-open::after {
-		visibility: visible;
-		opacity: 1;
-		-webkit-transition: opacity 0.5s;
-		transition: opacity 0.5s;
-	}
 
 .width{ width: 90%; min-width: 300px; max-width: 2200px; margin: 0 auto @margen auto; }
 .full{ width: 100% !important;
@@ -457,25 +441,19 @@ section{ position: relative;
 
 		.proyecto { text-align: center; position: relative; top: 50%; height: 60%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
 
+		&.overlay-contentpush { background: rgba(153,204,51,1); visibility: hidden; .backface(hidden); -webkit-transform: translateX(-100%); transform: translateX(-100%); -webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s; transition: transform 0.5s, visibility 0s 0.5s;
+
+		}
+
 	}
 
-	.overlay-contentpush {
-		background: rgba(153,204,51,1);
-		visibility: hidden;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
-		-webkit-transform: translateX(-100%);
-		transform: translateX(-100%);
-		-webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s;
-		transition: transform 0.5s, visibility 0s 0.5s;
-	}
 
-	.overlay-contentpush.open {
+
+	&.open {
 		visibility: visible;
 		-webkit-transform: translateX(0%);
 		transform: translateX(0%);
-		-webkit-transition: -webkit-transform 0.5s;
-		transition: transform 0.5s;
+		.transition;
 	}
 
 	@media screen and (max-height: 30.5em) {

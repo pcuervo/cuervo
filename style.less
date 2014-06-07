@@ -124,15 +124,15 @@ figure {margin: 0;}
 
 @indigo: 	#11a0db;
 
-@twitter:     #2aa8df;
-@facebook:    #3c5a97;
-@pinterest:   #c92027;
-@gplus:     #dd4b39;
-@linkedin:    #007bb6;
+@twitter:     	#2aa8df;
+@facebook:    	#3c5a97;
+@pinterest:   	#c92027;
+@gplus:     	#dd4b39;
+@linkedin:    	#007bb6;
 
-@warning:     #e74c3c;
+@warning:     	#e74c3c;
 
-@margen: 	20px;
+@margen: 		20px;
 
 /*** MIXINS ***/
 
@@ -141,24 +141,24 @@ figure {margin: 0;}
 }
 
 .border-radiuses (@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
-  -webkit-border-top-right-radius:    @topright;
-  -webkit-border-bottom-right-radius: @bottomright;
-  -webkit-border-bottom-left-radius:  @bottomleft;
-  -webkit-border-top-left-radius:     @topleft;
+	-webkit-border-top-right-radius:    @topright;
+	-webkit-border-bottom-right-radius: @bottomright;
+	-webkit-border-bottom-left-radius:  @bottomleft;
+	-webkit-border-top-left-radius:     @topleft;
 
-  -moz-border-radius-topright:        @topright;
-  -moz-border-radius-bottomright:     @bottomright;
-  -moz-border-radius-bottomleft:      @bottomleft;
-  -moz-border-radius-topleft:         @topleft;
+	-moz-border-radius-topright:        @topright;
+	-moz-border-radius-bottomright:     @bottomright;
+	-moz-border-radius-bottomleft:      @bottomleft;
+	-moz-border-radius-topleft:         @topleft;
 
-  border-top-right-radius:            @topright;
-  border-bottom-right-radius:         @bottomright;
-  border-bottom-left-radius:          @bottomleft;
-  border-top-left-radius:             @topleft;
+	border-top-right-radius:            @topright;
+	border-bottom-right-radius:         @bottomright;
+	border-bottom-left-radius:          @bottomleft;
+	border-top-left-radius:             @topleft;
 
-  -moz-background-clip:    padding;
-  -webkit-background-clip: padding-box;
-  background-clip:         padding-box;
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
 }
 
 .border-radius (@radius: 4px) {
@@ -297,7 +297,7 @@ p{ margin-bottom: 1em; }
 
 
 /************
- MOBILE FIRST
+ MOBILE LAST
  ************/
 
  /*** GENERAL ***/
@@ -319,18 +319,16 @@ h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @claro; te
 
 h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
 
-.boton{ padding: @margen; background: @highlight; color: @claro; text-decoration: none; .font(1.1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
+.boton{ padding: @margen/2; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
 
 .se-ve{ opacity: 1 !important; }
 
  /*** HEADER ***/
 
-.centro { width: 90%; padding-top:10%;  position: relative; left: 4%; margin: 0; }
+.centro { width: 85%; padding-top:5%;  position: relative; left: 7%; margin: 0; }
 
- #home {
-
+ #home { margin-bottom: @margen;
  	#logo-movil { padding-top:@margen; }
-
  }
 
 header{ position: fixed; bottom:0; z-index: 2; width: 100%;
@@ -357,12 +355,11 @@ header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 section{ position: relative;
 
 	&.home{ height: 100%; padding-top: 0;
-		p{ .font(1em, 1.2em, 'caecilia-light'); color: @claro; margin-top:@margen; }
+		p{ .font(1.3em, 1.4em, 'caecilia-roman'); color: @claro; margin-top:@margen; }
 	}
 }
 
 //Card Container
-
 .cardContainer{ .perspective(1500px); .transition; position: relative; margin-bottom: (@margen*3); }
 
 .card{ width: 100%; height: 100%; .preserve; .transition;
@@ -398,11 +395,11 @@ section{ position: relative;
 
 			img{ width: 50%; margin-bottom: @margen; }
 
-			&.front{ background: @claro;
+			&.back{ background: @claro;
 				h4{ margin-bottom: 0; color: @cuervo; }
 			}
 
-			&.back{ display: block; background: @cuervo; color: @claro;
+			&.front{ display: block; background: @cuervo; color: @claro;
 				h5{ color: @claro; text-transform: uppercase; text-align: center; .font( 1.2em, 1.4em, 'caecilia-light' ); }
 				hr{ width: 100%; height: 1px; margin-bottom: @margen; background: @claro; }
 				ul{ margin: 0; list-style: none; text-align: center;
@@ -506,6 +503,8 @@ section{ position: relative;
 
 		> div{ padding: @margen; }
 
+		h6 { .font(1.4em, 1.4em); }
+
 		.clear{ padding: 0; }
 
 		.datos{ margin-bottom: @margen; background: @cuervo;
@@ -533,13 +532,13 @@ section{ position: relative;
 }
 
 // Forma
-.forma{
+.forma{ margin: @margen 0 @margen*4 0;
 
-	.paso{ margin-bottom: @margen*2;
+	.paso{ margin-bottom: @margen/2;
 
 		> p{ margin: 0; text-align: right; .font(1em, 1em, 'caecilia-roman'); font-style: italic; color: @cuervo; }
 
-		h4{ text-align: left; text-transform: none; .font(1.2em, 1.3em, 'caecilia-light'); color: @cuervo;}
+		h4{ margin-bottom: @margen/2; text-align: left; text-transform: none; .font(1.4em, 1.3em, 'caecilia-light'); color: @cuervo;}
 
 		.next, .submit{ height: 15vw; }
 
@@ -579,13 +578,8 @@ section{ position: relative;
 }
 
 /*** MEDIA QUERIES ***/
+
 // Small screens
-@media only screen {
-
-	body { background: #FFFF00; }
-
-} /* Define mobile styles */
-
 @media only screen and (min-width: 25em) {
 	//Framework
 	.columna{
@@ -623,9 +617,94 @@ section{ position: relative;
 	.small{ display: block; }
 	.no-small{ display: none; }
 
-	body { background: #0000FF; }
+	//Card Container
+	.card{
 
-	header { background: @cuervo; }
+		> div{ padding: @margen @margen/2; }
+
+		&.servicio{
+
+			img{ display: block; width: 40%; margin: 0 auto @margen auto; }
+			h4{ margin-bottom: @margen/2; .font(1em, 1em); }
+			hr{ width: 20%; height: 1px; margin: 0 auto @margen/2 auto; border: 0; background: @claro; }
+			ul{ margin: 0; list-style: none; }
+			li{ .font(1em, 1.1em, 'caecilia-roman'); color: @claro; text-align: center; }
+			p{ margin: 0; .font(1em, 1.1em, 'caecilia-roman'); color: @cuervo; }
+
+			> div{
+
+				&.front{ background: @highlight; }
+				&.back{ display: block; background: @claro; color: @highlight;
+					h4{ color: @cuervo; }
+					hr{ width: 100%; background: @cuervo; }
+				}
+			}
+		}
+
+		&.cuervo{
+
+			> div{
+
+				img{ width: 80%; }
+
+				&.back{
+					h4{ .font(1em, 1.2em) }
+				}
+
+				&.front{
+					h5{ .font( 0.9em, 1.1em, 'caecilia-light' ); }
+					ul{
+						li{ margin: 0 @margen/4;
+							a{
+								i{ font-size: 1.1em; }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Forma
+	.forma{
+
+		.paso{
+
+			> p{ margin: 0; text-align: right; .font(1em, 1em, 'caecilia-roman'); font-style: italic; color: @cuervo; }
+
+			h4{ margin-bottom: @margen/2; text-align: left; text-transform: none; .font(1.4em, 1.3em, 'caecilia-light'); color: @cuervo;}
+
+			.next, .submit{ height: 15vw; }
+
+			.next, .submit{ background: @highlight !important; display: table;
+				a{ display: block; color: @claro; display: table-cell; vertical-align: middle;
+					i{ width: 100%; font-size: 2em; text-align: center; }
+				}
+			}
+
+			> div{ width: 22vw; height: 22vw; }
+
+			> input, > textarea{ height: 15vw; padding: (@margen/2); border: none; background: @cuervo; .font(2em, 1em, 'caecilia-roman'); color: @claro;
+				&:focus{ outline-color: @cuervo; }
+			}
+
+			> textarea{ height: (@margen*5); .font(1.4em, 1.6em, 'caecilia-roman'); }
+
+			&[data-paso='1']{
+				> div{ padding: (@margen/2); border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
+					&:hover, &.activo{ background: @highlight; }
+				}
+
+				.next{ height: 22vw; }
+
+				img{ display: block; width: 50%; margin: auto; }
+
+				h5{ .font(0.9em, 1.2em, 'caecilia-light'); text-align: center; color: @claro; }
+
+			}
+		}
+	}
+
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens

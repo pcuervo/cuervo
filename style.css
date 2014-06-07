@@ -498,7 +498,7 @@ p {
   display: none;
 }
 /************
- MOBILE FIRST
+ MOBILE LAST
  ************/
 /*** GENERAL ***/
 ::selection {
@@ -554,11 +554,11 @@ h6 {
   color: #ffffff;
 }
 .boton {
-  padding: 20px;
+  padding: 10px;
   background: #e74c3c;
   color: #ffffff;
   text-decoration: none;
-  font: 1.1em / 1em 'gotham-book';
+  font: 1em / 1em 'gotham-book';
   text-transform: uppercase;
   width: 100%;
   text-align: center;
@@ -568,11 +568,14 @@ h6 {
 }
 /*** HEADER ***/
 .centro {
-  width: 90%;
-  padding-top: 10%;
+  width: 85%;
+  padding-top: 5%;
   position: relative;
-  left: 4%;
+  left: 7%;
   margin: 0;
+}
+#home {
+  margin-bottom: 20px;
 }
 #home #logo-movil {
   padding-top: 20px;
@@ -630,7 +633,7 @@ section.home {
   padding-top: 0;
 }
 section.home p {
-  font: 1em / 1.2em 'caecilia-light';
+  font: 1.3em / 1.4em 'caecilia-roman';
   color: #ffffff;
   margin-top: 20px;
 }
@@ -723,44 +726,44 @@ section.home p {
   width: 50%;
   margin-bottom: 20px;
 }
-.card.cuervo > div.front {
+.card.cuervo > div.back {
   background: #ffffff;
 }
-.card.cuervo > div.front h4 {
+.card.cuervo > div.back h4 {
   margin-bottom: 0;
   color: #00a8ab;
 }
-.card.cuervo > div.back {
+.card.cuervo > div.front {
   display: block;
   background: #00a8ab;
   color: #ffffff;
 }
-.card.cuervo > div.back h5 {
+.card.cuervo > div.front h5 {
   color: #ffffff;
   text-transform: uppercase;
   text-align: center;
   font: 1.2em / 1.4em 'caecilia-light';
 }
-.card.cuervo > div.back hr {
+.card.cuervo > div.front hr {
   width: 100%;
   height: 1px;
   margin-bottom: 20px;
   background: #ffffff;
 }
-.card.cuervo > div.back ul {
+.card.cuervo > div.front ul {
   margin: 0;
   list-style: none;
   text-align: center;
 }
-.card.cuervo > div.back ul li {
+.card.cuervo > div.front ul li {
   display: inline;
   margin: 0 20px;
 }
-.card.cuervo > div.back ul li a {
+.card.cuervo > div.front ul li a {
   color: #ffffff;
   text-decoration: none;
 }
-.card.cuervo > div.back ul li a i {
+.card.cuervo > div.front ul li a i {
   font-size: 1.6em;
 }
 .portafolio .tags {
@@ -927,6 +930,9 @@ section.home p {
 .contacto .contacto-info > div {
   padding: 20px;
 }
+.contacto .contacto-info h6 {
+  font: 1.4em / 1.4em 'gotham-medium';
+}
 .contacto .contacto-info .clear {
   padding: 0;
 }
@@ -971,8 +977,11 @@ section.home p {
   display: block;
   text-align: center;
 }
+.forma {
+  margin: 20px 0 80px 0;
+}
 .forma .paso {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .forma .paso > p {
   margin: 0;
@@ -982,9 +991,10 @@ section.home p {
   color: #00a8ab;
 }
 .forma .paso h4 {
+  margin-bottom: 10px;
   text-align: left;
   text-transform: none;
-  font: 1.2em / 1.3em 'caecilia-light';
+  font: 1.4em / 1.3em 'caecilia-light';
   color: #00a8ab;
 }
 .forma .paso .next,
@@ -1058,12 +1068,6 @@ section.home p {
   color: #ffffff;
 }
 /*** MEDIA QUERIES ***/
-@media only screen {
-  body {
-    background: #FFFF00;
-  }
-}
-/* Define mobile styles */
 @media only screen and (min-width: 25em) {
   .columna.small-1 {
     width: 6.3%;
@@ -1143,11 +1147,152 @@ section.home p {
   .no-small {
     display: none;
   }
-  body {
-    background: #0000FF;
+  .card > div {
+    padding: 20px 10px;
   }
-  header {
+  .card.servicio img {
+    display: block;
+    width: 40%;
+    margin: 0 auto 20px auto;
+  }
+  .card.servicio h4 {
+    margin-bottom: 10px;
+    font: 1em / 1em 'gotham-medium';
+  }
+  .card.servicio hr {
+    width: 20%;
+    height: 1px;
+    margin: 0 auto 10px auto;
+    border: 0;
+    background: #ffffff;
+  }
+  .card.servicio ul {
+    margin: 0;
+    list-style: none;
+  }
+  .card.servicio li {
+    font: 1em / 1.1em 'caecilia-roman';
+    color: #ffffff;
+    text-align: center;
+  }
+  .card.servicio p {
+    margin: 0;
+    font: 1em / 1.1em 'caecilia-roman';
+    color: #00a8ab;
+  }
+  .card.servicio > div.front {
+    background: #e74c3c;
+  }
+  .card.servicio > div.back {
+    display: block;
+    background: #ffffff;
+    color: #e74c3c;
+  }
+  .card.servicio > div.back h4 {
+    color: #00a8ab;
+  }
+  .card.servicio > div.back hr {
+    width: 100%;
     background: #00a8ab;
+  }
+  .card.cuervo > div img {
+    width: 80%;
+  }
+  .card.cuervo > div.back h4 {
+    font: 1em / 1.2em 'gotham-medium';
+  }
+  .card.cuervo > div.front h5 {
+    font: 0.9em / 1.1em 'caecilia-light';
+  }
+  .card.cuervo > div.front ul li {
+    margin: 0 5px;
+  }
+  .card.cuervo > div.front ul li a i {
+    font-size: 1.1em;
+  }
+  .forma .paso > p {
+    margin: 0;
+    text-align: right;
+    font: 1em / 1em 'caecilia-roman';
+    font-style: italic;
+    color: #00a8ab;
+  }
+  .forma .paso h4 {
+    margin-bottom: 10px;
+    text-align: left;
+    text-transform: none;
+    font: 1.4em / 1.3em 'caecilia-light';
+    color: #00a8ab;
+  }
+  .forma .paso .next,
+  .forma .paso .submit {
+    height: 15vw;
+  }
+  .forma .paso .next,
+  .forma .paso .submit {
+    background: #e74c3c !important;
+    display: table;
+  }
+  .forma .paso .next a,
+  .forma .paso .submit a {
+    display: block;
+    color: #ffffff;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .forma .paso .next a i,
+  .forma .paso .submit a i {
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+  }
+  .forma .paso > div {
+    width: 22vw;
+    height: 22vw;
+  }
+  .forma .paso > input,
+  .forma .paso > textarea {
+    height: 15vw;
+    padding: 10px;
+    border: none;
+    background: #00a8ab;
+    font: 2em / 1em 'caecilia-roman';
+    color: #ffffff;
+  }
+  .forma .paso > input:focus,
+  .forma .paso > textarea:focus {
+    outline-color: #00a8ab;
+  }
+  .forma .paso > textarea {
+    height: 100px;
+    font: 1.4em / 1.6em 'caecilia-roman';
+  }
+  .forma .paso[data-paso='1'] > div {
+    padding: 10px;
+    border: 1px solid #ffffff;
+    background: #00a8ab;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+  }
+  .forma .paso[data-paso='1'] > div:hover,
+  .forma .paso[data-paso='1'] > div.activo {
+    background: #e74c3c;
+  }
+  .forma .paso[data-paso='1'] .next {
+    height: 22vw;
+  }
+  .forma .paso[data-paso='1'] img {
+    display: block;
+    width: 50%;
+    margin: auto;
+  }
+  .forma .paso[data-paso='1'] h5 {
+    font: 0.9em / 1.2em 'caecilia-light';
+    text-align: center;
+    color: #ffffff;
   }
 }
 /* max-width 640px, mobile-only styles, use when QAing mobile issues */

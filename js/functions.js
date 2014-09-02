@@ -29,8 +29,8 @@
 		   	scrollToSeccion(id)
 		});
 
-		
-		
+
+
 
 		// Controla js en movil portrait
 		mediaCheck({
@@ -78,7 +78,7 @@
 
 
 
-	
+
 
 })(jQuery);
 
@@ -244,16 +244,16 @@ function navContacto(){
 		e.preventDefault();
 		var currentStep = $(this).parent().parent().attr('data-paso');
 		nextStep(currentStep);
-		
+
 	});
 }
 function nextStep(current){
 	// esconde paso actual
 	offsetCurrent = $('.paso[data-paso="'+current+'"]').offset();
-	topCurrent = offsetCurrent.top; 
+	topCurrent = offsetCurrent.top;
 
 	$('.paso[data-paso="'+current+'"]').slideUp('fast');
-	
+
 	//$('.paso[data-paso="'+current+'"]').removeClass('show');
 	//$('.paso[data-paso="'+current+'"]').addClass('hide');
 
@@ -261,7 +261,7 @@ function nextStep(current){
 
 	$('.paso[data-paso="'+next+'"]').show('slow');
 
-	
+
 	// muestra siguiente paso
 	//$('.paso[data-paso="'+next+'"]').removeClass('hide');
 	//$('.paso[data-paso="'+next+'"]').addClass('show');
@@ -343,6 +343,10 @@ function mostarContacto(){
 }
 
 function scrollToSeccion(id){
-	var aTag = $(id);
-    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+	var seccion = $(id);
+	//var divPosicion = seccion.offset().top;
+	var divPosicion = seccion.scrollTop();
+
+	//$('html, body').animate({scrollTop: divPosicion});
+
 }

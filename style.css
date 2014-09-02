@@ -371,7 +371,8 @@ figure {
   width: 90%;
   min-width: 300px;
   max-width: 2200px;
-  margin: 0 auto 20px auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .full {
   width: 100% !important;
@@ -626,11 +627,8 @@ header #btn-movil a {
 }
 /*** SECTION ***/
 section {
+  padding: 40px;
   position: relative;
-}
-section.home {
-  height: 100%;
-  padding-top: 0;
 }
 section.home p {
   font: 1.3em / 1.4em 'caecilia-roman';
@@ -774,7 +772,7 @@ section.home p {
 .portafolio .tags li {
   display: inline-block;
   margin: 0 10px 10px 0;
-  padding: 6.666666666666667px 6.666666666666667px 6.666666666666667px 6.666666666666667px;
+  padding: 6.66666667px 6.66666667px 6.66666667px 6.66666667px;
   border-bottom: 1px solid #e74c3c;
   font: 1em / 1em 'caecilia-light';
   color: #00a8ab;
@@ -1439,10 +1437,11 @@ section.home p {
   }
   /*** HEADER ***/
   header {
-    position: relative;
-    top: 40px;
-    z-index: 99;
-    background: none;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    z-index: 999;
   }
   header h1 {
     display: block;
@@ -1456,7 +1455,7 @@ section.home p {
     top: 40px;
   }
   header nav a {
-    padding: 6.666666666666667px;
+    padding: 6.66666667px;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
@@ -1474,7 +1473,7 @@ section.home p {
   }
   #menu-fijo img {
     width: 50%;
-    margin: 6.666666666666667px 0;
+    margin: 6.66666667px 0;
   }
   #menu-fijo.fixed {
     position: fixed;
@@ -1508,10 +1507,6 @@ section.home p {
   section {
     padding-top: 80px;
     position: relative;
-  }
-  section.home {
-    height: 100%;
-    padding-top: 0;
   }
   section.home p {
     font: 1.4em / 1.4em 'caecilia-light';
@@ -1561,7 +1556,7 @@ section.home p {
     font: 1.2em / 1.2em 'caecilia-light';
   }
   .card.cuervo > div.back ul li {
-    margin: 0 6.666666666666667px;
+    margin: 0 6.66666667px;
   }
   .card.cuervo > div.back ul li a i {
     font-size: 1.4em;
@@ -1708,9 +1703,6 @@ section.home p {
   }
   .no-large {
     display: none;
-  }
-  body {
-    background: #FF0000;
   }
   .portafolio .post:hover .info h6 {
     margin-top: 10%;

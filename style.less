@@ -234,7 +234,7 @@ figure {margin: 0;}
 
 }
 
-.width{ width: 90%; min-width: 300px; max-width: 2200px; margin: 0 auto @margen auto; }
+.width{ width: 90%; min-width: 300px; max-width: 2200px; margin-left: auto; margin-right: auto; }
 .full{ width: 100% !important;
   //img{ width: 100%; height: auto; }
 }
@@ -341,7 +341,6 @@ header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
 			&:hover{ background: @highlight; }
 		}
-
 	}
 
 	#btn-movil {
@@ -352,9 +351,8 @@ header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 
 /*** SECTION ***/
 
-section{ position: relative;
-
-	&.home{ height: 100%; padding-top: 0;
+section{ padding: (@margen*2); position: relative;
+	&.home{
 		p{ .font(1.3em, 1.4em, 'caecilia-roman'); color: @claro; margin-top:@margen; }
 	}
 }
@@ -506,19 +504,14 @@ section{ position: relative;
 	}
 
 	.contacto-info{
-
 		> div{ padding: @margen; }
-
 		h6 { .font(1.4em, 1.4em); }
-
 		.clear{ padding: 0; }
-
 		.datos{ margin-bottom: @margen; background: @cuervo;
 			a, p{ .font(1.2em, 1.2em, 'caecilia-roman'); }
 			a{ text-decoration: none; }
 			p{ margin-bottom: 0; }
 		}
-
 		.redes{ margin-bottom: @margen; background: @cuervo;
 			ul{ margin: 0; list-style: none; text-align: center;
 				li{ display: inline-block; margin: 0 @margen;
@@ -528,13 +521,10 @@ section{ position: relative;
 				}
 			}
 		}
-
 		.comienza{  padding: 0;
 			.boton{ display: block; text-align: center; }
 		}
-
 	}
-
 }
 
 // Forma
@@ -668,9 +658,9 @@ section{ position: relative;
 					}
 				}
 
-				&.front{ 
+				&.front{
 					h4{ .font(1em, 1.2em) }
-					
+
 				}
 			}
 		}
@@ -764,23 +754,18 @@ section{ position: relative;
 	h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); }
 
 	.centro{ width: 81%; margin: 0; padding-top: 5%; position: relative; top: 10%; left: 10%; }
-
 	.boton{ width: auto; }
 
 	/*** HEADER ***/
-	header{ position: relative; top: (@margen*2); z-index: 99; background: none;
-
+	header{ padding: (@margen/2); top: 0; left: 0; bottom: auto; z-index: 999;
 		h1{ display: block;
 			img{ margin: 0; }
 		}
-
 		nav{ display: block; .font(1em, 1em, 'gotham-medium');top: (@margen*2);
 			a{ padding: @margen/3; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
 				&:hover{ background: @highlight; }
 			}
-
 		}
-
 	}
 
 	#menu-fijo {
@@ -801,13 +786,13 @@ section{ position: relative;
 	/*** SECTION ***/
 
 	section{ padding-top: (@margen*4); position: relative;
-		&.home{ height: 100%; padding-top: 0;
+		&.home{
 			p{ .font(1.4em, 1.4em, 'caecilia-light'); color: @claro; }
 		}
 	}
 
 	// Card Container
-	.card{ 
+	.card{
 		> div{ padding: @margen; }
 		&.servicio{
 
@@ -833,20 +818,20 @@ section{ position: relative;
 
 				img{ width: 80%; }
 
-				&.back{ 
+				&.back{
 					h5{ .font( 1.2em, 1.2em, 'caecilia-light' ); }
-					ul{ 
+					ul{
 						li{ margin: 0 @margen/3;
-							a{ 
+							a{
 								i{ font-size: 1.4em; }
 							}
 						}
 					}
 				}
 
-				&.front{ 
+				&.front{
 					h4{ .font(1.4em, 1.2em) }
-					
+
 				}
 			}
 		}
@@ -866,7 +851,7 @@ section{ position: relative;
 	// Contacto
 	.contacto { height: 100%; position: relative;
 
-		.mapa-wrapper{ height: 500px; 
+		.mapa-wrapper{ height: 500px;
 			.mapa { height: 100%; position: absolute; }
 		}
 
@@ -939,7 +924,7 @@ section{ position: relative;
 	.large{ display: block; }
 	.no-large{ display: none; }
 
-	body { background: #FF0000; }
+	body { }
 
 	// Portafolio
 	.portafolio{

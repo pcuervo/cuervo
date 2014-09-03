@@ -222,6 +222,7 @@ figure {margin: 0;}
 
 .no-margin{ margin: 0 !important; }
 .no-margin-bottom{ margin-bottom: 0 !important; }
+.margin-bottom { margin-bottom:@margen; }
 
 //layout
 .container{ min-width: 300px; height: 100%; overflow-x: hidden; .transition(0.5);
@@ -328,7 +329,7 @@ h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transfor
 .centro { width: 85%; padding-top:5%;  position: relative; left: 7%; margin: 0; }
 
  #home { margin-bottom: @margen;
- 	#logo-movil { padding-top:@margen; }
+ 	#logo-movil { margin-bottom:@margen; }
  }
 
 header{ position: fixed; bottom:0; z-index: 2; width: 100%;
@@ -351,7 +352,7 @@ header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 
 /*** SECTION ***/
 
-section{ padding: (@margen*2); position: relative;
+section{ padding: (@margen*2) 0; position: relative;
 	&.home{
 		p{ .font(1.3em, 1.4em, 'caecilia-roman'); color: @claro; margin-top:@margen; }
 	}

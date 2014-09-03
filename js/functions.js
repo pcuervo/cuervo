@@ -19,8 +19,6 @@
 		navContacto();
 		// Flips de servicios y nosotros
 		flipsClick();
-		// Slide up de contacto
-		mostarContacto();
 
 		$("nav a").click(function(e) {
 			e.preventDefault();
@@ -29,8 +27,6 @@
 		   	scrollToSeccion(id)
 		});
 
-		
-		
 
 		// Controla js en movil portrait
 		mediaCheck({
@@ -63,8 +59,7 @@
 		      		console.log('enter min-width: 25em');
 					// Sticky menu
 					menuFijo();
-					//Palabras home
-					rotarPalabras();
+
 					//FadeIn elementos al hacer scroll
 					//fadeInSecciones();
 					// Flips de servicios y nosotros
@@ -207,7 +202,6 @@ function procesaContacto(){
 			function(data){
 				var x = jQuery.parseJSON(data);
 				console.log("Gracias por tu msg " + x.nombre);
-				//mostrarMsgContacto(data);
 			}
 		);
 	});
@@ -270,6 +264,7 @@ function mostrarMsgContacto(nombre){
 }
 
 function creaMapa (){
+	
 	var styles = [
 		{
 		  stylers: [
@@ -308,37 +303,12 @@ function quitarDragMapa(){
 
 }
 
-function rotarPalabras(){ rotarPalabraCodigo(); }
-
-function rotarPalabraDiseno(){
-	var diseno = $('h2.diseno span');
-	var	palabras_diseno = ['intuitivo', 'eficiente', 'interactivo', 'responsivo', 'funcional', 'lógico', 'eficiente', 'limpio', 'cautivador', 'amigable', 'cuervo', 'innovador'];
-	var	length_diseno = palabras_diseno.length;
-	var item_diseno;
-
-	setTimeout(function(){
-		item_diseno = Math.floor(Math.random() * length_diseno);
-		diseno.text(palabras_diseno[item_diseno]);
-		rotarPalabraCodigo();
-	}, 2000);
-}
-
-function rotarPalabraCodigo () {
-	var codigo = $('h2.codigo span');
-	var palabras_codigo = ['estético', 'impecable', 'mágico', 'bello', 'artesanal', 'dinámico', 'elegante', 'atractivo', 'fresco', 'comprensible', 'cuervo'];
-	var	length_codigo = palabras_codigo.length;
-	var	item_codigo;
-
-	setTimeout(function(){
-		item_codigo = Math.floor(Math.random() * length_codigo);
-		codigo.text(palabras_codigo[item_codigo]);
-		rotarPalabraDiseno();
-	}, 2000);
-}
-
 function mostarContacto(){
 	$('.centro a, .comienza a').on('click', function(e){
-		$('.forma').slideDown('slow');
+		$('.forma').slideDown('slow', function(){
+
+		});
+		
 	});
 }
 

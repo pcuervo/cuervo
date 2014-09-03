@@ -31,7 +31,10 @@
 		/********************/
 
 		//**Header se hace chico
-		scrollPastHeader(setHeaderAlturaMenor);
+		$(window).scroll(function() {
+			scrollPastHeader(setHeaderAlturaMenor());
+		});
+
 
 		//**Portafolio
 		filtrosPortafolio();
@@ -93,12 +96,7 @@
 })(jQuery);
 
 // Funciones cuervo
-function scrollHeader(){
-
-}
-
 function toggleMenuMovil(){
-
 	$('#btn-movil').on('click', function(e){
 		e.preventDefault();
 		if($('header nav').css('display')=='none'){
@@ -305,12 +303,11 @@ function scrollToSeccion(elemento){
 }
 
 function scrollPastHeader(funcion){
-	$(window).scroll(function(event) {
-		var scrolled = $(window).scrollTop();
-		if ( scrolled > getAlturaHeader){
-			funcion();
-		}
-	});
+	var scrolled = $(window).scrollTop();
+	if ( scrolled > getAlturaHeader()){
+		funcion;
+		console.log('scroll past header');
+	}
 }
 
 function paddingTop(){

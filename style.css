@@ -329,6 +329,9 @@ figure {
 .no-margin-bottom {
   margin-bottom: 0 !important;
 }
+.margin-bottom {
+  margin-bottom: 20px;
+}
 .container {
   min-width: 300px;
   height: 100%;
@@ -574,7 +577,7 @@ h6 {
   margin-bottom: 20px;
 }
 #home #logo-movil {
-  padding-top: 20px;
+  margin-bottom: 20px;
 }
 header {
   position: fixed;
@@ -622,7 +625,7 @@ header #btn-movil a {
 }
 /*** SECTION ***/
 section {
-  padding: 40px;
+  padding: 40px 0;
   position: relative;
 }
 section.home p {

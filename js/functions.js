@@ -32,7 +32,7 @@
 
 		//**Header se hace chico
 		$(window).scroll(function() {
-			scrollPastHeader(setHeaderAlturaMenor());
+			scrollPastHeader('setHeaderAlturaMenor');
 		});
 
 
@@ -247,7 +247,7 @@ function nextStep(current){
 function mostrarMsgContacto(nombre){}
 
 function creaMapa (){
-	
+
 	var styles = [
 		{
 		  stylers: [
@@ -289,7 +289,7 @@ function mostarContacto(){
 		$('.forma').slideDown('slow', function(){
 
 		});
-		
+
 	});
 }
 
@@ -302,11 +302,12 @@ function scrollToSeccion(elemento){
 	$('html, body').animate({scrollTop: divPosicion});
 }
 
-function scrollPastHeader(funcion){
+function scrollPastHeader(){
 	var scrolled = $(window).scrollTop();
-	if ( scrolled > getAlturaHeader()){
-		funcion;
-		console.log('scroll past header');
+	if ( scrolled > getAlturaHeader() ){
+		setHeaderAlturaMenor();
+	} else {
+		setHeaderAlturaMayor();
 	}
 }
 
@@ -322,6 +323,10 @@ function getAlturaHeader(){
 
 function setHeaderAlturaMenor(){
 	 $('header').addClass('past-header');
+}
+
+function setHeaderAlturaMayor(){
+	 $('header').removeClass('past-header');
 }
 
 

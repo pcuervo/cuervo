@@ -754,7 +754,7 @@ section{ padding: (@margen*2); position: relative;
 	.boton{ width: auto; }
 
 	/*** HEADER ***/
-	header{ padding: (@margen/2); top: 0; left: 0; bottom: auto; z-index: 999;
+	header{ height: 123px; padding: (@margen/2); top: 0; left: 0; bottom: auto; z-index: 999; .transition();
 		h1{ display: block;
 			img{ margin: 0; }
 		}
@@ -763,8 +763,9 @@ section{ padding: (@margen*2); position: relative;
 				&:hover{ background: @highlight; }
 			}
 		}
-		&.past-header{ background: rgb(8, 0, 0, 0.8);
-
+		&.past-header{ height: 67px; background: rgba(0, 168, 171, 0.8);
+			// h1{ width: 10% !important; }
+			// nav{ width: 86% !important; }
 		}
 	}
 

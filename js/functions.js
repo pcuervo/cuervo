@@ -35,7 +35,6 @@
 			scrollPastHeader('setHeaderAlturaMenor');
 		});
 
-
 		//**Portafolio
 		filtrosPortafolio();
 

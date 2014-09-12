@@ -246,7 +246,8 @@ figure {margin: 0;}
 
 .columna{
 	float: left;
-	margin: 0 1%;
+	margin-left: 1%;
+	margin-right: 1%;
 
 	&.c-1{ width: 6.3%; }
 	&.c-2{ width: 14.6%; }
@@ -305,16 +306,14 @@ p{ margin-bottom: 1em; }
 
 html, body{ width: 100%; height: 100%; margin:0; padding:0; background: #fff; .font; }
 
+h1{ margin: 0; .transition; }
 h2{ margin: 0 0 10px 0; .font(1.7em, 1em); color: @claro; text-transform: uppercase;
 	span{ .font(1em, 1.1em, 'gotham-light') }
 	&.codigo{ position: relative; z-index: 1; }
 	&.diseno{ position: relative; z-index: 1; }
 }
-
 h3{ margin: 0 0 (@margen) 0; .font(2.3em, 1.2em, 'caecilia-light'); color: @cuervo; }
-
 h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @claro; text-transform: uppercase; text-align: center; }
-
 h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
 
 .boton{ padding: @margen/2; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
@@ -335,7 +334,7 @@ header{ position: fixed; bottom:0; z-index: 2; width: 100%;
 		img{ margin: @margen 0 0 @margen; }
 	}
 
-	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none;
+	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none; .transition;
 		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
 			&:hover{ background: @highlight; }
 		}
@@ -759,14 +758,14 @@ section{ padding: (@margen*2) 0; position: relative;
 		h1{ display: block;
 			img{ margin: 0; }
 		}
-		nav{ display: block; .font(1em, 1em, 'gotham-medium');top: (@margen*2);
-			a{ padding: @margen/3; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
+		nav{ display: block; margin-top: 3.2%; .font(1em, 1em, 'gotham-medium');
+			a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
 				&:hover{ background: @highlight; }
 			}
 		}
 		&.past-header{ height: 67px; background: rgba(0, 168, 171, 0.8);
-			// h1{ width: 10% !important; }
-			// nav{ width: 86% !important; }
+			h1{ width: 10% !important; }
+			nav{ width: 86% !important; margin-top: -4px; }
 		}
 	}
 
@@ -892,7 +891,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 64.063em) {
 	//Framework
 	.columna{
-
 		&.large-1{ width: 6.3%; }
 		&.large-2{ width: 14.6%; }
 		&.large-3{ width: 22.9%; }

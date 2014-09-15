@@ -13,14 +13,16 @@
 		$('#home').backstretch('images/background.jpg');
 
 		//** Ocupar full screen home y portafolio
-		//fullScreen('min-height','#home');
-		fullScreen('height','.proyectos');
+		//fullScreen('height','.proyectos');
 
 		//** mapa google
 		creaMapa();
 
 		//** navegación contacto
 		navContacto();
+
+		//**Checa donde está el usuario y aplica clases si ya pasó el header
+		scrollPastHeader();
 
 
 
@@ -77,7 +79,7 @@
 		mediaCheck({
 		    media: '(min-width: 40.063em)',
 		    	entry: function() {
-		      		console.log('enter min-width: 25em');
+		      		console.log('enter min-width: 40.063em');
 
 					//** Sticky menu
 					//menuFijo();
@@ -88,7 +90,7 @@
 					flipsHover();
 	    		},
 		    	exit: function() {
-		      		console.log('exit min-width: 25em');
+		      		console.log('exit min-width: 40.063em');
 		    	}
 		});
 	});
@@ -161,14 +163,11 @@ function flipsClick(){
 }
 
 function filtrosPortafolio(){
-
 	var $container = $('#isotope');
-
 	$container.isotope({
 		itemSelector: '.post',
 		layoutMode: 'fitRows'
 	});
-
 	$('.tags li').on( 'click', function() {
 		var filterValue = $(this).data('filter');
 		$container.isotope({
@@ -327,5 +326,3 @@ function setHeaderAlturaMenor(){
 function setHeaderAlturaMayor(){
 	 $('header').removeClass('past-header');
 }
-
-

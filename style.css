@@ -1031,6 +1031,9 @@ section.home p {
   height: 100%;
   position: absolute;
 }
+.contacto .contacto-info {
+  width: 100%;
+}
 .contacto .contacto-info > div {
   padding: 20px;
 }

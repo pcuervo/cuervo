@@ -706,13 +706,13 @@ section.home p {
   list-style: none;
 }
 .card.servicio li {
-  font: 1.2em / 1.4em 'caecilia-roman';
+  font: 1.2em / 1.6em 'caecilia-roman';
   color: #ffffff;
   text-align: center;
 }
 .card.servicio p {
   margin: 0;
-  font: 1.2em / 1.4em 'caecilia-roman';
+  font: 1.2em / 1.6em 'caecilia-roman';
   color: #00a8ab;
 }
 .card.servicio > div.front {
@@ -1206,13 +1206,11 @@ section.home p {
     list-style: none;
   }
   .card.servicio li {
-    font: 1em / 1.1em 'caecilia-roman';
     color: #ffffff;
     text-align: center;
   }
   .card.servicio p {
     margin: 0;
-    font: 1em / 1.1em 'caecilia-roman';
     color: #00a8ab;
   }
   .card.servicio > div.front {
@@ -1426,6 +1424,13 @@ section.home p {
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
   }
+  h3.visible {
+    opacity: 1;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+  }
   h4 {
     margin: 0 0 40px 0;
     font: 2em / 1em 'gotham-book';
@@ -1535,7 +1540,7 @@ section.home p {
     position: relative;
   }
   section.home p {
-    font: 1.4em / 1.4em 'caecilia-light';
+    font: 2.4em / 1.4em 'caecilia-light';
     color: #ffffff;
   }
   .card > div {
@@ -1553,12 +1558,6 @@ section.home p {
     width: 20%;
     height: 1px;
     margin: 0 auto 20px auto;
-  }
-  .card.servicio li {
-    font: 1.2em / 1.1em 'caecilia-roman';
-  }
-  .card.servicio p {
-    font: 1.2em / 1.1em 'caecilia-roman';
   }
   .card.servicio > div.front {
     background: #e74c3c;

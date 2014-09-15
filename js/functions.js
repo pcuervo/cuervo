@@ -83,7 +83,7 @@
 					//menuFijo();
 					//Palabras home
 					//FadeIn elementos al hacer scroll
-					//fadeInSecciones();
+					fadeInSecciones();
 					// Flips de servicios y nosotros
 					flipsHover();
 	    		},
@@ -115,22 +115,22 @@ function fullScreen(height_property, el){
 	$(el).css(height_property, altoWindow);
 }
 function fadeInSecciones(){
-	var invisibles = $('h3, header, .centro');
+	var invisibles = $('h3, .cardContainer');
 	invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-	  if (isInView) {
-	    // element is now visible in the viewport
-	    $(this).addClass('visible');
-		//$(this).find('.card').removeClass('flipped');
-	    if (visiblePartY == 'top') {
-	      // top part of element is visible
-	    } else if (visiblePartY == 'bottom') {
-	      // bottom part of element is visible
-	    } else {
-	      // whole part of element is visible
-	    }
-	  } else {
-	    // element has gone out of viewport
-	  }
+		if (isInView) {
+			// element is now visible in the viewport
+	    	$(this).addClass('visible');
+				$(this).find('.card').removeClass('flipped');
+		    if (visiblePartY == 'top') {
+		    	// top part of element is visible
+		    } else if (visiblePartY == 'bottom') {
+		    	//
+		    } else {
+		    	// whole part of element is visible
+		    }
+		} else {
+		    // element has gone out of viewport
+		}
 	});
 }
 

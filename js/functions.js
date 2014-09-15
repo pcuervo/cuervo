@@ -24,6 +24,9 @@
 		//**Checa donde está el usuario y aplica clases si ya pasó el header
 		scrollPastHeader();
 
+		//** Muetra elementos como lazy load.
+		fadeInSecciones();
+
 
 
 
@@ -101,14 +104,11 @@ function toggleMenuMovil(){
 	$('#btn-movil').on('click', function(e){
 		e.preventDefault();
 		if($('header nav').css('display')=='none'){
-			$('header').css('background', '#00A8AB');
-			$('header nav').slideDown('fast');
-			$(this).find('i').removeClass('fa-bars');
-			$(this).find('i').addClass('fa-chevron-down');
+			$('header nav').slideDown();
+			$(this).find('.lines-button').addClass('close');
 		} else {
-			$('header nav').slideUp('fast', function(){$('header').css('background', 'none');});
-			$(this).find('i').removeClass('fa-chevron-down');
-			$(this).find('i').addClass('fa-bars');
+			$('header nav').slideUp();
+			$(this).find('.lines-button').removeClass('close');
 		}
 	});
 }
@@ -256,8 +256,8 @@ function creaMapa (){
 
 	function initialize() {
 		var notMobile = $(document).width() > 480 ? true : false;
-		var centro = new google.maps.LatLng(19.409998, -99.168882);
-		var nosotros = new google.maps.LatLng(19.409948, -99.168392);
+		var centro = new google.maps.LatLng(19.411084, -99.172511);
+		var nosotros = new google.maps.LatLng(19.411084, -99.172511);
 		var mapOptions = {
 			zoom: 16,
 			center: nosotros,

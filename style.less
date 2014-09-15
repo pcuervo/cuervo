@@ -130,7 +130,12 @@ figure {margin: 0;}
 
 @margen: 		20px;
 
+
+
+
+/**************/
 /*** MIXINS ***/
+/**************/
 
 .font( @size: 14px, @line: 18px, @family: 'gotham-medium'){
 	font: @size / @line @family;
@@ -210,6 +215,10 @@ figure {margin: 0;}
 	opacity: @opacity; .transition(@transition);
 }
 
+
+
+
+
 /*****************/
 /*** FRAMEWORK ***/
 /*****************/
@@ -261,11 +270,7 @@ figure {margin: 0;}
 	&.c-10{ width: 81%; }
 	&.c-11{ width: 89.3%; }
 	&.c-12{ width: 97.6%; }
-
-	&.grid{ background: @highlight; color: @claro; padding: @margen; text-align: center; }
-
   img{ width: 100%; height: auto; }
-
 }
 
 .span{ float: left;
@@ -281,7 +286,6 @@ figure {margin: 0;}
   &.c-10{ width: 83%; }
   &.c-11{ width: 91.3%; }
   &.c-12{ width: 99.6%; }
-
   img{ width: 100%; height: auto; }
 }
 
@@ -295,9 +299,12 @@ p{ margin-bottom: 1em; }
 .small{ display: none; }
 
 
-/************
- MOBILE LAST
- ************/
+
+
+
+/*******************/
+/*** MOBILE LAST ***/
+/*******************/
 
  /*** GENERAL ***/
 
@@ -315,36 +322,62 @@ h2{ margin: 0 0 10px 0; .font(1.7em, 1em); color: @claro; text-transform: upperc
 }
 h3{ margin: 0 0 (@margen) 0; .font(2.3em, 1.2em, 'caecilia-light'); color: @cuervo; }
 h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @claro; text-transform: uppercase; text-align: center; }
-h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
+h6{ margin: 0 0 (@margen/2) 0; .font(1em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
 
 .boton{ padding: @margen/2; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
-
 .se-ve{ opacity: 1 !important; }
 
+
+
+
+
+/**********************/
+/*** HAMBURGER ICON ***/
+/**********************/
+@button-size : 3.5rem;
+@transition: .3s;
+
+.line() { display: inline-block; width: @button-size; height: @button-size/7; background: @cuervo; transition: @transition; }
+.lines-button { display: inline-block; border: none; transition: .3s; cursor: pointer; user-select: none;
+	&:hover { opacity: 1; }
+	&:active { transition: 0; background: rgba(0,0,0,.1); }
+	&.close{
+		.lines{ background: transparent;
+			&:before, &:after{ transform-origin: 50% 50%; top:0; width: @button-size;}
+			&:before{ transform: rotate3d(0,0,1,45deg); }
+			&:after{ transform: rotate3d(0,0,1,-45deg); }
+		}
+	}
+}
+
+.lines {
+	//create middle line
+	.line();
+	position: relative;
+	/*create the upper and lower lines as pseudo-elements of the middle line*/
+	&:before, &:after { .line(); position: absolute; left:0; content: ''; transform-origin: @button-size/14 center; }
+	&:before { top: @button-size/4; }
+	&:after { top: -@button-size/4; }
+}
+
  /*** HEADER ***/
-
 .centro { width: 85%; padding-top:5%;  position: relative; left: 7%; margin: 0; }
-
  #home { margin-bottom: @margen;
  	#logo-movil { margin-bottom:@margen; }
  }
 
-header{ position: fixed; bottom:0; z-index: 2; width: 100%;
-
+header{ background: @cuervo; position: fixed; bottom:0; z-index: 2; width: 100%;
 	h1{ display: none;
 		img{ margin: @margen 0 0 @margen; }
 	}
-
-	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none; .transition;
-		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
+	nav{ width: 100%; .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none; float: none !important;
+		a{ width: 100%; padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
 			&:hover{ background: @highlight; }
 		}
 	}
-
 	#btn-movil {
-		a { position: absolute; bottom:@margen; right: (@margen/2); padding: (@margen/2); .font(2em, 1em); color: @cuervo; background: @claro; z-index: 99; }
+		a { position: absolute; bottom:@margen; right: (@margen/2); padding: 10px 10px 17px 10px; .font(2em, 1em); color: @cuervo; background: @claro; z-index: 99; }
 	}
-
 }
 
 /*** SECTION ***/
@@ -416,13 +449,12 @@ section{ padding: (@margen*2) 0; position: relative;
 	.post{ margin: 0; position: relative; cursor: pointer;
 		img{ margin: 0; vertical-align: middle; }
 		.info{ width: 100%; height: 100%; background: rgba(255, 255, 255, 0); position: absolute; top: 0; left: 0; overflow: hidden; text-align: center;
-			h6{ margin: 100% 0 0 0; color: @highlight; }
+			h6{ margin: 100% 0 0 0; padding: 0 @margen; color: @highlight; }
 			p{ visibility: hidden; margin: 100% 0 0 0; .font(0.9em, 1.4em, 'caecilia-light'); color: @cuervo; text-align: center; }
 		}
 		&:hover{
 			.info{ background: rgba(255, 255, 255, .95); .transition(all 350ms cubic-bezier(0.325, 0, 0, 1));
-				h6{ margin-top: 27%; visibility: visible; .transition(all 350ms cubic-bezier(0.325, 0, 0, 1)); }
-				p{}
+				h6{ margin-top: 25%; visibility: visible; .transition(all 350ms cubic-bezier(0.325, 0, 0, 1)); }
 			}
 		}
 	}
@@ -479,7 +511,7 @@ section{ padding: (@margen*2) 0; position: relative;
 		.clear{ padding: 0; }
 		.datos{ margin-bottom: @margen; background: @cuervo;
 			a, p{ .font(1.2em, 1.2em, 'caecilia-roman'); }
-			a{ text-decoration: none; }
+			a{ text-decoration: none; color: @claro; }
 			p{ margin-bottom: 0; }
 		}
 		.redes{ margin-bottom: @margen; background: @cuervo;
@@ -549,7 +581,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 25em) {
 	//Framework
 	.columna{
-
 		&.small-1{ width: 6.3%; }
 		&.small-2{ width: 14.6%; }
 		&.small-3{ width: 22.9%; }
@@ -565,7 +596,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.small-1{ width: 8.3%; }
 		&.small-2{ width: 16.6%; }
 		&.small-3{ width: 24.9%; }
@@ -582,6 +612,9 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	.small{ display: block; }
 	.no-small{ display: none; }
+
+	//General
+	h2{ .font(2.7em, 1em); }
 
 	//Card Container
 	.card{
@@ -603,15 +636,11 @@ section{ padding: (@margen*2) 0; position: relative;
 		}
 
 		&.cuervo{
-
 			> div{
-
 				img{ width: 80%; }
-
 				&.back{
 					h4{ .font(1em, 1.2em) }
 				}
-
 				&.front{
 					h5{ .font( 0.9em, 1.1em, 'caecilia-light' ); }
 					ul{
@@ -625,7 +654,6 @@ section{ padding: (@margen*2) 0; position: relative;
 
 				&.front{
 					h4{ .font(1em, 1.2em) }
-
 				}
 			}
 		}
@@ -633,44 +661,30 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	// Forma
 	.forma{
-
 		.paso{
-
 			> p{ margin: 0; text-align: right; .font(1em, 1em, 'caecilia-roman'); font-style: italic; color: @cuervo; }
-
 			h4{ margin-bottom: @margen/2; text-align: left; text-transform: none; .font(1.4em, 1.3em, 'caecilia-light'); color: @cuervo;}
-
 			.next, .submit{ height: 15vw; }
-
 			.next, .submit{ background: @highlight !important; display: table;
 				a{ display: block; color: @claro; display: table-cell; vertical-align: middle;
 					i{ width: 100%; font-size: 2em; text-align: center; }
 				}
 			}
-
 			> div{ width: 22vw; height: 22vw; }
-
 			> input, > textarea{ height: 15vw; padding: (@margen/2); border: none; background: @cuervo; .font(2em, 1em, 'caecilia-roman'); color: @claro;
 				&:focus{ outline-color: @cuervo; }
 			}
-
 			> textarea{ height: (@margen*5); .font(1.4em, 1.6em, 'caecilia-roman'); }
-
 			&[data-paso='1']{
 				> div{ padding: (@margen/2); border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
 					&:hover, &.activo{ background: @highlight; }
 				}
-
 				.next{ height: 22vw; }
-
 				img{ display: block; width: 50%; margin: auto; }
-
 				h5{ .font(0.9em, 1.2em, 'caecilia-light'); text-align: center; color: @claro; }
-
 			}
 		}
 	}
-
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
@@ -716,17 +730,17 @@ section{ padding: (@margen*2) 0; position: relative;
 		&.visible{ .fadein(1, all 0.6s ease ); }
 	}
 	h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); }
-	h6{ margin: 0 0 (@margen/2) 0; .font(1.2em, 1, 'gotham-medium'); }
+	h6{ margin: 0 0 (@margen/2) 0; }
 
 	.centro{ width: 81%; margin: 0; padding-top: 5%; position: relative; top: 10%; left: 10%; }
 	.boton{ width: auto; }
 
 	/*** HEADER ***/
-	header{ height: 123px; padding: (@margen/2); top: 0; left: 0; bottom: auto; .transition();
+	header{ height: 123px; padding: (@margen/2); top: 0; left: 0; bottom: auto; .transition(); background: none;
 		h1{ display: block;
 			img{ margin: 0; }
 		}
-		nav{ display: block; margin-top: 3.2%; .font(1em, 1em, 'gotham-medium');
+		nav{ display: block; margin-top: 3.2%; .font(1em, 1em, 'gotham-medium'); .transition; float: left !important;
 			a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
 				&:hover{ background: @highlight; }
 			}
@@ -735,21 +749,6 @@ section{ padding: (@margen*2) 0; position: relative;
 			h1{ width: 10% !important; }
 			nav{ width: 86% !important; margin-top: -4px; }
 		}
-	}
-
-	#menu-fijo {
-		img { width: 50%; margin: (@margen/3) 0;  }
-
-		&.fixed { position: fixed; top: 0px; left: 0; width: 100%; background: @cuervo; z-index: 1000; }
-
-		nav{ .font(1em, .3em, 'gotham-medium'); position: relative; top: (@margen/2);
-
-			a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition;
-				&:hover{ background: @highlight; }
-			}
-
-		}
-
 	}
 
 	/*** SECTION ***/
@@ -810,20 +809,15 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	// Contacto
 	.contacto { height: 100%; position: relative;
-
 		.mapa-wrapper{ height: 500px;
 			.mapa { height: 100%; position: absolute; }
 		}
-
-
-		.contacto-info{ position: absolute; left: 5%;
-
+		.contacto-info{ position: absolute;
 			.datos{ margin-bottom: @margen; background: @cuervo;
 				a, p{ .font(1.4em, 1.6em, 'caecilia-roman'); color: @claro; }
 				a{ text-decoration: none; }
 				p{ margin-bottom: 0; }
 			}
-
 			.redes{ margin-bottom: @margen; background: @claro;
 				ul{ margin: 0; list-style: none;
 					li{ display: inline-block; margin: 0 @margen;
@@ -833,15 +827,11 @@ section{ padding: (@margen*2) 0; position: relative;
 					}
 				}
 			}
-
 			.comienza{  padding: 0;
 				.boton{ display: block; text-align: center; }
 			}
-
 		}
-
 	}
-
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
@@ -865,7 +855,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.large-1{ width: 8.3%; }
 		&.large-2{ width: 16.6%; }
 		&.large-3{ width: 24.9%; }
@@ -882,22 +871,17 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	.large{ display: block; }
 	.no-large{ display: none; }
-
 	body { }
-
 	// Portafolio
 	.portafolio{
 		.post{
 			&:hover{
 				.info{
-					h6{}
-					p{ margin-top: 10%; visibility: visible; .transition(all 500ms cubic-bezier(0.325, 0, 0, 1)); }
+					h6{ .font(1.2em, 1.3em); }
 				}
 			}
 		}
 	}
-
-
 } /* min-width 1025px, large screens */
 
 @media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
@@ -906,7 +890,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 90.063em) {
 	//Framework
 	.columna{
-
 		&.xlarge-1{ width: 6.3%; }
 		&.xlarge-2{ width: 14.6%; }
 		&.xlarge-3{ width: 22.9%; }
@@ -922,7 +905,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.xlarge-1{ width: 8.3%; }
 		&.xlarge-2{ width: 16.6%; }
 		&.xlarge-3{ width: 24.9%; }
@@ -937,10 +919,10 @@ section{ padding: (@margen*2) 0; position: relative;
 		&.xlarge-12{ width: 99.6%; }
 	}
 
-	body { background: #FFFF00; }
-
+	// body { background: #FFFF00; }
 	.xlarge{ display: block; }
 	.no-xlarge{ display: none; }
+
 } /* min-width 1441px, xlarge screens */
 
 @media only screen and (min-width: 90.063em) and (max-width: 120em) { } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
@@ -949,7 +931,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 120.063em) {
 	//Framework
 	.columna{
-
 		&.xxlarge-1{ width: 6.3%; }
 		&.xxlarge-2{ width: 14.6%; }
 		&.xxlarge-3{ width: 22.9%; }
@@ -965,7 +946,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.xxlarge-1{ width: 8.3%; }
 		&.xxlarge-2{ width: 16.6%; }
 		&.xxlarge-3{ width: 24.9%; }
@@ -982,19 +962,5 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	.xxlarge{ display: block; }
 	.no-xxlarge{ display: none; }
+
  } /* min-width 1921px, xlarge screens */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

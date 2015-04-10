@@ -256,10 +256,10 @@ function creaMapa (){
 
 	function initialize() {
 		var notMobile = $(document).width() > 480 ? true : false;
-		var centro = new google.maps.LatLng(19.411084, -99.172511);
-		var nosotros = new google.maps.LatLng(19.411084, -99.172511);
+		var centro = new google.maps.LatLng(19.402319, -99.172324);
+		var nosotros = new google.maps.LatLng(19.402319, -99.172324);
 		var mapOptions = {
-			zoom: 16,
+			zoom: 19,
 			center: nosotros,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: styles,

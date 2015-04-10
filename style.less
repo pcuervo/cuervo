@@ -8,15 +8,13 @@ http://yuilibrary.com/license/
 */
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
 
-
 /*
 YUI 3.4.1 (build 4118)
 Copyright 2011 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
-http://yuilibrary.com/license/
+http://yuilitransformbrary.com/license/
 */
 body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif}table{font-size:inherit;font:100%}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%}
-
 
 /*
 YUI 3.4.1 (build 4118)
@@ -48,7 +46,6 @@ figure {margin: 0;}
 
 
 /*** FONTFACE ***/
-
 @font-face {
   font-family: 'gotham-light';
   src:  url('fonts/gotham-light.eot');
@@ -91,7 +88,6 @@ figure {margin: 0;}
          url('fonts/caecilialtstd-light-webfont.svg#caecilia_lt_std45_light') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -116,8 +112,8 @@ figure {margin: 0;}
     font-style: normal;
 }
 
-/*** VARIABLES ***/
 
+/*** VARIABLES ***/
 @claro: 	#fff;
 @cuervo: 	#00a8ab;
 @highlight:	#e74c3c;
@@ -134,7 +130,12 @@ figure {margin: 0;}
 
 @margen: 		20px;
 
+
+
+
+/**************/
 /*** MIXINS ***/
+/**************/
 
 .font( @size: 14px, @line: 18px, @family: 'gotham-medium'){
 	font: @size / @line @family;
@@ -162,13 +163,13 @@ figure {margin: 0;}
 }
 
 .border-radius (@radius: 4px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius:    @radius;
-  border-radius:         @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius:    @radius;
+	border-radius:         @radius;
 
-  -moz-background-clip:    padding;
-  -webkit-background-clip: padding-box;
-  background-clip:         padding-box;
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
 }
 
 .perspective( @string ){
@@ -188,10 +189,11 @@ figure {margin: 0;}
 }
 
 .transition (@transition: all 0.3s ease ) {
-  -webkit-transition: @transition;
-  -moz-transition:    @transition;
-  -ms-transition:     @transition;
-  -o-transition:      @transition;
+	-webkit-transition: @transition;
+	-moz-transition:    @transition;
+	-ms-transition:     @transition;
+	-o-transition:      @transition;
+	transition:      @transition;
 }
 
 .rotatey (@deg) {
@@ -202,17 +204,24 @@ figure {margin: 0;}
 }
 
 .translate (@x, @y:0) {
-	-webkit-transform:       translate(@x, @y);
-	-moz-transform: 	 translate(@x, @y);
-	-ms-transform: 		 translate(@x, @y);
-	-o-transform: 		 translate(@x, @y);
+	-webkit-transform: 	translate(@x, @y);
+	-moz-transform: 	translate(@x, @y);
+	-ms-transform: 		translate(@x, @y);
+	-o-transform: 		translate(@x, @y);
+	transform: 			translate(@x, @y);
 }
 
-.fadein(){
-	opacity: 0; .transition;
+.fadein(@opacity: 0, @transition: all 0.3s ease ){
+	opacity: @opacity; .transition(@transition);
 }
 
+
+
+
+
+/*****************/
 /*** FRAMEWORK ***/
+/*****************/
 
 //propiedades
 .hide{ display: none; }
@@ -226,13 +235,13 @@ figure {margin: 0;}
 
 //layout
 .container{ min-width: 300px; height: 100%;
-	.overlay-open { .translate(50%, 0);
+	&.overlay-open {
 		&::after { visibility: visible; opacity: 1; .transition(opacity 0.5s); }
 	}
 	&::after { content: ''; width: 100%; height: 100%; opacity: 0; visibility: hidden; background: rgba(0,0,0,0.6); .transition( 'opacity 0.5s, visibility 0s 0.5s'); position: absolute; top: 0; left: 0; }
 }
 
-.width{ width: 90%; min-width: 300px; max-width: 2200px; margin-left: auto; margin-right: auto; }
+.width{ width: 90%; min-width: 300px; max-width: 1420px; margin-left: auto; margin-right: auto; }
 .full{ width: 100% !important;
   //img{ width: 100%; height: auto; }
 }
@@ -246,7 +255,8 @@ figure {margin: 0;}
 
 .columna{
 	float: left;
-	margin: 0 1%;
+	margin-left: 1%;
+	margin-right: 1%;
 
 	&.c-1{ width: 6.3%; }
 	&.c-2{ width: 14.6%; }
@@ -260,11 +270,7 @@ figure {margin: 0;}
 	&.c-10{ width: 81%; }
 	&.c-11{ width: 89.3%; }
 	&.c-12{ width: 97.6%; }
-
-	&.grid{ background: @highlight; color: @claro; padding: @margen; text-align: center; }
-
   img{ width: 100%; height: auto; }
-
 }
 
 .span{ float: left;
@@ -280,7 +286,6 @@ figure {margin: 0;}
   &.c-10{ width: 83%; }
   &.c-11{ width: 91.3%; }
   &.c-12{ width: 99.6%; }
-
   img{ width: 100%; height: auto; }
 }
 
@@ -294,9 +299,12 @@ p{ margin-bottom: 1em; }
 .small{ display: none; }
 
 
-/************
- MOBILE LAST
- ************/
+
+
+
+/*******************/
+/*** MOBILE LAST ***/
+/*******************/
 
  /*** GENERAL ***/
 
@@ -304,47 +312,78 @@ p{ margin-bottom: 1em; }
 ::-moz-selection { background: @highlight; color: @claro; }
 
 html, body{ width: 100%; height: 100%; margin:0; padding:0; background: #fff; .font; }
+body{ min-height: 100%; height: auto; }
 
+h1{ margin: 0; .transition; }
 h2{ margin: 0 0 10px 0; .font(1.7em, 1em); color: @claro; text-transform: uppercase;
 	span{ .font(1em, 1.1em, 'gotham-light') }
 	&.codigo{ position: relative; z-index: 1; text-align: center; }
 	&.diseno{ position: relative; z-index: 1; text-align: center; }
 }
+<<<<<<< HEAD
 
 h3{ margin: 0 0 (@margen) 0; .font(1.8em, 1.2em, 'caecilia-light'); color: @cuervo; }
 
+=======
+h3{ margin: 0 0 (@margen) 0; .font(2.3em, 1.2em, 'caecilia-light'); color: @cuervo; }
+>>>>>>> 9ccd6efec13ff05819e884bcace931974d18c33b
 h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); color: @claro; text-transform: uppercase; text-align: center; }
-
-h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
+h6{ margin: 0 0 (@margen/2) 0; .font(1em, 1em, 'gotham-medium'); text-transform: uppercase; color: @claro; }
 
 .boton{ padding: @margen/2; background: @highlight; color: @claro; text-decoration: none; .font(1em, 1em, 'gotham-book'); text-transform: uppercase; width: 100%; text-align: center; }
-
 .se-ve{ opacity: 1 !important; }
 
+
+
+
+
+/**********************/
+/*** HAMBURGER ICON ***/
+/**********************/
+@button-size : 3.5rem;
+@transition: .3s;
+
+.line() { display: inline-block; width: @button-size; height: @button-size/7; background: @cuervo; transition: @transition; }
+.lines-button { display: inline-block; border: none; transition: .3s; cursor: pointer; user-select: none;
+	&:hover { opacity: 1; }
+	&:active { transition: 0; background: rgba(0,0,0,.1); }
+	&.close{
+		.lines{ background: transparent;
+			&:before, &:after{ transform-origin: 50% 50%; top:0; width: @button-size;}
+			&:before{ transform: rotate3d(0,0,1,45deg); }
+			&:after{ transform: rotate3d(0,0,1,-45deg); }
+		}
+	}
+}
+
+.lines {
+	//create middle line
+	.line();
+	position: relative;
+	/*create the upper and lower lines as pseudo-elements of the middle line*/
+	&:before, &:after { .line(); position: absolute; left:0; content: ''; transform-origin: @button-size/14 center; }
+	&:before { top: @button-size/4; }
+	&:after { top: -@button-size/4; }
+}
+
  /*** HEADER ***/
-
 .centro { width: 85%; padding-top:5%;  position: relative; left: 7%; margin: 0; }
-
  #home { margin-bottom: @margen;
  	#logo-movil { margin-bottom:@margen; }
  }
 
-header{ position: fixed; bottom:0; z-index: 2; width: 100%;
-
+header{ background: @cuervo; position: fixed; bottom:0; z-index: 2; width: 100%;
 	h1{ display: none;
 		img{ margin: @margen 0 0 @margen; }
 	}
-
-	nav{ .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none;
-		a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
+	nav{ width: 100%; .font(1.2em, 1em, 'gotham-medium'); position: relative; display: none; float: none !important;
+		a{ width: 100%; padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition; border-top:1px solid darken(@cuervo, 10%); background: @cuervo;
 			&:hover{ background: @highlight; }
 		}
 	}
-
 	#btn-movil {
-		a { position: absolute; bottom:@margen; right: (@margen/2); padding: (@margen/2); .font(2em, 1em); color: @cuervo; background: @claro; z-index: 99; }
+		a { position: absolute; bottom:@margen; right: (@margen/2); padding: 10px 10px 17px 10px; .font(2em, 1em); color: @cuervo; background: @claro; z-index: 99; }
 	}
-
 }
 
 /*** SECTION ***/
@@ -359,24 +398,18 @@ section{ padding: (@margen*2) 0; position: relative;
 .cardContainer{ .perspective(1500px); .transition; position: relative; margin-bottom: (@margen*3); }
 
 .card{ width: 100%; height: 100%; .preserve; .transition;
-
 	&.flipped{ .rotatey(180deg); }
-
 	> div{ width: 100%; padding: @margen; position: absolute; .backface(hidden);
 		&.back{ .rotatey(180deg); }
 	}
-
-	&.servicio{
-
+	&.servicio {
 		img{ display: block; width: 20%; margin: 0 auto @margen auto; }
 		h4{ margin-bottom: @margen; }
 		hr{ width: 20%; height: 1px; margin: 0 auto @margen auto; border: 0; background: @claro; }
 		ul{ margin: 0; list-style: none; }
-		li{ .font(1.2em, 1.4em, 'caecilia-roman'); color: @claro; text-align: center; }
-		p{ margin: 0; .font(1.2em, 1.4em, 'caecilia-roman'); color: @cuervo; }
-
+		li{ .font(1.2em, 1.6em, 'caecilia-roman'); color: @claro; text-align: center; }
+		p{ margin: 0; .font(1.2em, 1.6em, 'caecilia-roman'); color: @cuervo; }
 		> div{
-
 			&.front{ background: @highlight; }
 			&.back{ display: block; background: @claro; color: @highlight;
 				h4{ color: @cuervo; }
@@ -413,101 +446,78 @@ section{ padding: (@margen*2) 0; position: relative;
 }
 
 //Portafolio
-
 .portafolio{
-
 	.tags{ margin: 0 0 @margen 0; list-style: none; text-align: center;
 		li{ display: inline-block; margin: 0 10px 10px 0; padding: @margen/3 @margen/3 @margen/3 @margen/3; border-bottom: 1px solid @highlight; .font(1em, 1em, 'caecilia-light'); color: @cuervo; cursor: pointer; .transition;
 			&:hover, &.activo{ background: @highlight; color: @claro; }
 		}
 	}
-
 	.post{ margin: 0; position: relative; cursor: pointer;
 		img{ margin: 0; vertical-align: middle; }
 		.info{ width: 100%; height: 100%; background: rgba(255, 255, 255, 0); position: absolute; top: 0; left: 0; overflow: hidden; text-align: center;
-			h6{ margin: 100% 0 0 0; color: @highlight; }
+			h6{ margin: 100% 0 0 0; padding: 0 @margen; color: @highlight; }
 			p{ visibility: hidden; margin: 100% 0 0 0; .font(0.9em, 1.4em, 'caecilia-light'); color: @cuervo; text-align: center; }
 		}
 		&:hover{
 			.info{ background: rgba(255, 255, 255, .95); .transition(all 350ms cubic-bezier(0.325, 0, 0, 1));
-				h6{ margin-top: 20%; visibility: visible; .transition(all 350ms cubic-bezier(0.325, 0, 0, 1)); }
-				p{}
+				h6{ margin-top: 25%; visibility: visible; .transition(all 350ms cubic-bezier(0.325, 0, 0, 1)); }
 			}
 		}
 	}
 
-	.overlay { width: 100%; height: 100%; background: rgba(153,204,51,0.9); position: fixed;top: 0; left: 0;
-
+	.overlay { width: 100%; height: 100%; background: rgba(153,204,51,1); visibility: hidden; .backface(hidden); position: fixed; top: 0; left: 0; z-index: 3; .translate(-100%); .transition(transform 0.5s, visibility 0s 0.5s;);
 		.overlay-close { width: 80px; height: 80px; border: none; overflow: hidden; background: url('images/close.png') no-repeat center center; text-indent: 200%; color: transparent; outline: none; position: absolute; right: 20px; top: 20px; z-index: 100; }
-
-		.proyecto { text-align: center; position: relative; top: 50%; height: 60%; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
-
-		&.overlay-contentpush { background: rgba(153,204,51,1); visibility: hidden; .backface(hidden); -webkit-transform: translateX(-100%); transform: translateX(-100%); -webkit-transition: -webkit-transform 0.5s, visibility 0s 0.5s; transition: transform 0.5s, visibility 0s 0.5s;
-
-		}
-
-	}
-
-	&.open {
-		visibility: visible;
-		-webkit-transform: translateX(0%);
-		transform: translateX(0%);
-		.transition;
-	}
-
-	@media screen and (max-height: 30.5em) {
-		.overlay nav {
-			height: 70%;
-			font-size: 34px;
-		}
-		.overlay ul li {
-			min-height: 34px;
+		.proyecto { width: 100%; height: 60%; text-align: center; position: relative; top: 50% !important; z-index: 1 !important; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+		&.open {
+			visibility: visible;
+			.translate(0%); .transition(transform 0.5s;);
 		}
 	}
 
-	.proyectos{ display: none; width: 100%; height: 100%; position: absolute; z-index: 101;
+	// @media screen and (max-height: 30.5em) {
+	// 	.overlay nav {
+	// 		height: 70%;
+	// 		font-size: 34px;
+	// 	}
+	// 	.overlay ul li {
+	// 		min-height: 34px;
+	// 	}
+	// }
 
-		.areas{ height: 100%; position: absolute; top: 0; left: 0;
-			> div{ height: 100%; }
+	.areas{ height: 100%; position: absolute; top: 0; left: 0; z-index: 3;
+		> div{ height: 100%; }
+		.prev{ cursor: url('images/prev.png'), auto }
+		.close{ cursor: url('images/close.png'), auto }
+		.next{ cursor: url('images/next.png'), auto }
+	}
 
-			.prev{ cursor: url('images/prev.png'), auto }
-			.close{ cursor: url('images/close.png'), auto }
-			.next{ cursor: url('images/next.png'), auto }
-		}
-
+	.proyectos{ display: none; width: 100%; height: 100%; position: absolute; z-index: 2; top: 0;
 		.hp-indigo{ background: @indigo; }
-
-		> .proyecto{ width: 100%; height: 100%;
-
+		.proyecto{
 			> div{ padding-top: 14%; }
-
 			h4{ margin: 0; text-align: left; color: @claro; }
 			hr{ background: @claro; }
 			span{ display: block; margin: 0 0 (@margen*2) 0; .font( 1em, 1.2em, 'caecilia-light' ); font-style: italic; color: @claro; }
 			p{ .font( 1.6em, 1.6em, 'caecilia-light' ); color: @claro; }
-
 			img{}
-
 		}
-
 	}
 
+	.cycle-slideshow{ width: 100%; height: 100%; }
 }
 
 // Contacto
 .contacto {
-
 	.mapa-wrapper{ height: 200px; margin-bottom: @margen; position: relative;
 		.mapa { height: 100%; position: absolute; }
 	}
-
-	.contacto-info{
+	.contacto-info{ width: 100%;
 		> div{ padding: @margen; }
 		h6 { .font(1.4em, 1.4em); }
 		.clear{ padding: 0; }
 		.datos{ margin-bottom: @margen; background: @cuervo;
 			a, p{ .font(1.2em, 1.2em, 'caecilia-roman'); }
-			a{ text-decoration: none; }
+			a{ text-decoration: none; color: @claro; }
 			p{ margin-bottom: 0; }
 		}
 		.redes{ margin-bottom: @margen; background: @cuervo;
@@ -577,7 +587,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 25em) {
 	//Framework
 	.columna{
-
 		&.small-1{ width: 6.3%; }
 		&.small-2{ width: 14.6%; }
 		&.small-3{ width: 22.9%; }
@@ -593,7 +602,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.small-1{ width: 8.3%; }
 		&.small-2{ width: 16.6%; }
 		&.small-3{ width: 24.9%; }
@@ -611,22 +619,20 @@ section{ padding: (@margen*2) 0; position: relative;
 	.small{ display: block; }
 	.no-small{ display: none; }
 
+	//General
+	h2{ .font(2.7em, 1em); }
+
 	//Card Container
 	.card{
-
 		> div{ padding: @margen @margen/2; }
-
 		&.servicio{
-
 			img{ display: block; width: 40%; margin: 0 auto @margen auto; }
 			h4{ margin-bottom: @margen/2; .font(1em, 1em); }
 			hr{ width: 20%; height: 1px; margin: 0 auto @margen/2 auto; border: 0; background: @claro; }
 			ul{ margin: 0; list-style: none; }
-			li{ .font(1em, 1.1em, 'caecilia-roman'); color: @claro; text-align: center; }
-			p{ margin: 0; .font(1em, 1.1em, 'caecilia-roman'); color: @cuervo; }
-
+			li{ color: @claro; text-align: center; }
+			p{ margin: 0; color: @cuervo; }
 			> div{
-
 				&.front{ background: @highlight; }
 				&.back{ display: block; background: @claro; color: @highlight;
 					h4{ color: @cuervo; }
@@ -636,15 +642,11 @@ section{ padding: (@margen*2) 0; position: relative;
 		}
 
 		&.cuervo{
-
 			> div{
-
 				img{ width: 80%; }
-
 				&.back{
 					h4{ .font(1em, 1.2em) }
 				}
-
 				&.front{
 					h5{ .font( 0.9em, 1.1em, 'caecilia-light' ); }
 					ul{
@@ -658,7 +660,6 @@ section{ padding: (@margen*2) 0; position: relative;
 
 				&.front{
 					h4{ .font(1em, 1.2em) }
-
 				}
 			}
 		}
@@ -666,51 +667,36 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	// Forma
 	.forma{
-
 		.paso{
-
 			> p{ margin: 0; text-align: right; .font(1em, 1em, 'caecilia-roman'); font-style: italic; color: @cuervo; }
-
 			h4{ margin-bottom: @margen/2; text-align: left; text-transform: none; .font(1.4em, 1.3em, 'caecilia-light'); color: @cuervo;}
-
 			.next, .submit{ height: 15vw; }
-
 			.next, .submit{ background: @highlight !important; display: table;
 				a{ display: block; color: @claro; display: table-cell; vertical-align: middle;
 					i{ width: 100%; font-size: 2em; text-align: center; }
 				}
 			}
-
 			> div{ width: 22vw; height: 22vw; }
-
 			> input, > textarea{ height: 15vw; padding: (@margen/2); border: none; background: @cuervo; .font(2em, 1em, 'caecilia-roman'); color: @claro;
 				&:focus{ outline-color: @cuervo; }
 			}
-
 			> textarea{ height: (@margen*5); .font(1.4em, 1.6em, 'caecilia-roman'); }
-
 			&[data-paso='1']{
 				> div{ padding: (@margen/2); border: 1px solid @claro; background: @cuervo; cursor: pointer; .transition;
 					&:hover, &.activo{ background: @highlight; }
 				}
-
 				.next{ height: 22vw; }
-
 				img{ display: block; width: 50%; margin: auto; }
-
 				h5{ .font(0.9em, 1.2em, 'caecilia-light'); text-align: center; color: @claro; }
-
 			}
 		}
 	}
-
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
 @media only screen and (min-width: 40.063em) {
 	//Framework
 	.columna{
-
 		&.medium-1{ width: 6.3%; }
 		&.medium-2{ width: 14.6%; }
 		&.medium-3{ width: 22.9%; }
@@ -726,7 +712,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.medium-1{ width: 8.3%; }
 		&.medium-2{ width: 16.6%; }
 		&.medium-3{ width: 24.9%; }
@@ -747,48 +732,36 @@ section{ padding: (@margen*2) 0; position: relative;
 	/*** GENERAL ***/
 
 	h2{ .font(6em, 1.1em); }
-	h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light');.fadein;}
+	h3{ margin: 0 0 (@margen*3) 0; .font(3.4em, 1.5em, 'caecilia-light'); .fadein;
+		&.visible{ .fadein(1, all 0.6s ease ); }
+	}
 	h4{ margin: 0 0 (@margen*2) 0; .font(2em, 1em, 'gotham-book'); }
-	h6{ margin: 0 0 (@margen/2) 0; .font(1.6em, 1em, 'gotham-medium'); }
+	h6{ margin: 0 0 (@margen/2) 0; }
 
 	.centro{ width: 81%; margin: 0; padding-top: 5%; position: relative; top: 10%; left: 10%; }
 	.boton{ width: auto; }
 
 	/*** HEADER ***/
-	header{ padding: (@margen/2); top: 0; left: 0; bottom: auto; z-index: 999;
+	header{ height: 123px; padding: (@margen/2); top: 0; left: 0; bottom: auto; .transition(); background: none;
 		h1{ display: block;
 			img{ margin: 0; }
 		}
-		nav{ display: block; .font(1em, 1em, 'gotham-medium');top: (@margen*2);
-			a{ padding: @margen/3; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
+		nav{ display: block; margin-top: 3.2%; .font(1em, 1em, 'gotham-medium'); .transition; float: left !important;
+			a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0em; .transition; background: none; border: none;
 				&:hover{ background: @highlight; }
 			}
 		}
-		&.past-header{ background: rgb(8, 0, 0, 0.8);
-
+		&.past-header{ height: 67px; background: rgba(0, 168, 171, 0.8);
+			h1{ width: 10% !important; }
+			nav{ width: 86% !important; margin-top: -4px; }
 		}
-	}
-
-	#menu-fijo {
-		img { width: 50%; margin: (@margen/3) 0;  }
-
-		&.fixed { position: fixed; top: 0px; left: 0; width: 100%; background: @cuervo; z-index: 1000; }
-
-		nav{ .font(1em, .3em, 'gotham-medium'); position: relative; top: (@margen/2);
-
-			a{ padding: @margen; color: @claro; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em; .transition;
-				&:hover{ background: @highlight; }
-			}
-
-		}
-
 	}
 
 	/*** SECTION ***/
 
 	section{ padding-top: (@margen*4); position: relative;
 		&.home{
-			p{ .font(1.4em, 1.4em, 'caecilia-light'); color: @claro; }
+			p{ .font(2.4em, 1.4em, 'caecilia-light'); color: @claro; }
 		}
 	}
 
@@ -796,15 +769,12 @@ section{ padding: (@margen*2) 0; position: relative;
 	.card{
 		> div{ padding: @margen; }
 		&.servicio{
-
 			img{ display: block; width: 50%;}
 			h4{ margin-bottom: @margen/2; .font(1.4em, 1.2em); }
 			hr{ width: 20%; height: 1px; margin: 0 auto @margen auto; }
-			li{ .font(1.2em, 1.1em, 'caecilia-roman');}
-			p{ .font(1.2em, 1.1em, 'caecilia-roman'); }
-
+			li{}
+			p{}
 			> div{
-
 				&.front{ background: @highlight; }
 				&.back{ display: block; background: @claro; color: @highlight;
 					h4{ color: @cuervo; }
@@ -812,13 +782,9 @@ section{ padding: (@margen*2) 0; position: relative;
 				}
 			}
 		}
-
 		&.cuervo{
-
 			> div{
-
 				img{ width: 80%; }
-
 				&.back{
 					h5{ .font( 1.2em, 1.2em, 'caecilia-light' ); }
 					ul{
@@ -829,10 +795,8 @@ section{ padding: (@margen*2) 0; position: relative;
 						}
 					}
 				}
-
 				&.front{
 					h4{ .font(1.4em, 1.2em) }
-
 				}
 			}
 		}
@@ -851,20 +815,15 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	// Contacto
 	.contacto { height: 100%; position: relative;
-
 		.mapa-wrapper{ height: 500px;
 			.mapa { height: 100%; position: absolute; }
 		}
-
-
-		.contacto-info{ position: absolute; left: 5%;
-
+		.contacto-info{ position: absolute;
 			.datos{ margin-bottom: @margen; background: @cuervo;
 				a, p{ .font(1.4em, 1.6em, 'caecilia-roman'); color: @claro; }
 				a{ text-decoration: none; }
 				p{ margin-bottom: 0; }
 			}
-
 			.redes{ margin-bottom: @margen; background: @claro;
 				ul{ margin: 0; list-style: none;
 					li{ display: inline-block; margin: 0 @margen;
@@ -874,15 +833,11 @@ section{ padding: (@margen*2) 0; position: relative;
 					}
 				}
 			}
-
 			.comienza{  padding: 0;
 				.boton{ display: block; text-align: center; }
 			}
-
 		}
-
 	}
-
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
@@ -891,7 +846,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 64.063em) {
 	//Framework
 	.columna{
-
 		&.large-1{ width: 6.3%; }
 		&.large-2{ width: 14.6%; }
 		&.large-3{ width: 22.9%; }
@@ -907,7 +861,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.large-1{ width: 8.3%; }
 		&.large-2{ width: 16.6%; }
 		&.large-3{ width: 24.9%; }
@@ -924,22 +877,17 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	.large{ display: block; }
 	.no-large{ display: none; }
-
 	body { }
-
 	// Portafolio
 	.portafolio{
 		.post{
 			&:hover{
 				.info{
-					h6{ margin-top: 10%;}
-					p{ margin-top: 10%; visibility: visible; .transition(all 500ms cubic-bezier(0.325, 0, 0, 1)); }
+					h6{ .font(1.2em, 1.3em); }
 				}
 			}
 		}
 	}
-
-
 } /* min-width 1025px, large screens */
 
 @media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
@@ -948,7 +896,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 90.063em) {
 	//Framework
 	.columna{
-
 		&.xlarge-1{ width: 6.3%; }
 		&.xlarge-2{ width: 14.6%; }
 		&.xlarge-3{ width: 22.9%; }
@@ -964,7 +911,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.xlarge-1{ width: 8.3%; }
 		&.xlarge-2{ width: 16.6%; }
 		&.xlarge-3{ width: 24.9%; }
@@ -979,10 +925,10 @@ section{ padding: (@margen*2) 0; position: relative;
 		&.xlarge-12{ width: 99.6%; }
 	}
 
-	body { background: #FFFF00; }
-
+	// body { background: #FFFF00; }
 	.xlarge{ display: block; }
 	.no-xlarge{ display: none; }
+
 } /* min-width 1441px, xlarge screens */
 
 @media only screen and (min-width: 90.063em) and (max-width: 120em) { } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
@@ -991,7 +937,6 @@ section{ padding: (@margen*2) 0; position: relative;
 @media only screen and (min-width: 120.063em) {
 	//Framework
 	.columna{
-
 		&.xxlarge-1{ width: 6.3%; }
 		&.xxlarge-2{ width: 14.6%; }
 		&.xxlarge-3{ width: 22.9%; }
@@ -1007,7 +952,6 @@ section{ padding: (@margen*2) 0; position: relative;
 	}
 
 	.span{
-
 		&.xxlarge-1{ width: 8.3%; }
 		&.xxlarge-2{ width: 16.6%; }
 		&.xxlarge-3{ width: 24.9%; }
@@ -1024,19 +968,5 @@ section{ padding: (@margen*2) 0; position: relative;
 
 	.xxlarge{ display: block; }
 	.no-xxlarge{ display: none; }
+
  } /* min-width 1921px, xlarge screens */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -58,31 +58,31 @@
 		mediaCheck({
 		    media: '(max-width: 24.9em)',
 		    	entry: function() {
-		      		console.log('enter max-width: 24.9em');
+		      		//console.log('enter max-width: 24.9em');
 		      		// Toggle menu movil
 					toggleMenuMovil();
 	    		},
 		    	exit: function() {
-		      		console.log('exit max-width: 24.9em');
+		      		//console.log('exit max-width: 24.9em');
 		    	}
 		});
 		// Controla js en movil landscape
 		mediaCheck({
 		    media: '(min-width: 25em)',
 		    	entry: function() {
-		      		console.log('enter min-width: 25em');
+		      		//console.log('enter min-width: 25em');
 		      		// Toggle menu movil
 					toggleMenuMovil();
 	    		},
 		    	exit: function() {
-		      		console.log('exit min-width: 25em');
+		      		//console.log('exit min-width: 25em');
 		    	}
 		});
 		// Controla js en pantallas medianas
 		mediaCheck({
 		    media: '(min-width: 40.063em)',
 		    	entry: function() {
-		      		console.log('enter min-width: 40.063em');
+		      		//console.log('enter min-width: 40.063em');
 
 					//** Sticky menu
 					//menuFijo();
@@ -93,7 +93,7 @@
 					flipsHover();
 	    		},
 		    	exit: function() {
-		      		console.log('exit min-width: 40.063em');
+		      		//console.log('exit min-width: 40.063em');
 		    	}
 		});
 	});
@@ -181,13 +181,13 @@ function filtrosPortafolio(){
 function procesaContacto(){
 	$('form').submit(function(e){
 		e.preventDefault();
-		console.log($(this).serializeArray());
+		//console.log($(this).serializeArray());
 		$.post(
 			'procesaForma.php',
 			$(this).serialize(),
 			function(data){
 				var x = jQuery.parseJSON(data);
-				console.log("Gracias por tu msg " + x.nombre);
+				//console.log("Gracias por tu msg " + x.nombre);
 			}
 		);
 	});
@@ -325,4 +325,25 @@ function setHeaderAlturaMenor(){
 
 function setHeaderAlturaMayor(){
 	 $('header').removeClass('past-header');
+}
+
+/**
+ * Opens Modal
+ * @param element
+**/
+function openModal(element, project){;
+	var aAbrir = element.data('project');
+	console.log(aAbrir);
+	aAbrir = $('#js-'+aAbrir+'.modal-wrapper' );
+	aAbrir.removeClass('hide');
+}
+
+/**
+ * Closes Modal
+ * @param element to be closed
+**/
+function closeModal(element){
+	var aCerrar = element.closest('.modal-wrapper');
+	aCerrar.addClass('hide');
+	$(document).unbind('keydown');
 }

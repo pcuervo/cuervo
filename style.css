@@ -835,6 +835,20 @@ section.home p {
   margin-bottom: 0;
   color: #00a8ab;
 }
+.portafolio {
+  /*------------------------------------*\
+		#MODALS
+	\*------------------------------------*/
+  /**
+	 * Elements
+	**/
+  /**
+	 * Styles
+	**/
+  /*------------------------------------*\
+	    #MEDIUM
+	\*------------------------------------*/
+}
 .portafolio .tags {
   margin: 0 0 20px 0;
   list-style: none;
@@ -843,7 +857,7 @@ section.home p {
 .portafolio .tags li {
   display: inline-block;
   margin: 0 10px 10px 0;
-  padding: 6.66666667px 6.66666667px 6.66666667px 6.66666667px;
+  padding: 6.666666666666667px 6.666666666666667px 6.666666666666667px 6.666666666666667px;
   border-bottom: 1px solid #e74c3c;
   font: 1em / 1em 'caecilia-light';
   color: #00a8ab;
@@ -907,64 +921,97 @@ section.home p {
   -o-transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
   transition: all 350ms cubic-bezier(0.325, 0, 0, 1);
 }
-.portafolio .overlay {
+.portafolio .modal-wrapper {
   width: 100%;
   height: 100%;
-  background: #99cc33;
-  visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
-  -webkit-transform: translate(-100%, 0);
-  -moz-transform: translate(-100%, 0);
-  -ms-transform: translate(-100%, 0);
-  -o-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
-  -webkit-transition: transform 0.5s, visibility 0s 0.5s;
-  -moz-transition: transform 0.5s, visibility 0s 0.5s;
-  -ms-transition: transform 0.5s, visibility 0s 0.5s;
-  -o-transition: transform 0.5s, visibility 0s 0.5s;
-  transition: transform 0.5s, visibility 0s 0.5s;
+  z-index: 9999;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
-.portafolio .overlay .overlay-close {
-  width: 80px;
-  height: 80px;
-  border: none;
-  overflow: hidden;
-  background: url('images/close.png') no-repeat center center;
-  text-indent: 200%;
-  color: transparent;
-  outline: none;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 100;
+.portafolio .modal-wrapper.hide {
+  top: -100%;
 }
-.portafolio .overlay .proyecto {
-  width: 100%;
-  height: 60%;
-  text-align: center;
+.portafolio .modal {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  max-height: 90%;
+  overflow-y: scroll;
+  padding: 20px;
+  background: #ffffff;
   position: relative;
-  top: 50% !important;
-  z-index: 1 !important;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-.portafolio .overlay.open {
-  visibility: visible;
-  -webkit-transform: translate(0%, 0);
-  -moz-transform: translate(0%, 0);
-  -ms-transform: translate(0%, 0);
-  -o-transform: translate(0%, 0);
-  transform: translate(0%, 0);
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
+.portafolio .close-modal {
+  color: #e74c3c;
+  font-size: 25px;
+  float: right;
+  position: relative;
+  z-index: 200;
+  cursor: pointer;
+}
+.portafolio .modal--large {
+  max-width: 800px;
+}
+.portafolio .modal--read-mode {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  background: #ffffff;
+  overflow-y: scroll;
+}
+.portafolio .modal--read-mode .modal-content {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.portafolio .modal--lightbox {
+  background: #ffffff;
+  overflow: hidden;
+}
+.portafolio .modal--lightbox .image-single {
+  width: 100%;
+  background: #ffffff;
+}
+.portafolio .modal--lightbox .full-height {
+  height: 100vh;
+  max-height: calc(100vh - 40px);
+}
+.portafolio .modal--lightbox .full-height-centered {
+  max-height: calc(100vh - 40px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+@media (min-width: 40.063em) {
+  .portafolio .modal--read-mode .modal-content {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .portafolio .modal--lightbox .modal-content {
+    width: 90%;
+    max-width: none;
+  }
 }
 .portafolio .areas {
   height: 100%;
@@ -1635,7 +1682,7 @@ section.home p {
     font: 1.2em / 1.2em 'caecilia-light';
   }
   .card.cuervo > div.back ul li {
-    margin: 0 6.66666667px;
+    margin: 0 6.666666666666667px;
   }
   .card.cuervo > div.back ul li a i {
     font-size: 1.4em;

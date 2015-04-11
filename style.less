@@ -215,6 +215,11 @@ figure {margin: 0;}
 	opacity: @opacity; .transition(@transition);
 }
 
+.center-full() {
+	position: absolute;
+	top: 50%; left: 50%;
+	.translate(-50%, -50%);
+}
 
 
 
@@ -231,7 +236,7 @@ figure {margin: 0;}
 
 .no-margin{ margin: 0 !important; }
 .no-margin-bottom{ margin-bottom: 0 !important; }
-.margin-bottom { margin-bottom:@margen; }
+.margin-bottom { margin-bottom: @margen; }
 
 //layout
 .container{ min-width: 300px; height: 100%;
@@ -459,14 +464,98 @@ section{ padding: (@margen*2) 0; position: relative;
 		}
 	}
 
-	.overlay { width: 100%; height: 100%; background: rgba(153,204,51,1); visibility: hidden; .backface(hidden); position: fixed; top: 0; left: 0; z-index: 3; .translate(-100%); .transition(transform 0.5s, visibility 0s 0.5s;);
-		.overlay-close { width: 80px; height: 80px; border: none; overflow: hidden; background: url('images/close.png') no-repeat center center; text-indent: 200%; color: transparent; outline: none; position: absolute; right: 20px; top: 20px; z-index: 100; }
-		.proyecto { width: 100%; height: 60%; text-align: center; position: relative; top: 50% !important; z-index: 1 !important; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
-		&.open {
-			visibility: visible;
-			.translate(0%); .transition(transform 0.5s;);
-		}
+	/*------------------------------------*\
+		#MODALS
+	\*------------------------------------*/
+	.modal-wrapper{
+		width: 100%; height: 100%;
+		background: rgba(0, 0, 0, 0.8);
+		position: fixed; top: 0; left: 0;
+		z-index: 9999;
+		.transition;
 	}
+
+	.modal-wrapper.hide{
+		top: -100%;
+	}
+
+	.modal{
+		width: 90%; max-width: 400px; height: auto; max-height: 90%; overflow-y: scroll;
+		padding: @margen;
+		background: @claro;
+		position: relative;
+		.center-full();
+	}
+
+
+	/**
+	 * Elements
+	**/
+	.close-modal{
+		color: @highlight;
+		font-size: 25px;
+		float: right;
+		position: relative;
+		z-index: 200;
+		cursor: pointer;
+	}
+
+
+	/**
+	 * Styles
+	**/
+	.modal--large{
+		max-width: 800px;
+	}
+
+	.modal--read-mode{
+		width: 100%; height: 100%;
+		max-width: none; max-height: none;
+		background: @claro;
+		overflow-y: scroll;
+	}
+
+	.modal--read-mode .modal-content{
+		width: 90%; max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.modal--lightbox{
+		background: @claro;
+		overflow: hidden;
+	}
+
+	.modal--lightbox .image-single{
+		width: 100%;
+		background: @claro;
+	}
+
+	.modal--lightbox .full-height{
+		height: 100vh; max-height: calc( ~'100vh - 40px' );
+	}
+
+	.modal--lightbox .full-height-centered{
+		max-height: calc( ~'100vh - 40px' );
+		.center-full;
+	}
+
+
+	/*------------------------------------*\
+	    #MEDIUM
+	\*------------------------------------*/
+	@media (min-width: 40.063em) {
+
+		.modal--read-mode .modal-content{
+			width: 50%;
+			margin: 0 auto;
+		}
+
+		.modal--lightbox .modal-content{
+			width: 90%; max-width: none;
+		}
+
+	}
+
 
 	// @media screen and (max-height: 30.5em) {
 	// 	.overlay nav {

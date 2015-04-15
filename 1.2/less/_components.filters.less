@@ -3,12 +3,12 @@
 \*------------------------------------*/
 .filters{}
 
-.filters__tabs{ background: @dark; }
+.filters__tabs{ background: @cuervo; }
 
 .tab-filter{
     padding: @unidad @unidad @unidad (@unidad/2);
     .font(12px, 1, 400, 'font-name'); text-transform: uppercase; color: @light; text-decoration: none;
-    background: @dark;
+    background: @cuervo;
     white-space: nowrap; text-overflow: ellipsis;
     overflow: hidden;
     position: relative;
@@ -21,7 +21,7 @@
     position:absolute; top: @unidad; right: 0;
 }
 .tab-filter--active{
-    color: @dark;
+    color: @cuervo;
     background: @light;
 }
 .tab-filter--active:after{
@@ -40,7 +40,7 @@
     position: relative;
 }
 .filter--active{
-    background: @dark !important;
+    background: @cuervo !important;
     color: @light !important;
 }
 
@@ -51,7 +51,7 @@
 .filter--info span{
     width: 20px; height: 100%;
     position: absolute; top: 0; right: 0;
-    background: darken(@dark, 20%);
+    background: darken(@cuervo, 20%);
 }
 .filter--info i{
     width: 100%;
@@ -67,7 +67,7 @@
 
 .filters__results{
     padding-bottom: 0;
-    background: @light-dark;
+    background: @light;
 }
 .filters__results p{
     margin-bottom: (@unidad/2);

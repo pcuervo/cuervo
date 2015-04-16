@@ -2,248 +2,30 @@
 	"use strict";
 	$(function(){
 
-		/***************/
-		/*** ON LOAD ***/
-		/***************/
-
-		//** Padding top
-		paddingTop();
-
-		//** Backstretch
-		$('#home').backstretch('images/background.jpg');
-
-		//** Ocupar full screen home y portafolio
-		//fullScreen('height','.proyectos');
-
-		//** mapa google
-		creaMapa();
-
-		//** navegación contacto
-		navContacto();
-
-		//**Checa donde está el usuario y aplica clases si ya pasó el header
-		scrollPastHeader();
-
-		//** Muetra elementos como lazy load.
-		fadeInSecciones();
+		/*------------------------------------*\
+			#ON LOAD
+		\*------------------------------------*/
 
 
 
 
+		/*------------------------------------*\
+			#Triggered events
+		\*------------------------------------*/
 
-		/********************/
-		/*** INTERACTIONS ***/
-		/********************/
 
-		//**Header se hace chico
-		$(window).scroll(function() {
-			scrollPastHeader('setHeaderAlturaMenor');
-		});
 
-		//**Portafolio
-		filtrosPortafolio();
 
-		//** AJAX para procesar contacto
-		procesaContacto();
+		/*------------------------------------*\
+			#RESPONSIVE
+		\*------------------------------------*/
 
-		//** Flips de servicios y nosotros
-		flipsClick();
-
-		//**Scroll to section
-		$("nav a").click(function(e) {
-			e.preventDefault();
-		   	scrollToSeccion($(this))
-		});
-		// Controla js en movil portrait
-		mediaCheck({
-		    media: '(max-width: 24.9em)',
-		    	entry: function() {
-		      		//console.log('enter max-width: 24.9em');
-		      		// Toggle menu movil
-					toggleMenuMovil();
-	    		},
-		    	exit: function() {
-		      		//console.log('exit max-width: 24.9em');
-		    	}
-		});
-		// Controla js en movil landscape
-		mediaCheck({
-		    media: '(min-width: 25em)',
-		    	entry: function() {
-		      		//console.log('enter min-width: 25em');
-		      		// Toggle menu movil
-					toggleMenuMovil();
-	    		},
-		    	exit: function() {
-		      		//console.log('exit min-width: 25em');
-		    	}
-		});
-		// Controla js en pantallas medianas
-		mediaCheck({
-		    media: '(min-width: 40.063em)',
-		    	entry: function() {
-		      		//console.log('enter min-width: 40.063em');
-
-					//** Sticky menu
-					//menuFijo();
-					//Palabras home
-					//FadeIn elementos al hacer scroll
-					fadeInSecciones();
-					// Flips de servicios y nosotros
-					flipsHover();
-	    		},
-		    	exit: function() {
-		      		//console.log('exit min-width: 40.063em');
-		    	}
-		});
 	});
 })(jQuery);
 
-// Funciones cuervo
-function toggleMenuMovil(){
-	$('#btn-movil').on('click', function(e){
-		e.preventDefault();
-		if($('header nav').css('display')=='none'){
-			$('header nav').slideDown();
-			$(this).find('.lines-button').addClass('close');
-		} else {
-			$('header nav').slideUp();
-			$(this).find('.lines-button').removeClass('close');
-		}
-	});
-}
-function fullScreen(height_property, el){
-	var altoWindow = $(window).height();
-	$(el).css(height_property, altoWindow);
-}
-function fadeInSecciones(){
-	var invisibles = $('h3, .cardContainer');
-	invisibles.bind('inview', function(event, isInView, visiblePartX, visiblePartY) {
-		if (isInView) {
-			// element is now visible in the viewport
-	    	$(this).addClass('visible');
-				$(this).find('.card').removeClass('flipped');
-		    if (visiblePartY == 'top') {
-		    	// top part of element is visible
-		    } else if (visiblePartY == 'bottom') {
-		    	//
-		    } else {
-		    	// whole part of element is visible
-		    }
-		} else {
-		    // element has gone out of viewport
-		}
-	});
-}
-
-function flipsHover(){
-	$('.cardContainer').hover(
-		function(){
-			cardHeight($(this));
-			$(this).find('.card').addClass('flipped');
-		},
-		function(){
-			$(this).find('.card').removeClass('flipped');
-		}
-	);
-	$('.cardContainer').each(function(){
-		cardHeight($(this));
-	});
-}
-
-function flipsClick(){
-	$('.cardContainer').on('click', function(){
-		$(this).find('.card').toggleClass('flipped');
-		cardHeight($(this));
-	});
-
-	$('.cardContainer').each(function(){
-		cardHeight($(this));
-	});
-}
-
-function filtrosPortafolio(){
-	var $container = $('#isotope');
-	$container.isotope({
-		itemSelector: '.post',
-		layoutMode: 'fitRows'
-	});
-	$('.tags li').on( 'click', function() {
-		var filterValue = $(this).data('filter');
-		$container.isotope({
-			filter: filterValue
-		});
-		$('.tags li').removeClass('activo');
-		$(this).addClass('activo');
-	});
-}
-
-function procesaContacto(){
-	$('form').submit(function(e){
-		e.preventDefault();
-		//console.log($(this).serializeArray());
-		$.post(
-			'procesaForma.php',
-			$(this).serialize(),
-			function(data){
-				var x = jQuery.parseJSON(data);
-				//console.log("Gracias por tu msg " + x.nombre);
-			}
-		);
-	});
-}
-
-function cardHeight(card){
-	var frontHeight = card.find('.front').height();
-	var backHeight = card.find('.back').height();
-	if (frontHeight > backHeight) {
-		card.height(frontHeight);
-	} else if (backHeight > frontHeight) {
-		card.height(backHeight);
-	} else {
-		card.height(backHeight);
-	}
-}
-
-function navContacto(){
-	// toggle checkboxes
-	$('.paso div').on('click', function(e){
-		$(this).toggleClass('activo');
-		servicio = $(this).attr('data-servicio');
-		isChecked = $('.paso div input[value="'+servicio+'"]').prop('checked');
-		if(isChecked)
-			$('.paso div input[value="'+servicio+'"]').prop('checked', false);
-		else
-			$('.paso div input[value="'+servicio+'"]').prop('checked', true);
-	});
-	// avance entre preguntas
-	$('.paso a').on('click', function(e){
-		e.preventDefault();
-		var currentStep = $(this).parent().parent().attr('data-paso');
-		nextStep(currentStep);
-
-	});
-}
-function nextStep(current){
-	// esconde paso actual
-	offsetCurrent = $('.paso[data-paso="'+current+'"]').offset();
-	topCurrent = offsetCurrent.top;
-
-	$('.paso[data-paso="'+current+'"]').slideUp('fast');
-
-	//$('.paso[data-paso="'+current+'"]').removeClass('show');
-	//$('.paso[data-paso="'+current+'"]').addClass('hide');
-
-	var next = parseInt(current) + 1;
-
-	$('.paso[data-paso="'+next+'"]').show('slow');
-
-	// muestra siguiente paso
-	//$('.paso[data-paso="'+next+'"]').removeClass('hide');
-	//$('.paso[data-paso="'+next+'"]').addClass('show');
-}
-function mostrarMsgContacto(nombre){}
-
+/*------------------------------------*\
+	#ON LOAD
+\*------------------------------------*/
 function creaMapa (){
 
 	var styles = [
@@ -280,51 +62,35 @@ function creaMapa (){
 	google.maps.event.addDomListener(window, 'load', initialize);
 }
 
-function quitarDragMapa(){}
 
-function mostarContacto(){
-	$('.centro a, .comienza a').on('click', function(e){
-		$('.forma').slideDown('slow', function(){
 
+
+/*------------------------------------*\
+	#Triggered events
+\*------------------------------------*/
+
+function flipCard(element){
+	$(element).toggleClass('flipped');
+}
+
+function filtrosPortafolio(){
+	var $container = $('#isotope');
+	$container.imagesLoaded( function() {
+		$container.isotope({
+			itemSelector: '.post',
+			layoutMode: 'fitRows'
 		});
-
 	});
-}
-
-function scrollToSeccion(elemento){
-	var id = elemento.attr('href');
-	var seccion = $(id);
-	var divPosicion = seccion.offset().top;
-	//var divPosicion = seccion.scrollTop();
-
-	$('html, body').animate({scrollTop: divPosicion});
-}
-
-function scrollPastHeader(){
-	var scrolled = $(window).scrollTop();
-	if ( scrolled > getAlturaHeader() ){
-		setHeaderAlturaMenor();
-	} else {
-		setHeaderAlturaMayor();
-	}
-}
-
-function paddingTop(){
-	$('.home').css('paddingTop', (getAlturaHeader));
-}
-
-function getAlturaHeader(){
-	var alturaHeader = $('header').outerHeight();
-	alturaHeader = alturaHeader + 40;
-	return alturaHeader;
-}
-
-function setHeaderAlturaMenor(){
-	 $('header').addClass('past-header');
-}
-
-function setHeaderAlturaMayor(){
-	 $('header').removeClass('past-header');
+	$('.js-filters li').on( 'click', function() {
+		var filterValue = $(this).data('filter');
+		$container.imagesLoaded( function() {
+			$container.isotope({
+				filter: filterValue
+			});
+		});
+		$('.js-filters li').removeClass('active');
+		$(this).addClass('active');
+	});
 }
 
 /**
@@ -347,3 +113,15 @@ function closeModal(element){
 	aCerrar.addClass('hide');
 	$(document).unbind('keydown');
 }
+
+
+function toggleMenuMovil(){
+	$('.js-mobile-menu').toggleClass('closed');
+	$('.lines-button').toggleClass('closed');
+}
+
+
+
+/*------------------------------------*\
+	#RESPONSIVE
+\*------------------------------------*/

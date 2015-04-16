@@ -1,0 +1,123 @@
+//Card Container
+.cardContainer{
+	position: relative;
+	.transition;
+	.perspective(1500px);
+}
+
+.card{
+	width: 100%; height: 100%;
+	.transition;
+	.preserve;
+}
+
+.cardContainer:hover .card.flipped{
+	.rotatey(180deg);
+}
+
+.card > div{
+	width: 100%;
+	padding: @unidad;
+	position: absolute;
+	.backface(hidden);
+}
+
+.card > div.back{
+	.rotatey(180deg);
+}
+
+.card.servicio {
+	height: 383px;
+	img{
+		display: block;
+		width: 100px;
+		margin: 0 auto @unidad auto;
+	}
+	h4{
+		margin-bottom: @unidad;
+	}
+	hr{
+		width: 80px;
+		height: 1px;
+		margin: 0 auto @unidad auto;
+		border: 0;
+		background: @light;
+	}
+	ul{
+		margin: 0; padding: 0;
+		list-style: none;
+	}
+	li{
+		.font(1.2em, 1.6em, 400, 'caecilia-roman'); color: @light; text-align: center;
+	}
+	p{ margin: 0; .font(1.2em, 1.6em, 400, 'caecilia-roman'); color: @cuervo; }
+	> div{
+		&.front{ background: @highlight; }
+		&.back{ display: block; background: @light; color: @highlight;
+			h4{ color: @cuervo; }
+			hr{ width: 100%; background: @cuervo; }
+		}
+	}
+}
+
+/*------------------------------------*\
+    #MEDIUM
+\*------------------------------------*/
+@media (min-width: @medium) {
+	.card.servicio li{
+		font-size: 16px;
+	}
+}
+
+
+.card.cuervo{
+	height: 265px;
+	> div{
+		img{ width: 50%; margin-bottom: @unidad; }
+		&.back, &.front{
+			height: 100%;
+		}
+		&.back{
+			display: block;
+			background: @cuervo;
+			color: @light;
+			h5{
+				margin: 0 0 10px 0;
+				color: @light;
+				text-transform: uppercase;
+				text-align: center;
+				.font( 1.2em, 1.4em, 'caecilia-light' );
+			}
+			hr{
+				width: 100%;
+				height: 1px;
+				margin: 0 0 10px 0;
+				background: @light;
+			}
+			ul{
+				margin: 0;
+				list-style: none;
+				text-align: center;
+				li{
+					display: inline;
+					margin: 0 @unidad;
+					a{
+						color: @light;
+						text-decoration: none;
+						i{ font-size: 1.6em; }
+					}
+				}
+			}
+		}
+
+		&.front{
+			padding-top: 30px;
+			background: @highlight;
+
+			h4{
+				margin-bottom: 0;
+				color: @light;
+			}
+		}
+	}
+}

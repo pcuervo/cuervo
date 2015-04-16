@@ -349,8 +349,12 @@ h6{ margin: 0 0 (@margen/2) 0; .font(1em, 1em, 'gotham-medium'); text-transform:
 	&.close{
 		.lines{ background: transparent;
 			&:before, &:after{ transform-origin: 50% 50%; top:0; width: @button-size;}
-			&:before{ transform: rotate3d(0,0,1,45deg); }
-			&:after{ transform: rotate3d(0,0,1,-45deg); }
+			&:before{
+				.rotate3d( '0,0,1,45deg');
+			}
+			&:after{
+				.rotate3d( '0,0,1,-45deg');
+			}
 		}
 	}
 }

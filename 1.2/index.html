@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Title</title>
+		<title>Little Crow | Pequeño Cuervo</title>
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link rel="stylesheet" href="style.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,7 +19,19 @@
 		<!--[if lt IE 9]>
 			<p class="chromeframe">Estás usando una versión <strong>vieja</strong> de tu explorador. Por favor <a href="http://browsehappy.com/" target="_blank"> actualiza tu explorador</a> para tener una experiencia completa.</p>
 		<![endif]-->
+		<div class="[ hidden--medium ][ button__movil ]">
+			<a href="#" class="[ lines-button ]" type="button" role="button" aria-label="Toggle Navigation">
+				<span class="[ lines ]"></span>
+			</a>
+		</div>
+		<nav class="[ xmall-12 ][ js-mobile-menu ][ closed ]">
+			<a class="" href="#servicios">Services</a>
+			<a class="" href="#portafolio">Portfolio</a>
+			<a class="" href="#nosotros">About Us</a>
+			<a class="" href="#contacto">Contact</a>
+		</nav>
 		<div class="container">
+
 			<header>
 				<div class="[ wrapper ]">
 					<div class="[ row ]">
@@ -39,13 +51,6 @@
 					</div>
 				</div>
 			</header>
-
-			<nav class="[ xmall-12 ]">
-				<a class="" href="#servicios">Services</a>
-				<a class="" href="#portafolio">Portfolio</a>
-				<a class="" href="#nosotros">About Us</a>
-				<a class="" href="#contacto">Contact</a>
-			</nav>
 
 			<div class="[ main ]">
 
@@ -446,6 +451,28 @@
 					</div><!-- width -->
 				</section><!-- nosotros -->
 
+				<section data-seccion="contacto" class="[ contacto ]" id="contacto">
+					<div class="[ wrapper ]">
+						<h3>Contáctanos</h3>
+						<div class="[ row ]">
+							<div class="[ mapa-wrapper ][ xmall-12 ]">
+								<div class="[ mapa ] [ xmall-12 ]" id="mapa"></div>
+							</div><!-- mapa-wrapper -->
+							<div class="[ contacto-info ][  ]">
+								<div class="[ datos ][ xmall-12 ][ bg-cuervo ][ margin-bottom padding ]">
+									<h6><a class="[ light ]" href="mailto:hola@pcuervo.com">hello@pcuervo.com</a></h6>
+									<h6><a class="[ light ]" href="tel:+5543367589">01152 4336 7589</a></h6>
+									<p class="[ light ][ no-margin ]">Agrarismo 52, Col. Escandón, Miguel Hidalgo, D.F., México. 11800</p>
+								</div><!-- columna -->
+								<div class="[ text-center ][ xmall-12 ]">
+									<a class="[ highlight ][ inline-block ][ large ][ margin ]" href="https://www.facebook.com/cuervoestudio" target="_blank"><i class="fa fa-facebook"></i></a>
+									<a class="[ highlight ][ inline-block ][ large ][ margin ]" href="https://twitter.com/PequenoCuervo" target="_blank"><i class="fa fa-twitter"></i></a>
+								</div>
+							</div><!-- contacto-info -->
+						</div><!-- row -->
+					</div><!-- wrapper -->
+				</section><!-- contacto -->
+
 			</div><!-- main -->
 		</div><!-- container -->
 		<footer>
@@ -477,6 +504,7 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 		<script>
 			(function( $ ) {
 				"use strict";
@@ -488,6 +516,8 @@
 					$('#hero').backstretch('../images/background.jpg');
 
 					filtrosPortafolio();
+
+					creaMapa();
 
 
 
@@ -517,6 +547,11 @@
 
 					$('.close-modal').on('click', function(event) {
 						closeModal( $(this) );
+					});
+
+					$('.lines-button').on('click', function(e){
+						e.preventDefault();
+						toggleMenuMovil();
 					});
 
 

@@ -1,19 +1,21 @@
 nav{
-	.font(1.2em, 1em, 'gotham-medium');
-	position: fixed; bottom: -100px;
+	.font(1.2em, 1em, 400, 'gotham-medium');
+	position: fixed; bottom: 0;
+	.transition;
+	z-index: @zIndex-2;
+}
+
+nav.closed{
+	bottom: -100%;
 }
 
 nav a{
+	display: block;
 	width: 100%;
 	padding: @unidad; border-top: 1px solid darken(@cuervo, 10%);
 	color: @light; text-decoration: none; text-transform: uppercase; text-align: center; letter-spacing: 0.1em;
 	background: @cuervo;
-	.transition;
 	&:hover{
 		background: @highlight;
 	}
-}
-
-#btn-movil {
-	a { position: absolute; bottom:@unidad; right: (@unidad/2); padding: 10px 10px 17px 10px; .font(2em, 1em); color: @cuervo; background: @light; z-index: 99; }
 }

@@ -31,13 +31,60 @@
 	background: transparent;
 }
 
+.button__movil{
+	position: fixed; bottom:(@unidad/2); right: (@unidad/2);
+	z-index: @zIndex-3;
+}
 
-.button__share{ padding: @unidad (@unidad/4); }
-.button__share i{ font-size: 16px; }
-.button__share span {
-	.font(20px, 1, 100); text-overflow: ellipsis; //text-align: right;
-	white-space: nowrap;
-	overflow: hidden;
+.lines-button {
+	display: inline-block;
+	padding: 10px 10px 17px 10px; border: none;
+	.font(2em, 1em); color: @cuervo;
+	background: @light;
+	z-index: 99;
+	.transition;
+	cursor: pointer;
+	user-select: none;
+
+	&:hover {
+		opacity: 1;
+	}
+	&:active {
+		.transition(0);
+		background: rgba(0,0,0,.1);
+	}
+
+	&.closed {
+		.lines {
+			background: transparent;
+			&:before, &:after{
+				width: 3.5rem;
+				top: 0;
+				transform-origin: 50% 50%;
+			}
+			&:before{
+				.rotate3d( 0, 0, 1, 45deg );
+			}
+			&:after{
+				.rotate3d( 0, 0, 1, -45deg );
+			}
+		}
+	}
+}
+
+.lines {
+	//create middle line
+	.line();
+	position: relative;
+	/*create the upper and lower lines as pseudo-elements of the middle line*/
+	&:before, &:after {
+		.line();
+		position: absolute;  left:0;
+		content: '';
+		transform-origin: 0.25rem center;
+	}
+	&:before { top: 0.875rem; }
+	&:after { top: -0.875rem; }
 }
 
 

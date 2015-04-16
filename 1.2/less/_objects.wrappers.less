@@ -1,22 +1,9 @@
 /**
  * Main containers 100% height
 **/
-html, body,
-.container, .content-wrapper{
-	height: 100%;
+html, body,{
 	background: @light;
 }
-
-/**
- * These wrappers maintains the scroll and the full-height menu
-**/
-.container {
-	background: @light;
-	position: relative;
-	overflow: hidden;
-}
-.content-wrapper, .content { position: relative; }
-.content-wrapper { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 
 /**
  * Maintains everything at the same widht
@@ -44,19 +31,16 @@ html, body,
 }
 
 
+
+section{
+	margin-bottom: 40px;
+}
+
+
+
+
 /*------------------------------------*\
     #POSITIONS
 \*------------------------------------*/
 .relative{ position: relative !important; }
 .absolute{ position: absolute !important; }
-
-
-
-
-
-
-
-
-
-
-

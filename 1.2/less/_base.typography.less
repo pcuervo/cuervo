@@ -1,37 +1,114 @@
 /*------------------------------------*\
-    #FONTFACE
+	#FONTFACE
 \*------------------------------------*/
 
-// @font-face {
-// 	font-family: 'font-name';
-// 	src: url('fonts/font-name.eot');
-// 	src: url('fonts/font-name.eot?#iefix') format('embedded-opentype'),
-// 		url('fonts/font-name.woff2') format('woff2'),
-// 		url('fonts/font-name.woff') format('woff'),
-// 		url('fonts/font-name.ttf') format('truetype'),
-// 		url('fonts/font-name.svg#font-name') format('svg');
-// 	font-weight: normal;
-// 	font-style: normal;
-// }
+@font-face {
+  font-family: 'gotham-light';
+  src:  url('fonts/gotham-light.eot');
+  src:  url('fonts/gotham-light.eot?#iefix') format('embedded-opentype'),
+		url('fonts/gotham-light.woff') format('woff'),
+		url('fonts/gotham-light.ttf') format('truetype'),
+		url('fonts/gotham-light.svg#gotham-light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotham-book';
+  src:  url('fonts/gotham-book.eot');
+  src:  url('fonts/gotham-book.eot?#iefix') format('embedded-opentype'),
+		url('fonts/gotham-book.woff') format('woff'),
+		url('fonts/gotham-book.ttf') format('truetype'),
+		url('fonts/gotham-book.svg#gotham-book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gotham-medium';
+  src:  url('fonts/gotham-medium.eot');
+  src:  url('fonts/gotham-medium.eot?#iefix') format('embedded-opentype'),
+		url('fonts/gotham-medium.woff') format('woff'),
+		url('fonts/gotham-medium.ttf') format('truetype'),
+		url('fonts/gotham-medium.svg#gotham-medium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'caecilia-light';
+	src: url('fonts/caecilialtstd-light-webfont.eot');
+	src: url('fonts/caecilialtstd-light-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/caecilialtstd-light-webfont.woff') format('woff'),
+		 url('fonts/caecilialtstd-light-webfont.ttf') format('truetype'),
+		 url('fonts/caecilialtstd-light-webfont.svg#caecilia_lt_std45_light') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'caecilia-roman';
+	src: url('fonts/caecilialtstd-roman-webfont.eot');
+	src: url('fonts/caecilialtstd-roman-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/caecilialtstd-roman-webfont.woff') format('woff'),
+		 url('fonts/caecilialtstd-roman-webfont.ttf') format('truetype'),
+		 url('fonts/caecilialtstd-roman-webfont.svg#caecilia_lt_std55_roman') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'fontawesome';
+	src: url('fonts/fontawesome.eot');
+	src: url('fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/fontawesome.woff') format('woff'),
+		 url('fonts/fontawesome.ttf') format('truetype'),
+		 url('fonts/fontawesome.svg#fontawesome') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 
 
 
 /*------------------------------------*\
-    #GENRALES
+	#GENRALES
 \*------------------------------------*/
 
 /**
  * HTML general elements
 **/
-body{ font-family: 'font-name'; color: @cuervo; }
+body{
+	font-family: 'gotham-medium'; color: @cuervo;
+}
 
 /**
  * Headers
 **/
 h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
-	//font-family: '';
+}
+
+h2{
+	margin: 0 0 10px 0;
+	.font(1.7em, 1em); color: @light; text-transform: uppercase;
+}
+h2 span{
+	.font(1em, 1.1em, 100, 'gotham-light');
+}
+
+h3{
+	margin: 0 0 (@unidad) 0;
+	.font(2.3em, 1.2em, 100, 'caecilia-light'); color: @cuervo;
+}
+
+h4{
+	.font(2em, 1em, 400, 'gotham-book'); color: @light; text-transform: uppercase;
+}
+
+h6{
+	margin: 0 0 (@unidad/2) 0;
+	.font(1em, 1em, 500, 'gotham-medium'); text-transform: uppercase; color: @light;
 }
 
 /**
@@ -55,7 +132,7 @@ h1, h2, h3, h4, h5, h6{
 **/
 p{
 	margin: 0 0 1em 0;
-	.font( 20px, 30px, normal, 'font-name' );
+	.font( 20px, 30px, normal, 'caecilia-roman' );
 }
 
 
@@ -70,7 +147,7 @@ p{
 
 
 /*------------------------------------*\
-    #UTILITIES
+	#UTILITIES
 \*------------------------------------*/
 
 /**
@@ -90,5 +167,5 @@ p{
 
 
 /*------------------------------------*\
-    #INFO
+	#INFO
 \*------------------------------------*/

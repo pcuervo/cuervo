@@ -91,10 +91,23 @@ h1, h2, h3, h4, h5, h6{
 
 h2{
 	margin: 0 0 10px 0;
-	.font(1.7em, 1em); color: @light; text-transform: uppercase;
+	.font(1.7em, 1em, 400, 'gotham-medium'); color: @light; text-transform: uppercase;
+	.transition;
+	@media (min-width: @small) {
+		font-size: 40px;
+	}
+
+	@media (min-width: @medium) {
+		font-size: 50px;
+	}
+
+	@media (min-width: @large) {
+		font-size: 80px;
+	}
+
 }
 h2 span{
-	.font(1em, 1.1em, 100, 'gotham-light');
+	font-family: 'gotham-light';
 }
 
 h3{
@@ -104,13 +117,18 @@ h3{
 
 h4{
 	.font(2em, 1em, 400, 'gotham-book'); color: @light; text-transform: uppercase;
+
+	@media (min-width: @medium) {
+		font-size: 20px;
+	}
 }
 
-/*------------------------------------*\
-    #MEDIUM
-\*------------------------------------*/
-@media (min-width: @medium) {
-	font-size: 20px;
+h5{
+	margin: 0 0 10px 0;
+	color: @light;
+	text-transform: uppercase;
+	text-align: center;
+	.font( 1.2em, 1.4em, 'caecilia-light' );
 }
 
 h6{

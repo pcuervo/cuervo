@@ -19,3 +19,25 @@ nav a{
 		background: @highlight;
 	}
 }
+
+/*------------------------------------*\
+    #MEDIUM
+\*------------------------------------*/
+@media (min-width: @medium) {
+
+	nav{
+		.font(14px, 1, 400, 'gotham-medium');
+		position: relative; bottom: 0;
+	}
+
+	nav a{
+		display: inline-block;
+		width: auto;
+		padding: @unidad; border: none;
+		background: transparent;
+		&:hover{
+			background: @highlight;
+		}
+	}
+
+}

@@ -256,8 +256,8 @@ function creaMapa (){
 
 	function initialize() {
 		var notMobile = $(document).width() > 480 ? true : false;
-		var centro = new google.maps.LatLng(19.402319, -99.172324);
-		var nosotros = new google.maps.LatLng(19.402319, -99.172324);
+		var centro = new google.maps.LatLng(19.401933, -99.172383);
+		var nosotros = new google.maps.LatLng(19.401933, -99.172383);
 		var mapOptions = {
 			zoom: 19,
 			center: nosotros,

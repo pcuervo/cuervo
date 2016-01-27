@@ -575,6 +575,7 @@
 
 
 		<footer>
+<<<<<<< HEAD
 
 			<div class="[ modal-wrapper modal-natural-form ][ hidden ]">
 					<div class="[ modal ]">
@@ -613,6 +614,8 @@
 						</div><!-- modal-content -->
 					</div><!-- modal -->
 				</div><!-- modal-wrapper -->
+=======
+>>>>>>> 917ab344d30c7a834945b581474e5bf73bab608a
 
 		</footer>
 
@@ -1247,16 +1250,16 @@
 						<h4 class="[ cuervo text-center ][ margin-bottom--small ]">lorem</h4>
 					</div><!-- modal-header -->
 					<div class="[ modal-body ]">
-						<form id="nl-form" class="[ nl-form ][ js-mas-info-form  ]">
-							<p>Hola, mi nombre es
-								<input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />
-							, estoy interesado en
-								<textarea rows="4" placeholder="tu mensaje"></textarea>
-							Favor de contactarme a
-								<input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />
-							, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
-							</p>
-						</form>
+
+						<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
+	                            Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, me gustaría información sobre <textarea rows="4" placeholder="tu mensaje"></textarea>, pueden enviarmela a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+	                            <input type="hidden" name="action" value="send_email_more_information">
+	                            <div class="[ clear ][ margin-bottom ]"></div>
+	                            <div class="nl-overlay"></div>
+	                            <div class="[ text-center ]">
+	                                <button class="[ button ]" type="submit">Enviar</button>
+	                            </div>
+	                    </form>
 					</div><!-- modal-body -->
 				</div><!-- modal-content -->
 			</div><!-- modal -->

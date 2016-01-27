@@ -536,7 +536,7 @@
 							<section data-seccion="contacto" class="[ contacto ]" id="contacto">
 								<div class="[ wrapper ]">
 									<h3>Contáctanos</h3>
-									<div class="[ row ]">
+									<div class="[ row ][ text-center ]">
 										<div class="[ mapa-wrapper ][ xmall-12 ]">
 											<div class="[ mapa ] [ xmall-12 ]" id="mapa"></div>
 										</div><!-- mapa-wrapper -->
@@ -562,6 +562,9 @@
 												</div>
 											</div><!-- columna -->
 										</div>
+										<div class="[ text-center ]">
+											<a href="#" class="[ button ][ padding ][ js-modal-opener ]" data-modal="natural-form">más información</a>
+										</div>
 										<div class="[ contacto-info ][ row ]">
 											<div class="[ text-center ][ xmall-12 ]">
 												<a class="[ highlight ][ inline-block ][ large ][ margin ]" href="https://www.facebook.com/cuervoestudio" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -571,6 +574,8 @@
 									</div><!-- row -->
 								</div><!-- wrapper -->
 							</section><!-- contacto -->
+
+
 
 
 
@@ -1290,6 +1295,17 @@
 						toggleMenuMovil();
 					});
 
+
+
+					$('.js-modal-opener').on('click', function(e){
+							e.preventDefault();
+							var modal = $(this).data('modal');
+							toggleModal(modal);
+					});
+
+					$('.close-modal').on('click', function(event) {
+						$('.modal-wrapper').toggleClass('hidden');
+					});
 
 
 					/*------------------------------------*\

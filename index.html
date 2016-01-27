@@ -100,7 +100,6 @@
 						<br />
 						<p class="[ light text-center ][ no-margin ][ medium-8 ][ center ][ margin-bottom--large ]">We are a digital agency that offers user-centered solutions through a perfect mix between code and pixels.</p>
 						<!-- <a href="#forma" class="[ boton ][ hidden--xmall ]">Contrátanos</a> -->
-
 						<div class="[ post ][ text-center ]" data-project="contrata">
 							<div class="[ button inline-block ]">Contrátanos</div>
 						</div><!-- post -->
@@ -574,8 +573,8 @@
 							</section><!-- contacto -->
 
 
+
 		<footer>
-	
 
 		</footer>
 
@@ -1207,29 +1206,18 @@
 				</div>
 				<div class="[ modal-content ]">
 					<div class="[ modal-header ][ margin-bottom ]">
-						<h4 class="[ cuervo text-center ][ margin-bottom--small ]">Contrátanos</h4>
+						<h4 class="[ cuervo text-center ][ margin-bottom--small ]">lorem</h4>
 					</div><!-- modal-header -->
 					<div class="[ modal-body ]">
-						<div class="[ row ]">
-							<div class="[ columna xmall-12 ][ margin-bottom ]">
-								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
-										Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
-										<input type="hidden" name="action" value="send_email_more_information">
-										<input type="hidden" name="to_email" value="contacto@sunland.mx">
-										<input type="hidden" name="section" value="<?php echo $section; ?>">
-
-										<div class="[ clear ][ margin-bottom ]"></div>
-										<div class="nl-overlay"></div>
-										<div class="[ text-center ]">
-											<button class="[ button ]" type="submit">Enviar</button>
-										</div>
-									<?php endif; ?>
-								</form>
-							</div><!-- columna -->
-							<div class="[ columna xmall-12 ]">
-								<p>hola</p>
-							</div><!-- columna -->
-						</div><!-- row -->
+						<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
+	                            Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+	                            <input type="hidden" name="action" value="send_email_more_information">
+	                            <div class="[ clear ][ margin-bottom ]"></div>
+	                            <div class="nl-overlay"></div>
+	                            <div class="[ text-center ]">
+	                                <button class="[ button ]" type="submit">Enviar</button>
+	                            </div>
+	                    </form>
 					</div><!-- modal-body -->
 				</div><!-- modal-content -->
 			</div><!-- modal -->
@@ -1288,18 +1276,6 @@
 						e.preventDefault();
 						toggleMenuMovil();
 					});
-
-
-					$('.js-modal-opener').on('click', function(e){
-						e.preventDefault();
-						var modal = $(this).data('modal');
-						toggleModal(modal);
-					});
-
-					$('.close-modal').on('click', function(event) {
-						$('.modal-wrapper').toggleClass('hidden');
-					});
-
 
 
 

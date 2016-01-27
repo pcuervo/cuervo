@@ -15,11 +15,25 @@ input, button[type='submit']{
 	height: 30px;
 	padding: 4px;
 }
+
 input{
 	border-bottom: 1px solid #00a8ab;
 	width: 70%;
 	text-align: center;
 }
+input.grande{
+		transition: 1.5s ease;
+ 		-moz-transition: 1.5s ease; /* Firefox */
+ 		-webkit-transition: 1.5s ease; /* Chrome - Safari */
+ 		-o-transition: 1.5s ease; /* Opera */
+	}
+	.grande:hover{
+		transform : scale(1.3);
+		-moz-transform : scale(1.3); /* Firefox */
+		-webkit-transform : scale(1.3); /* Chrome - Safari */
+		-o-transform : scale(1.3); /* Opera */
+		-ms-transform : scale(1.3); /* IE9 */
+	}
 
 button[type='submit']{
 	background: @highlight;

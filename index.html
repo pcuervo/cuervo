@@ -1244,17 +1244,35 @@
 				</div>
 				<div class="[ modal-content ]">
 					<div class="[ modal-header ][ margin-bottom ]">
-						<h4 class="[ cuervo text-center ][ margin-bottom--small ]">Easy Apps</h4>
+						<h4 class="[ cuervo text-center ][ margin-bottom--small ]">lorem</h4>
 					</div><!-- modal-header -->
 					<div class="[ modal-body ]">
-						<div class="[ row ]">
-							<div class="[ columna xmall-12 ][ margin-bottom ]">
-								<img class="[ image-responsive ]" src="images/project-easyapps.png" alt="">
-							</div><!-- columna -->
-							<div class="[ columna xmall-12 ]">
-								<p>Mobile app creation platform for users without design or programming knowledge. Responsive templates creation and user experience consulting.</p>
-							</div><!-- columna -->
-						</div><!-- row -->
+						<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
+							<?php global $section; ?>
+							<?php if ( 'intensivo' == $post->post_name ) : ?>
+								Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, estoy interesado en inscribirme al Programa Intensivo. Favor de contactarme a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+								<input type="hidden" name="action" value="send_email_more_information">
+								<input type="hidden" name="to_email" value="contacto@sunland.mx">
+								<input type="hidden" name="section" value="<?php echo $section; ?>">
+
+								<div class="[ clear ][ margin-bottom ]"></div>
+								<div class="nl-overlay"></div>
+								<div class="[ text-center ]">
+									<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
+								</div>
+							<?php else : ?>
+								Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+								<input type="hidden" name="action" value="send_email_more_information">
+								<input type="hidden" name="to_email" value="contacto@sunland.mx">
+								<input type="hidden" name="section" value="<?php echo $section; ?>">
+
+								<div class="[ clear ][ margin-bottom ]"></div>
+								<div class="nl-overlay"></div>
+								<div class="[ text-center ]">
+									<button class="[ button button--large button--highlight ]" type="submit">Enviar</button>
+								</div>
+							<?php endif; ?>
+						</form>
 					</div><!-- modal-body -->
 				</div><!-- modal-content -->
 			</div><!-- modal -->

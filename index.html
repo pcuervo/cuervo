@@ -98,28 +98,10 @@
 						<h2 class="[ light text-center ]">Handcrafted<span>code</span></h2>
 						<h2 class="[ light text-center ]">Functional<span>design</span></h2>
 						<br />
-						<p class="[ light text-center ][ no-margin ][ medium-8 ][ center ]">We are a digital agency that offers user-centered solutions through a perfect mix between code and pixels.</p>
-						<a href="#forma" class="[ boton ][ hidden--xmall ]">Contrátanos</a>
-						<div class="[ text-center ]">
-							<button class="[ post ][ button ][ inline-block ][ margin-bottom ]" data-proyect="contratanos">
-							  Contrátanos
-							</button>
-						</div>
+						<p class="[ light text-center ][ no-margin ][ medium-8 ][ center ][ margin-bottom--large ]">We are a digital agency that offers user-centered solutions through a perfect mix between code and pixels.</p>
+						<!-- <a href="#forma" class="[ boton ][ hidden--xmall ]">Contrátanos</a> -->
+						
 					</div><!-- wrapper -->
-					<!-- Modal -->
-						<div id="contratanos" class="[ modal-wrapper modal-wrapper ][ hide ]">
-							<div class="[ modal modal--read-mode ]">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 				</section>
 
 				<section data-seccion="servicios" class="[ servicios ]" id="servicios">
@@ -551,7 +533,7 @@
 							<section data-seccion="contacto" class="[ contacto ]" id="contacto">
 								<div class="[ wrapper ]">
 									<h3>Contáctanos</h3>
-									<div class="[ row ]">
+									<div class="[ row ][ text-center ]">
 										<div class="[ mapa-wrapper ][ xmall-12 ]">
 											<div class="[ mapa ] [ xmall-12 ]" id="mapa"></div>
 										</div><!-- mapa-wrapper -->
@@ -1213,6 +1195,42 @@
 				</div><!-- modal-content -->
 			</div><!-- modal -->
 		</div><!-- modal-wrapper -->
+
+		<div id="js-contrata" class="[ modal-wrapper modal-wrapper ][ hide ]">
+			<div class="[ modal modal--read-mode ]">
+				<div class="[ close-modal ]">
+					<i class="[ fa fa-times ]"></i>
+				</div>
+				<div class="[ modal-content ]">
+					<div class="[ modal-header ][ margin-bottom ]">
+						<h4 class="[ cuervo text-center ][ margin-bottom--small ]">Contrátanos</h4>
+					</div><!-- modal-header -->
+					<div class="[ modal-body ]">
+						<div class="[ row ]">
+							<div class="[ columna xmall-12 ][ margin-bottom ]">
+								<form id="nl-form" class="[ nl-form ][ js-mas-info-form ]">
+										Hola, mi nombre es <input class="[ required ]" type="text" name="nombre" value="" placeholder="tu nombre" />, pueden enviarme información a <input class="[ required email ]" type="text" name="email" value="" placeholder="tu correo" />, o comunicarse al <input class="[ required number ]" type="text" value="" name="tel" placeholder="tu número" />.
+										<input type="hidden" name="action" value="send_email_more_information">
+										<input type="hidden" name="to_email" value="contacto@sunland.mx">
+										<input type="hidden" name="section" value="<?php echo $section; ?>">
+
+										<div class="[ clear ][ margin-bottom ]"></div>
+										<div class="nl-overlay"></div>
+										<div class="[ text-center ]">
+											<button class="[ button ]" type="submit">Enviar</button>
+										</div>
+									<?php endif; ?>
+								</form>
+							</div><!-- columna -->
+							<div class="[ columna xmall-12 ]">
+								<p>hola</p>
+							</div><!-- columna -->
+						</div><!-- row -->
+					</div><!-- modal-body -->
+				</div><!-- modal-content -->
+			</div><!-- modal -->
+		</div> <!-- modal-wrapper -->
+
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>

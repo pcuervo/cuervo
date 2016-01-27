@@ -38,11 +38,10 @@ function creaMapa (){
 
 	function initialize() {
 		var notMobile = $(document).width() > 480 ? true : false;
-		var centro = new google.maps.LatLng(19.401933, -99.172383);
-		var nosotros = new google.maps.LatLng(19.401933, -99.172383);
+		var coordMexico = new google.maps.LatLng(19.401933, -99.172383);
 		var mapOptions = {
-			zoom: 19,
-			center: nosotros,
+			zoom: 10,
+			center: coordMexico,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			styles: styles,
 			scrollwheel: false,
@@ -51,16 +50,44 @@ function creaMapa (){
 
 		var map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
 		var image = 'images/marker.png';
-
-		var marker = new google.maps.Marker({
-			position: nosotros,
+		var markerMex = new google.maps.Marker({
+			position: coordMexico,
 			map: map,
-			title: 'Pequeño Cuervo',
+			title: 'Pequeño Cuervo - México',
 			icon: image
 		});
+		var coordIndia = new google.maps.LatLng(30.766813, 76.784913);
+		var markerIndia = new google.maps.Marker({
+			position: coordIndia,
+			map: map,
+			title: 'Pequeño Cuervo - India',
+			icon: image
+		});
+		var coordQuebec = new google.maps.LatLng(46.814394, -71.222827);
+		var markerQuebec = new google.maps.Marker({
+			position: coordQuebec,
+			map: map,
+			title: 'Pequeño Cuervo - Quebec',
+			icon: image
+		});
+		var markers = [ markerMex, markerIndia, markerQuebec ];
+		autoCenter( map, markers );
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 }
+
+function autoCenter( map, markers ) {
+
+    var bounds = new google.maps.LatLngBounds();
+    $.each(markers, function (index, marker) { bounds.extend(marker.position); });
+    map.fitBounds(bounds);
+
+    // var listener = google.maps.event.addListener(map, "idle", function() {
+    //     if (map.getZoom() > 16) map.setZoom(16);
+    //     google.maps.event.removeListener(listener);
+    // });
+
+} // autoCenter
 
 
 

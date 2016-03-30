@@ -32,15 +32,27 @@
 .margin-bottom--small{ margin-bottom: (@unidad/2); }
 .margin-bottom--large{ margin-bottom: (@unidad*2); }
 
+.margin-top--small{ margin-top: (@unidad/2); }
+
+.margin-top-bottom--small{ margin-top: (@unidad/2);  margin-bottom: (@unidad/2); }
+
+.margin-right{ margin-right: (@unidad); }
+.margin-left{ margin-left: (@unidad); }
+
 .padding{ padding: @unidad; }
 .padding--small{ padding: (@unidad/2); }
 .padding--large{ padding: (@unidad*2); }
+
+.padding-sides--none{padding-right: 0px; padding-left: 0px;}
 
 .no-list-style{
 	list-style: none;
 	padding: 0;
 }
 
+//
+.width-auto{width: auto;}
+.width-120{width: 120px;}
 
 /**
  * Floats
@@ -124,6 +136,8 @@
 	background-size: cover !important; background-position: center center;
 	position: relative;
 }
+
+.height-medium{height: 170px;}
 
 
 

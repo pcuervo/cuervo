@@ -589,71 +589,7 @@
 			</div><!-- modal -->
 		</div><!-- modal-wrapper -->
 
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/plugins.js"></script>
-		<script type="text/javascript" src="js/functions.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-		<script>
-			(function( $ ) {
-				"use strict";
-				$(function(){
-
-					/*------------------------------------*\
-						#ON LOAD
-					\*------------------------------------*/
-					$('#hero').backstretch('../images/background.jpg');
-
-					filtrosPortafolio();
-
-					creaMapa();
-
-
-
-
-
-					/*------------------------------------*\
-						#Triggered events
-					\*------------------------------------*/
-
-					// $('.cardContainer').hover(
-					// 	function() {
-					// 		flipCard( $(this).find('.card') );
-					// 	}, function() {
-					// 		flipCard( $(this).find('.card') );
-					// 	}
-					// );
-
-					$('.cardContainer').on('click', function(){
-						flipCard( $(this).find('.card') );
-					});
-
-					$('.post').on('click', function(e){
-						e.preventDefault();
-						var project = $(this).data('project');
-						openModal( $(this), project );
-					});
-
-					$('.close-modal').on('click', function(event) {
-						closeModal( $(this) );
-					});
-
-					$('.lines-button').on('click', function(e){
-						e.preventDefault();
-						toggleMenuMovil();
-					});
-
-
-
-					/*------------------------------------*\
-						#RESPONSIVE
-					\*------------------------------------*/
-
-
-
-
-
-				});
-			}(jQuery));
-		</script>
+    <script type="text/javascript" src="dist/home.min.js?v=0.0.1"></script>
 	</body>
 </html>

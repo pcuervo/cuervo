@@ -9,11 +9,15 @@ module.exports = function(grunt) {
           options: {
             banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
           },
-          js: {
-            files: {
-              'js/functions.min.js': ['js/functions.js'],
-              'js/plugins.min.js': ['js/plugins.js']
-            }
+          build: {
+            src: 'dist/home.js',
+            dest: 'dist/home.min.js'
+          }
+        },
+        browserify: {
+          build: {
+            src: 'js/apps/home.js',
+            dest: 'dist/home.js'
           }
         },
         imagemin: {                          // Task
@@ -52,16 +56,21 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         watch: {
-            css: {
-                files: ["less/*.less", ],
-                tasks: ["less"]
-            },
-            js: {
-                files: ["js/functions.js", "js/plugins.js"],
-                tasks: ["uglify"]
-            }
+          css: {
+            files: ['less/*.less'],
+            tasks: ['less']
+          }
         },
+
+        watchify: {
+          home: {
+            src: 'js/**/*.js',
+            dest: 'dist/home.min.js'
+          },
+        },
+
         express:{
             all:{
                 options:{
@@ -78,11 +87,17 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint','uglify','less','imagemin']);
+    grunt.registerTask('default', [
+      'jshint',
+      'browserify',
+      'uglify',
+      'less',
+      'imagemin'
+    ]);
+
     //Watch
-    grunt.registerTask('dev', [ 'watch' ]);
+    grunt.registerTask('dev', [ 'watch', 'watchify' ]);
 
-    //Serer
-    grunt.registerTask('server', [ 'express', 'watch' ]);
-
+    //Server
+    grunt.registerTask('server', [ 'express', 'watch', 'watchify' ]);
 };
